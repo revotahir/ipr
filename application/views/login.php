@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login / Signup</title>
     <link rel="stylesheet" href="<?=base_url().'assets/loginCSS/'?>style.css" />
+    <link rel="stylesheet" href="<?= base_url() ?>assets/toastr/toastr.min.css">
     <style>
       .form-data {
         display: none !important;
@@ -35,7 +36,7 @@
           </div>
           <div class="right-side">
             <!-- Login Form -->
-            <form id="loginForm" class="form-data active">
+            <form id="loginForm" method="post" action="<?=base_url().'login-data'?>" class="form-data active">
              
               <h1>Welcome to Instabarcode</h1>
               <img
@@ -55,7 +56,7 @@
                 required />
               <a href="#"> Forget Password </a>
               <div class="box-row">
-                <input type="button" value="Submit" class="buttn-green" />
+                <input type="submit" value="Submit" class="buttn-green" />
               </div>
             </form>
 
@@ -64,7 +65,23 @@
         </div>
       </div>
     </section>
-
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="<?= base_url() ?>assets/toastr/toastr.min.js"></script>
+    <?php
+    if ($this->session->flashdata('error_msg') != '') {
+    ?>
+        <script type="text/javascript">
+            toastr.options = {
+                "closeButton": true,
+                "showMethod": "fadeIn",
+                "hideMethod": "fadeOut"
+            }
+            toastr.error('Invalid Login!');
+        </script>
+    <?php
+    }
+    ?>
+   
   </body>
+ 
 </html>
