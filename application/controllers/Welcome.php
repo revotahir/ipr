@@ -55,7 +55,7 @@ class Welcome extends CI_Controller {
 //Add new IPR 
 public function addNewIPR(){
 	if ($this->session->userdata('loginData')) {
-
+		$this->load->view('add-new-ipr');
 	}else{
 		redirect(base_url());
 	}
