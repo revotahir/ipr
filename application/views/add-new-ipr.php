@@ -37,7 +37,7 @@
         border: 1px #b8cd06 solid;
         padding: 10px 40px;
         border-radius: 5px;
-        font-size: 16px;
+        font-size: 16px;    
         transition: all 0.2s;
         cursor: pointer;
         text-transform: capitalize;
