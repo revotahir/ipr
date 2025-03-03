@@ -279,12 +279,12 @@
                                     <!-- ======================================================================= -->
                                     <!-- duplicate start here -->
                                     <!-- ======================================================================= -->
-                                    <div class="duplicateCard" id="duplicateCard">
-                                        <div class="relative">
-                                            <h5 class="card-header">Order Detail 1</h5>
-                                            <i class="fas fa-window-close absulate" id="removeCard"></i>
-                                        </div>
-                                        <div class="card-body">
+                                    <div class="duplicateCard">
+                                        <div class="card-body" id="cloneCard" style="padding: 0;">
+                                            <div class="relative" style="margin: 10px 0;">
+                                                <h5 class="card-header">Order Detail 1</h5>
+                                                <i class="fas fa-window-close absulate" id="removeCard"></i>
+                                            </div>
                                             <!-- ======================================================================= -->
                                             <!-- form start here -->
                                             <!-- ======================================================================= -->
@@ -373,24 +373,25 @@
                                             <!-- ======================================================================= -->
                                             <!-- row end here -->
                                             <!-- ======================================================================= -->
-                                            <!-- ======================================================================= -->
-                                            <!-- row start here -->
-                                            <!-- ======================================================================= -->
-                                            <div class="form-row">
-                                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                                                    <button class="buttn-green" type="button" id="addNewCard">
-                                                        Add Fieldset
-                                                    </button>
-                                                </div>
-                                            </div>
 
-                                            <!-- ======================================================================= -->
-                                            <!-- row end here -->
-                                            <!-- ======================================================================= -->
                                             <!-- ======================================================================= -->
                                             <!-- form end here -->
                                             <!-- ======================================================================= -->
                                         </div>
+                                        <!-- ======================================================================= -->
+                                        <!-- clone button start here -->
+                                        <!-- ======================================================================= -->
+                                        <div class="form-row" style="margin-bottom: 20px;">
+                                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                                                <button class="buttn-green" type="button" id="addNewCard">
+                                                    Add Fieldset
+                                                </button>
+                                            </div>
+                                        </div>
+
+                                        <!-- ======================================================================= -->
+                                        <!-- clone button end here -->
+                                        <!-- ======================================================================= -->
                                     </div>
                                     <!-- ======================================================================= -->
                                     <!-- duplicate end here -->
@@ -469,6 +470,52 @@
         );
     })();
     </script>
+
+
+    <script>
+    document.getElementById('addNewCard').addEventListener('click', function() {
+        var originalCard = document.getElementById('cloneCard');
+        var clonedCard = originalCard.cloneNode(true);
+
+        // Clear input fields in the cloned card
+        clonedCard.querySelectorAll('input').forEach(input => input.value = '');
+
+        // Count existing cloned cards
+        var clonedCardsCount = document.querySelectorAll('.duplicateCard .card-body').length;
+        var newIdSuffix = clonedCardsCount < 10 ? '0' + clonedCardsCount : clonedCardsCount;
+
+        // Assign new unique ID to cloned card
+        clonedCard.id = 'cloneCard' + newIdSuffix;
+
+        // Update the header text
+        clonedCard.querySelector('.card-header').textContent = 'Order Detail ' + (clonedCardsCount + 1);
+
+        // Assign new unique ID to remove button
+        var removeButton = clonedCard.querySelector('.fas.fa-window-close');
+        removeButton.id = 'removeCard' + newIdSuffix;
+        removeButton.style.display = 'block'; // Ensure cloned remove buttons are visible
+
+        // Add event listener to remove the cloned card
+        removeButton.addEventListener('click', function() {
+            clonedCard.remove();
+        });
+
+        // Insert cloned card before the form-row containing the "Add Fieldset" button
+        var formRow = document.querySelector('.form-row[style="margin-bottom: 20px;"]');
+        formRow.parentNode.insertBefore(clonedCard, formRow);
+    });
+
+    // Add event listener to the original remove button
+    document.getElementById('removeCard').addEventListener('click', function() {
+        document.getElementById('cloneCard').remove();
+    });
+
+    // Hide remove button only on the main div with id="cloneCard"
+    document.getElementById('removeCard').style.display = 'none';
+    </script>
+
+
+
 </body>
 
 </html>
