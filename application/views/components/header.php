@@ -9,8 +9,20 @@
         </button>
         <div class="collapse navbar-collapse " id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto navbar-right-top">
+                <li class="nav-item ">
+                    <a class="nav-link" href="<?=base_url('dashboard')?>">Dashboard</a>
 
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="<?=base_url('add-new-ipr')?>">Add New
+                        IPR</a>
 
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="<?=base_url('all-ipr-data')?>">All
+                        IPR</a>
+
+                </li>
                 <li class="nav-item dropdown nav-user">
                     <a class="nav-link nav-user-img" href="#" id="navbarDropdownMenuLink2" data-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false"><i class="fas fa-user-circle" style="font-size: 35px;
@@ -37,7 +49,7 @@
 <!-- ============================================================== -->
 <!-- left sidebar -->
 <!-- ============================================================== -->
-<div class="nav-left-sidebar sidebar-dark">
+<!-- <div class="nav-left-sidebar sidebar-dark">
     <div class="menu-list">
         <nav class="navbar navbar-expand-lg navbar-light">
             <a class="d-xl-none d-lg-none" href="#">Dashboard</a>
@@ -61,11 +73,12 @@
 
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="<?=base_url('all-ipr-data')?>"><i class="fab fa-wpforms"></i>All IPR</a>
+                        <a class="nav-link" href="<?=base_url('all-ipr-data')?>"><i class="fab fa-wpforms"></i>All
+                            IPR</a>
 
                     </li>
                 </ul>
             </div>
         </nav>
     </div>
-</div>
+</div> -->
