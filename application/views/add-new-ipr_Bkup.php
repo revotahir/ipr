@@ -7,48 +7,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <title>Form Validation</title>
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="<?= base_url() ?>assets/vendor/bootstrap/css/bootstrap.min.css" />
-    <link href="<?= base_url() ?>assets/vendor/fonts/circular-std/style.css" rel="stylesheet" />
-    <link rel="stylesheet" href="<?= base_url() ?>assets/libs/css/style.css" />
-    <link rel="stylesheet" href="<?= base_url() ?>assets/vendor/fonts/fontawesome/css/fontawesome-all.css" />
+    <link rel="stylesheet" href="<?=base_url()?>assets/vendor/bootstrap/css/bootstrap.min.css" />
+    <link href="<?=base_url()?>assets/vendor/fonts/circular-std/style.css" rel="stylesheet" />
+    <link rel="stylesheet" href="<?=base_url()?>assets/libs/css/style.css" />
+    <link rel="stylesheet" href="<?=base_url()?>assets/vendor/fonts/fontawesome/css/fontawesome-all.css" />
     <style>
-        .form-control {
-            height: 40px !important;
-        }
+    .form-control {
+        height: 40px !important;
+    }
 
-        .relative {
-            position: relative;
-        }
+    .relative {
+        position: relative;
+    }
 
-        .absulate {
-            position: absolute;
-            right: 0;
-            top: 10px;
-            color: red;
-            font-size: 40px;
-            cursor: pointer;
-        }
+    .absulate {
+        position: absolute;
+        right: 0;
+        top: 10px;
+        color: red;
+        font-size: 40px;
+        cursor: pointer;
+    }
 
-        .buttn-green {
-            background: #b8cd06;
-            font-family: "Poppins", sans-serif;
-            font-weight: 500;
-            color: #000;
-            border: 1px #b8cd06 solid;
-            padding: 10px 40px;
-            border-radius: 5px;
-            font-size: 16px;
-            transition: all 0.2s;
-            cursor: pointer;
-            text-transform: capitalize;
-            text-decoration: none;
-        }
+    .buttn-green {
+        background: #b8cd06;
+        font-family: "Poppins", sans-serif;
+        font-weight: 500;
+        color: #000;
+        border: 1px #b8cd06 solid;
+        padding: 10px 40px;
+        border-radius: 5px;
+        font-size: 16px;    
+        transition: all 0.2s;
+        cursor: pointer;
+        text-transform: capitalize;
+        text-decoration: none;
+    }
 
-        .buttn-green:hover {
-            background: transparent;
-            border: 1px #000 solid;
-            color: #000;
-        }
+    .buttn-green:hover {
+        background: transparent;
+        border: 1px #000 solid;
+        color: #000;
+    }
     </style>
 </head>
 
@@ -60,9 +60,9 @@
         <!-- ============================================================== -->
         <!-- navbar -->
         <!-- ============================================================== -->
-        <?php
-        $this->load->view('components/header');
-        ?>
+        <?php 
+    $this->load->view('components/header');
+   ?>
         <!-- ============================================================== -->
         <!-- end left sidebar -->
         <!-- ============================================================== -->
@@ -117,7 +117,7 @@
                                 <!-- ======================================================================= -->
                                 <!-- form start here -->
                                 <!-- ======================================================================= -->
-                                <form class="needs-validation" novalidate method="post" action="<?php echo site_url('order/submit'); ?>">
+                                <form class="needs-validation" novalidate>
                                     <!-- ======================================================================= -->
                                     <!-- row start here -->
                                     <!-- ======================================================================= -->
@@ -136,7 +136,7 @@
                                                 <select class="form-control form-control-sm" id="validationCustom01"
                                                     required>
                                                     <option value="">Select Barcode type</option>
-                                                    <option value="ean-13">
+                                                    <option value="ean-13" >
                                                         EAN-13
                                                     </option>
                                                     <option value="upc-a">UPC-A</option>
@@ -277,76 +277,141 @@
                                     <!-- ======================================================================= -->
                                     <!-- row end here -->
                                     <!-- ======================================================================= -->
-
                                     <!-- ======================================================================= -->
-                                    <!-- Product Details Section (Dynamic) -->
+                                    <!-- duplicate start here -->
                                     <!-- ======================================================================= -->
-                                    <div id="productContainer">
-                                        <div class="duplicateCard">
-                                            <div class="card-body" style="padding: 0;">
-                                                <div class="relative" style="margin: 10px 0;">
-                                                    <h5 class="card-header">Order Detail 1</h5>
-                                                    <!-- <i class="fas fa-window-close absulate removeCard"></i> -->
-                                                </div>
-                                                <div class="form-row">
-                                                    <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 mb-2">
-                                                        <label for="barcodeNumber">Barcode Number</label>
-                                                        <input type="text" class="form-control" name="products[0][barcodeNumber]" placeholder="Barcode Number" required />
-                                                        <div class="invalid-feedback">Please provide a barcode number.</div>
-                                                    </div>
-                                                    <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 mb-2">
-                                                        <label for="brandName">Brand Name</label>
-                                                        <input type="text" class="form-control" name="products[0][brandName]" placeholder="Brand Name" required />
-                                                        <div class="invalid-feedback">Please provide a brand name.</div>
-                                                    </div>
-                                                    <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 mb-2">
-                                                        <label for="productName">Product Name</label>
-                                                        <input type="text" class="form-control" name="products[0][productName]" placeholder="Product Name" required />
-                                                        <div class="invalid-feedback">Please provide a product name.</div>
+                                    <div class="duplicateCard">
+                                        <div class="card-body" id="cloneCard" style="padding: 0;">
+                                            <div class="relative" style="margin: 10px 0;">
+                                                <h5 class="card-header">Order Detail 1</h5>
+                                                <i class="fas fa-window-close absulate" id="removeCard"></i>
+                                            </div>
+                                            <!-- ======================================================================= -->
+                                            <!-- form start here -->
+                                            <!-- ======================================================================= -->
+                                            <!-- ======================================================================= -->
+                                            <!-- row start here -->
+                                            <!-- ======================================================================= -->
+                                            <div class="form-row">
+                                                <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 mb-2">
+                                                    <label for="duplicateCustomValidation">Barcode Number</label>
+                                                    <input type="text" class="form-control"
+                                                        id="duplicateCustomValidation" name="duplicateCustomValidation"
+                                                        placeholder="Barcode Number" required />
+                                                    <div class="invalid-feedback">
+                                                        Please provide a barcode number.
                                                     </div>
                                                 </div>
-                                                <div class="form-row">
-                                                    <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 mb-2">
-                                                        <label for="sizeQuantity">Size/Quantity (Optional)</label>
-                                                        <input type="text" class="form-control" name="products[0][sizeQuantity]" placeholder="Size/Quantity" />
-                                                        <div class="invalid-feedback">Please provide a Size/Quantity.</div>
+                                                <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 mb-2">
+                                                    <label for="duplicateCustomValidation01">
+                                                        Brand Name
+                                                    </label>
+                                                    <input type="text" class="form-control"
+                                                        id="duplicateCustomValidation01"
+                                                        name="duplicateCustomValidation01" placeholder="Brand Name"
+                                                        required />
+                                                    <div class="invalid-feedback">
+                                                        Please provide a brand name.
                                                     </div>
-                                                    <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 mb-2">
-                                                        <label for="color">Color (Optional)</label>
-                                                        <input type="text" class="form-control" name="products[0][color]" placeholder="Color" />
-                                                        <div class="invalid-feedback">Please provide a color.</div>
-                                                    </div>
-                                                    <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 mb-2">
-                                                        <label for="price">Price (Optional)</label>
-                                                        <input type="text" class="form-control" name="products[0][price]" placeholder="Price" />
-                                                        <div class="invalid-feedback">Please provide a price.</div>
+                                                </div>
+                                                <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 mb-2">
+                                                    <label for="duplicateCustomValidation02">
+                                                        Product Name
+                                                    </label>
+                                                    <input type="text" class="form-control"
+                                                        id="duplicateCustomValidation02"
+                                                        name="duplicateCustomValidation02" placeholder="Product Name"
+                                                        required />
+                                                    <div class="invalid-feedback">
+                                                        Please provide a product name.
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                    </div>
 
-                                    <!-- ======================================================================= -->
-                                    <!-- Add Fieldset Button -->
-                                    <!-- ======================================================================= -->
-                                    <div class="form-row" style="margin-bottom: 20px;">
-                                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                                            <button class="buttn-green" type="button" id="addNewCard">Add Fieldset</button>
-                                        </div>
-                                    </div>
+                                            <!-- ======================================================================= -->
+                                            <!-- row end here -->
+                                            <!-- ======================================================================= -->
+                                            <!-- ======================================================================= -->
+                                            <!-- row start here -->
+                                            <!-- ======================================================================= -->
+                                            <div class="form-row">
+                                                <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 mb-2">
+                                                    <label for="duplicateCustomValidation03">
+                                                        Size/Quantity (Optional)
+                                                    </label>
+                                                    <input type="text" class="form-control"
+                                                        id="duplicateCustomValidation03"
+                                                        name="duplicateCustomValidation03"
+                                                        placeholder="Size/Quantity" />
+                                                    <div class="invalid-feedback">
+                                                        Please provide a Size/Quantity.
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 mb-2">
+                                                    <label for="duplicateCustomValidation04">
+                                                        Color (Optional)
+                                                    </label>
+                                                    <input type="text" class="form-control"
+                                                        id="duplicateCustomValidation04"
+                                                        name="duplicateCustomValidation04" placeholder="Color" />
+                                                    <div class="invalid-feedback">
+                                                        Please provide a color.
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 mb-2">
+                                                    <label for="duplicateCustomValidation05">
+                                                        Price (Optional)
+                                                    </label>
+                                                    <input type="text" class="form-control"
+                                                        id="duplicateCustomValidation05"
+                                                        name="duplicateCustomValidation05" placeholder="Price" />
+                                                    <div class="invalid-feedback">
+                                                        Please provide a price.
+                                                    </div>
+                                                </div>
+                                            </div>
 
+                                            <!-- ======================================================================= -->
+                                            <!-- row end here -->
+                                            <!-- ======================================================================= -->
+
+                                            <!-- ======================================================================= -->
+                                            <!-- form end here -->
+                                            <!-- ======================================================================= -->
+                                        </div>
+                                        <!-- ======================================================================= -->
+                                        <!-- clone button start here -->
+                                        <!-- ======================================================================= -->
+                                        <div class="form-row" style="margin-bottom: 20px;">
+                                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                                                <button class="buttn-green" type="button" id="addNewCard">
+                                                    Add Fieldset
+                                                </button>
+                                            </div>
+                                        </div>
+
+                                        <!-- ======================================================================= -->
+                                        <!-- clone button end here -->
+                                        <!-- ======================================================================= -->
+                                    </div>
                                     <!-- ======================================================================= -->
-                                    <!-- Product Description and Submit Button -->
+                                    <!-- duplicate end here -->
                                     <!-- ======================================================================= -->
                                     <div class="form-row">
                                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                                             <div class="form-group">
-                                                <label for="productDescription">Product Description (Optional)</label>
-                                                <textarea class="form-control" id="productDescription" name="productDescription" rows="3" placeholder="General description about your product flavor or its functionality"></textarea>
+                                                <label for="exampleFormControlTextarea1"></label>
+                                                Product Description (Optional)
+                                                </label>
+                                                <textarea style="height: 200px !important;" class="form-control"
+                                                    id="exampleFormControlTextarea1" rows="3"
+                                                    placeholder="General description about your product flavor or its functionality"></textarea>
                                             </div>
                                         </div>
                                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                                            <button class="buttn-green" type="submit">Submit form</button>
+                                            <button class="buttn-green" type="submit">
+                                                Submit form
+                                            </button>
                                         </div>
                                     </div>
                                 </form>
@@ -367,111 +432,87 @@
     <!-- end main wrapper -->
     <!-- ============================================================== -->
     <!-- Optional JavaScript -->
-    <script src="<?= base_url() ?>assets/vendor/jquery/jquery-3.3.1.min.js"></script>
-    <script src="<?= base_url() ?>assets/vendor/bootstrap/js/bootstrap.bundle.js"></script>
-    <script src="<?= base_url() ?>assets/vendor/slimscroll/jquery.slimscroll.js"></script>
-    <script src="<?= base_url() ?>assets/vendor/parsley/parsley.js"></script>
-    <script src="<?= base_url() ?>assets/libs/js/main-js.js"></script>
+    <script src="<?=base_url()?>assets/vendor/jquery/jquery-3.3.1.min.js"></script>
+    <script src="<?=base_url()?>assets/vendor/bootstrap/js/bootstrap.bundle.js"></script>
+    <script src="<?=base_url()?>assets/vendor/slimscroll/jquery.slimscroll.js"></script>
+    <script src="<?=base_url()?>assets/vendor/parsley/parsley.js"></script>
+    <script src="<?=base_url()?>assets/libs/js/main-js.js"></script>
     <script>
-        $("#form").parsley();
+    $("#form").parsley();
     </script>
     <script>
-        // Example starter JavaScript for disabling form submissions if there are invalid fields
-        (function() {
-            "use strict";
-            window.addEventListener(
-                "load",
-                function() {
-                    // Fetch all the forms we want to apply custom Bootstrap validation styles to
-                    var forms = document.getElementsByClassName("needs-validation");
-                    // Loop over them and prevent submission
-                    var validation = Array.prototype.filter.call(
-                        forms,
-                        function(form) {
-                            form.addEventListener(
-                                "submit",
-                                function(event) {
-                                    if (form.checkValidity() === false) {
-                                        event.preventDefault();
-                                        event.stopPropagation();
-                                    }
-                                    form.classList.add("was-validated");
-                                },
-                                false
-                            );
-                        }
-                    );
-                },
-                false
-            );
-        })();
+    // Example starter JavaScript for disabling form submissions if there are invalid fields
+    (function() {
+        "use strict";
+        window.addEventListener(
+            "load",
+            function() {
+                // Fetch all the forms we want to apply custom Bootstrap validation styles to
+                var forms = document.getElementsByClassName("needs-validation");
+                // Loop over them and prevent submission
+                var validation = Array.prototype.filter.call(
+                    forms,
+                    function(form) {
+                        form.addEventListener(
+                            "submit",
+                            function(event) {
+                                if (form.checkValidity() === false) {
+                                    event.preventDefault();
+                                    event.stopPropagation();
+                                }
+                                form.classList.add("was-validated");
+                            },
+                            false
+                        );
+                    }
+                );
+            },
+            false
+        );
+    })();
     </script>
 
 
     <script>
-      document.addEventListener('DOMContentLoaded', function () {
-    const productContainer = document.getElementById('productContainer');
-    const addButton = document.getElementById('addNewCard');
+    document.getElementById('addNewCard').addEventListener('click', function() {
+        var originalCard = document.getElementById('cloneCard');
+        var clonedCard = originalCard.cloneNode(true);
 
-    let productCount = 1; // Start from 1 since the first fieldset is already present
+        // Clear input fields in the cloned card
+        clonedCard.querySelectorAll('input').forEach(input => input.value = '');
 
-    // Add new product fieldset
-    addButton.addEventListener('click', function () {
-        const newFieldset = document.createElement('div');
-        newFieldset.classList.add('duplicateCard');
-        newFieldset.innerHTML = `
-            <div class="card-body" style="padding: 0;">
-                <div class="relative" style="margin: 10px 0;">
-                    <h5 class="card-header">Order Detail ${productCount + 1}</h5>
-                    <i class="fas fa-window-close absulate removeCard"></i>
-                </div>
-                <div class="form-row">
-                    <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 mb-2">
-                        <label for="barcodeNumber">Barcode Number</label>
-                        <input type="text" class="form-control" name="products[${productCount}][barcodeNumber]" placeholder="Barcode Number" required />
-                        <div class="invalid-feedback">Please provide a barcode number.</div>
-                    </div>
-                    <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 mb-2">
-                        <label for="brandName">Brand Name</label>
-                        <input type="text" class="form-control" name="products[${productCount}][brandName]" placeholder="Brand Name" required />
-                        <div class="invalid-feedback">Please provide a brand name.</div>
-                    </div>
-                    <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 mb-2">
-                        <label for="productName">Product Name</label>
-                        <input type="text" class="form-control" name="products[${productCount}][productName]" placeholder="Product Name" required />
-                        <div class="invalid-feedback">Please provide a product name.</div>
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 mb-2">
-                        <label for="sizeQuantity">Size/Quantity (Optional)</label>
-                        <input type="text" class="form-control" name="products[${productCount}][sizeQuantity]" placeholder="Size/Quantity" />
-                        <div class="invalid-feedback">Please provide a Size/Quantity.</div>
-                    </div>
-                    <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 mb-2">
-                        <label for="color">Color (Optional)</label>
-                        <input type="text" class="form-control" name="products[${productCount}][color]" placeholder="Color" />
-                        <div class="invalid-feedback">Please provide a color.</div>
-                    </div>
-                    <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 mb-2">
-                        <label for="price">Price (Optional)</label>
-                        <input type="text" class="form-control" name="products[${productCount}][price]" placeholder="Price" />
-                        <div class="invalid-feedback">Please provide a price.</div>
-                    </div>
-                </div>
-            </div>
-        `;
-        productContainer.appendChild(newFieldset);
-        productCount++;
+        // Count existing cloned cards
+        var clonedCardsCount = document.querySelectorAll('.duplicateCard .card-body').length;
+        var newIdSuffix = clonedCardsCount < 10 ? '0' + clonedCardsCount : clonedCardsCount;
+
+        // Assign new unique ID to cloned card
+        clonedCard.id = 'cloneCard' + newIdSuffix;
+
+        // Update the header text
+        clonedCard.querySelector('.card-header').textContent = 'Order Detail ' + (clonedCardsCount + 1);
+
+        // Assign new unique ID to remove button
+        var removeButton = clonedCard.querySelector('.fas.fa-window-close');
+        removeButton.id = 'removeCard' + newIdSuffix;
+        removeButton.style.display = 'block'; // Ensure cloned remove buttons are visible
+
+        // Add event listener to remove the cloned card
+        removeButton.addEventListener('click', function() {
+            clonedCard.remove();
+        });
+
+        // Insert cloned card before the form-row containing the "Add Fieldset" button
+        var formRow = document.querySelector('.form-row[style="margin-bottom: 20px;"]');
+        formRow.parentNode.insertBefore(clonedCard, formRow);
     });
 
-    // Remove product fieldset
-    productContainer.addEventListener('click', function (e) {
-        if (e.target.classList.contains('removeCard')) {
-            e.target.closest('.duplicateCard').remove();
-        }
+    // Add event listener to the original remove button
+    document.getElementById('removeCard').addEventListener('click', function() {
+        document.getElementById('cloneCard').remove();
     });
-});
+
+    // Hide remove button only on the main div with id="cloneCard"
+    document.getElementById('removeCard').style.display = 'none';
     </script>
 
 
