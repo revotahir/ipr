@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 01, 2025 at 09:35 PM
+-- Generation Time: Mar 04, 2025 at 09:19 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -20,6 +20,59 @@ SET time_zone = "+00:00";
 --
 -- Database: `ipr`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ipr_order_detail`
+--
+
+CREATE TABLE `ipr_order_detail` (
+  `orderID` int(11) NOT NULL,
+  `ID` int(11) NOT NULL,
+  `order_ID` varchar(500) NOT NULL,
+  `barcodeType` varchar(100) NOT NULL,
+  `companyName` varchar(200) NOT NULL,
+  `productCategory` varchar(300) DEFAULT NULL,
+  `countryOrigin` varchar(200) DEFAULT NULL,
+  `gstNumber` varchar(100) DEFAULT NULL,
+  `companyWebsite` varchar(300) DEFAULT NULL,
+  `phoneNumber` varchar(20) NOT NULL,
+  `productDescription` varchar(1200) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+--
+-- Dumping data for table `ipr_order_detail`
+--
+
+INSERT INTO `ipr_order_detail` (`orderID`, `ID`, `order_ID`, `barcodeType`, `companyName`, `productCategory`, `countryOrigin`, `gstNumber`, `companyWebsite`, `phoneNumber`, `productDescription`) VALUES
+(1, 622, '11', 'ean-13', 'Company Test', 'clothing', 'bangladesh', 'asfasf', 'asfasf', '15165151', '');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ipr_product_detail`
+--
+
+CREATE TABLE `ipr_product_detail` (
+  `productID` int(11) NOT NULL,
+  `orderID` int(11) NOT NULL,
+  `barcodeNo` varchar(150) NOT NULL,
+  `brandName` varchar(500) NOT NULL,
+  `productName` varchar(500) NOT NULL,
+  `sizeQty` varchar(100) DEFAULT NULL,
+  `color` varchar(100) DEFAULT NULL,
+  `price` varchar(100) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+--
+-- Dumping data for table `ipr_product_detail`
+--
+
+INSERT INTO `ipr_product_detail` (`productID`, `orderID`, `barcodeNo`, `brandName`, `productName`, `sizeQty`, `color`, `price`) VALUES
+(1, 1, '112233', 'xyz', 'aaa', '1', '2', '3'),
+(2, 1, '11334', 'qqq', 'bbb', '', '', ''),
+(3, 1, '115566', 'vvv', 'nn', '', '5', '');
 
 -- --------------------------------------------------------
 
@@ -56,6 +109,18 @@ INSERT INTO `wp_users` (`ID`, `user_login`, `user_pass`, `user_nicename`, `user_
 --
 
 --
+-- Indexes for table `ipr_order_detail`
+--
+ALTER TABLE `ipr_order_detail`
+  ADD PRIMARY KEY (`orderID`);
+
+--
+-- Indexes for table `ipr_product_detail`
+--
+ALTER TABLE `ipr_product_detail`
+  ADD PRIMARY KEY (`productID`);
+
+--
 -- Indexes for table `wp_users`
 --
 ALTER TABLE `wp_users`
@@ -67,6 +132,18 @@ ALTER TABLE `wp_users`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `ipr_order_detail`
+--
+ALTER TABLE `ipr_order_detail`
+  MODIFY `orderID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `ipr_product_detail`
+--
+ALTER TABLE `ipr_product_detail`
+  MODIFY `productID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `wp_users`
