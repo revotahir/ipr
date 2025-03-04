@@ -83,22 +83,5 @@ class Generic_model extends CI_Model
     }
 
 
-    function GetJobList($where = false)
-    {
-        $this->db->select('j.*, client.userName as client_name,manager.userName as manager_name');
-        $this->db->from('jobs as j');
-        $this->db->join('users as client', 'j.clientID = client.userID ', 'inner');
-        $this->db->join('users as manager', 'j.mangerID = manager.userID ', 'inner');
-        $this->db->order_by('j.jobID', 'DESC');
-        if ($where) {
-            $this->db->where($where);
-        }
-        $q = $this->db->get();
-        //    die($this->db->last_query());
-        if ($q->num_rows() > 0) {
-            return $q->result_array();
-        } else {
-            return false;
-        }
-    }
+  
 }

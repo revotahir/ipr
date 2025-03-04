@@ -5,12 +5,13 @@
     <!-- Required meta tags -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <title>Form Validation</title>
+    <title>Add New IPR</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="<?= base_url() ?>assets/vendor/bootstrap/css/bootstrap.min.css" />
     <link href="<?= base_url() ?>assets/vendor/fonts/circular-std/style.css" rel="stylesheet" />
     <link rel="stylesheet" href="<?= base_url() ?>assets/libs/css/style.css" />
     <link rel="stylesheet" href="<?= base_url() ?>assets/vendor/fonts/fontawesome/css/fontawesome-all.css" />
+    <link rel="stylesheet" href="<?= base_url() ?>assets/toastr/toastr.min.css">
     <style>
         .form-control {
             height: 40px !important;
@@ -80,21 +81,14 @@
                             <h2 class="pageheader-title">
                                 INSTABARCODE PRODUCT REPOSITORY (IPR)
                             </h2>
-                            <p class="pageheader-text">
-                                Proin placerat ante duiullam scelerisque a velit ac porta,
-                                fusce sit amet vestibulum mi. Morbi lobortis pulvinar quam.
-                            </p>
                             <div class="page-breadcrumb">
                                 <nav aria-label="breadcrumb">
                                     <ol class="breadcrumb">
                                         <li class="breadcrumb-item">
                                             <a href="#" class="breadcrumb-link">Dashboard</a>
                                         </li>
-                                        <li class="breadcrumb-item">
-                                            <a href="#" class="breadcrumb-link">Forms</a>
-                                        </li>
                                         <li class="breadcrumb-item active" aria-current="page">
-                                            INSTABARCODE PRODUCT REPOSITORY (IPR)
+                                            Add New INSTABARCODE PRODUCT REPOSITORY (IPR)
                                         </li>
                                     </ol>
                                 </nav>
@@ -117,23 +111,25 @@
                                 <!-- ======================================================================= -->
                                 <!-- form start here -->
                                 <!-- ======================================================================= -->
-                                <form class="needs-validation" novalidate method="post" action="<?php echo site_url('order/submit'); ?>">
+                                <form class="needs-validation" method="post" action="<?=base_url('order-detail-submit-data')?>" novalidate>
+
+                          
                                     <!-- ======================================================================= -->
                                     <!-- row start here -->
                                     <!-- ======================================================================= -->
                                     <div class="form-row">
                                         <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 mb-2">
-                                            <label for="validationCustom">Order Id</label>
-                                            <input type="text" class="form-control" id="validationCustom"
+                                            <label for="order_id">Order Id</label>
+                                            <input type="text" class="form-control" id="order_id" name="order_id"
                                                 placeholder="Order Id" required />
                                             <div class="invalid-feedback">
                                                 Please provide a order id.
                                             </div>
                                         </div>
                                         <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 mb-2">
-                                            <label for="validationCustom01"> Barcode Type </label>
+                                            <label for="Barcode_Type"> Barcode Type </label>
                                             <div class="form-group">
-                                                <select class="form-control form-control-sm" id="validationCustom01"
+                                                <select class="form-control form-control-sm" id="Barcode_Type" name="Barcode_Type"
                                                     required>
                                                     <option value="">Select Barcode type</option>
                                                     <option value="ean-13">
@@ -149,8 +145,8 @@
                                             </div>
                                         </div>
                                         <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 mb-2">
-                                            <label for="validationCustom02"> Company Name</label>
-                                            <input type="text" class="form-control" id="validationCustom02"
+                                            <label for="CompanyName"> Company Name</label>
+                                            <input type="text" class="form-control" id="CompanyName" name="CompanyName"
                                                 placeholder="Company Name" required />
                                             <div class="invalid-feedback">
                                                 Please provide a company name.
@@ -167,11 +163,11 @@
                                     <div class="form-row">
                                         <!-- new selectbox -->
                                         <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 mb-2">
-                                            <label for="validationCustom03">
+                                            <label for="Product_Cat">
                                                 Product Category (Optional)
                                             </label>
                                             <div class="form-group">
-                                                <select class="form-control form-control-sm" id="validationCustom03">
+                                                <select class="form-control form-control-sm" id="Product_Cat" name="Product_Cat">
                                                     <option value="books-and-magazines" selected="selected">
                                                         Books &amp; Magazines
                                                     </option>
@@ -204,11 +200,11 @@
                                         </div>
                                         <!-- new selectbox -->
                                         <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 mb-2">
-                                            <label for="validationCustom04">
+                                            <label for="Contry_Origen">
                                                 Country of Origin (Optional)
                                             </label>
                                             <div class="form-group">
-                                                <select class="form-control form-control-sm" id="validationCustom04"
+                                                <select class="form-control form-control-sm" id="Contry_Origen" name="Contry_Origen"
                                                     required>
                                                     <option value="australia" selected="selected">
                                                         Australia
@@ -236,10 +232,10 @@
                                             </div>
                                         </div>
                                         <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 mb-2">
-                                            <label for="validationCustom05">
+                                            <label for="GstNo">
                                                 GST/HST/Business Number (Optional)
                                             </label>
-                                            <input type="text" class="form-control" id="validationCustom05"
+                                            <input type="text" class="form-control" id="GstNo" name="GstNo"
                                                 placeholder="GST/HST/Business Number" />
                                             <div class="invalid-feedback">
                                                 Please provide a GST/HST/Business number.
@@ -255,18 +251,18 @@
                                     <!-- ======================================================================= -->
                                     <div class="form-row">
                                         <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12 mb-2">
-                                            <label for="validationCustom06">
+                                            <label for="Company_website">
                                                 Company Website (Optional)
                                             </label>
-                                            <input type="text" class="form-control" id="validationCustom06"
+                                            <input type="text" class="form-control" id="Company_website" name="Company_website"
                                                 placeholder="Company Website" />
                                             <div class="invalid-feedback">
                                                 Please provide a company website.
                                             </div>
                                         </div>
                                         <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12 mb-2">
-                                            <label for="validationCustom07"> Phone Number </label>
-                                            <input type="text" class="form-control" id="validationCustom07"
+                                            <label for="CompanyPhone"> Phone Number </label>
+                                            <input type="text" class="form-control" id="CompanyPhone" name="CompanyPhone"
                                                 placeholder="Phone Number" required />
                                             <div class="invalid-feedback">
                                                 Please provide a phone number.
@@ -372,6 +368,21 @@
     <script src="<?= base_url() ?>assets/vendor/slimscroll/jquery.slimscroll.js"></script>
     <script src="<?= base_url() ?>assets/vendor/parsley/parsley.js"></script>
     <script src="<?= base_url() ?>assets/libs/js/main-js.js"></script>
+    <script src="<?= base_url() ?>assets/toastr/toastr.min.js"></script>
+    <?php
+    if ($this->session->flashdata('iprAdded') != '') {
+    ?>
+    <script type="text/javascript">
+    toastr.options = {
+        "closeButton": true,
+        "showMethod": "fadeIn",
+        "hideMethod": "fadeOut"
+    }
+    toastr.success('New Order Details Added!');
+    </script>
+    <?php
+    }
+    ?>
     <script>
         $("#form").parsley();
     </script>
@@ -461,7 +472,7 @@
                 </div>
             </div>
         `;
-        
+
         productContainer.appendChild(newFieldset);
         productCount++;
     });

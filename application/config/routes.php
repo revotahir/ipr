@@ -54,7 +54,11 @@ $route['dashboard'] = 'welcome/Dashboard';
 
 //client add new ipr
 $route['add-new-ipr'] = 'welcome/addNewIPR';
-
+$route['order-detail-submit-data'] = 'welcome/addNewIPRData';
+//All ipr Data
+$route['all-ipr-data']='welcome/IprView';
+//--Order Product details
+$route['products-detail']='welcome/IprProductView';
 
 
 $route['logout'] = 'welcome/LogOut';

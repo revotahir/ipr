@@ -1,6 +1,6 @@
 <div class="dashboard-header">
     <nav class="navbar navbar-expand-lg bg-white fixed-top">
-        <a class="navbar-brand" href="index.html">
+        <a class="navbar-brand" href="<?=base_url('dashboard')?>">
             <img src="https://instabarcode.com/wp-content/uploads/2023/07/logo-for-insta-b.png" width="25%" alt="">
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -52,13 +52,16 @@
                     </li>
                     <li class="nav-item ">
                         <a class="nav-link" href="<?=base_url('dashboard')?>"><i
-                                class="fa fa-fw fa-user-circle"></i>Dashboard <span
-                                class="badge badge-success">6</span></a>
+                                class="fa fa-fw fa-user-circle"></i>Dashboard</a>
 
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="<?=base_url('add-new-ipr')?>"><i class="fab fa-wpforms"></i>Add New
                             IPR</a>
+
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="<?=base_url('all-ipr-data')?>"><i class="fab fa-wpforms"></i>All IPR</a>
 
                     </li>
                 </ul>
