@@ -461,6 +461,7 @@
                 </div>
             </div>
         `;
+        
         productContainer.appendChild(newFieldset);
         productCount++;
     });
