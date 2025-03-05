@@ -74,7 +74,7 @@
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                         <div class="card">
                             <div class="card-header">
-                                <h5 class="mb-0">INSTABARCODE PRODUCT REPOSITORY (IPR) DATA</h5>
+                                <h5 class="mb-0">User List</h5>
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">
@@ -82,46 +82,35 @@
                                         style="width:100%;">
                                         <thead>
                                             <tr>
-                                                <th>Order ID</th>
-                                                <th>Barcode type</th>
-                                                <th>Company Name</th>
-                                                <th>Product Category</th>
-                                                <th>Country Origin</th>
-                                                <th>GST No</th>
-                                                <th>Compnay Website</th>
-                                                <th>Phone Number</th>
-                                                <th>Product Description</th>
+                                                <th>#</th>
+                                                <th>Name </th>
+                                                <th>Email</th>
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <?php
-                                            if ($orderList) {
-                                                foreach ($orderList as $row) {
+                                            if ($usersList) {
+                                                $sr=1;
+                                                foreach ($usersList as $row) {
                                             ?>
                                             <tr>
-                                                <td><?=$row['order_ID']?></td>
-                                                <td><?=$row['barcodeType']?></td>
-                                                <td><?=$row['companyName']?></td>
-                                                <td><?=$row['productCategory'] ? $row['productCategory'] : 'N/A'?></td>
-                                                <td><?=$row['countryOrigin'] ? $row['countryOrigin'] : 'N/A'?></td>
-                                                <td><?=$row['gstNumber'] ? $row['gstNumber'] : 'N/A'?></td>
-                                                <td><?=$row['companyWebsite'] ? $row['companyWebsite'] : 'N/A'?></td>
-                                                <td><?=$row['phoneNumber']?></td>
-                                                <td><?=$row['productDescription'] ? $row['productDescription'] : 'N/A'?>
+                                                <td><?=$sr.'.'?></td>
+                                                <td><?=$row['display_name']?></td>
+                                                <td><?=$row['user_email']?></td>
                                                 </td>
                                                 <td>
-                                                    <a href="<?=base_url('products-detail/?order_id=').$row['orderID']?>"
-                                                        class="btn-green"><i class="fas fa-eye"></i> Products
-                                                        Detail</a>
+                                                    <a href="<?=base_url('all-ipr-data/?userID=').$row['ID']?>"
+                                                        class="btn-green"><i class="fas fa-shopping-cart"></i> Orders List</a>
                                                 </td>
                                             </tr>
                                             <?php
+                                            $sr++;
                                                 }
                                             } else {
                                                 ?>
                                             <tr>
-                                                <td colspan="10">
+                                                <td colspan="9">
                                                     <center>No Data Found!</center>
                                                 </td>
                                             </tr>
@@ -132,16 +121,10 @@
                                             ?>
                                         </tbody>
                                         <tfoot>
-                                            <tr>
-                                                <th>Order ID</th>
-                                                <th>Barcode type</th>
-                                                <th>Company Name</th>
-                                                <th>Product Category</th>
-                                                <th>Country Origin</th>
-                                                <th>GST No</th>
-                                                <th>Compnay Website</th>
-                                                <th>Phone Number</th>
-                                                <th>Product Description</th>
+                                        <tr>
+                                                <th>#</th>
+                                                <th>Name </th>
+                                                <th>Email</th>
                                                 <th>Action</th>
                                             </tr>
                                         </tfoot>

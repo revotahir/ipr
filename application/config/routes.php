@@ -59,7 +59,8 @@ $route['order-detail-submit-data'] = 'welcome/addNewIPRData';
 $route['all-ipr-data']='welcome/IprView';
 //--Order Product details
 $route['products-detail']='welcome/IprProductView';
-
+//admin side
+$route['admin-dashboard']='welcome/AdminDashboard';
 
 $route['logout'] = 'welcome/LogOut';
 

@@ -40,7 +40,11 @@ class Welcome extends CI_Controller
 		if ($loginData) {
 			//set session
 			$this->session->set_userdata('loginData', $loginData[0]);
-			redirect(base_url('dashboard'));
+			if($loginData[0]['user_email']=='admin@admin.com'){
+				redirect(base_url('admin-dashboard'));
+			}else{
+				redirect(base_url('dashboard'));
+			}
 		} else {
 			$this->session->set_flashdata('error_msg', 1);
 			redirect(base_url());
@@ -112,7 +116,13 @@ class Welcome extends CI_Controller
 	public function IprView()
 	{
 		if ($this->session->userdata('loginData')) {
-			$this->data['orderList'] = $this->generic->GetData('ipr_order_detail', array('ID' => $this->session->userdata['loginData']['ID']));
+			if(isset($_GET['userID'])){
+				
+				$this->data['orderList'] = $this->generic->GetData('ipr_order_detail', array('ID' => $_GET['userID']));
+			}else{
+
+				$this->data['orderList'] = $this->generic->GetData('ipr_order_detail', array('ID' => $this->session->userdata['loginData']['ID']));
+			}
 			$this->load->view('iprView', $this->data);
 		} else {
 			redirect(base_url());
@@ -130,7 +140,15 @@ class Welcome extends CI_Controller
 		}
 	}
 
-
+//admin side
+public function AdminDashboard(){
+	if ($this->session->userdata('loginData')) {
+		$this->data['usersList']=$this->generic->GetData('wp_users',array('user_email!='=>'admin@admin.com'));
+		$this->load->view('adminDashboard',$this->data);
+	}else{
+		redirect(base_url());
+	}
+}
 
 
 

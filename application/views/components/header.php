@@ -1,23 +1,29 @@
 <div class="dashboard-header">
     <nav class="navbar navbar-expand-lg bg-white fixed-top">
-        <a class="navbar-brand" href="<?=base_url('dashboard')?>" style="width:220px;">
+        <a class="navbar-brand" href="<?=($this->session->userdata['loginData']['user_email']=='admin@admin.com')?base_url('admin-dashboard'):base_url('dashboard')?>" style="width:220px;">
             <img src="https://instabarcode.com/wp-content/uploads/2023/07/logo-for-insta-b.png" width="100%" alt="">
         </a>
         <ul class="navbar-nav ml-auto hideMD hoverwhite">
             <li class="nav-item ">
-                <a class="nav-link" href="<?=base_url('dashboard')?>">Dashboard</a>
+                <a class="nav-link" href="<?=($this->session->userdata['loginData']['user_email']=='admin@admin.com')?base_url('admin-dashboard'):base_url('dashboard')?>">Dashboard</a>
 
             </li>
+            <?php 
+                if($this->session->userdata['loginData']['user_email']!='admin@admin.com'){
+            ?>
             <li class="nav-item">
                 <a class="nav-link" href="<?=base_url('add-new-ipr')?>">Add New
                     IPR</a>
 
             </li>
-            <li class="nav-item">
+            <!-- <li class="nav-item">
                 <a class="nav-link" href="<?=base_url('all-ipr-data')?>">All
                     IPR</a>
 
-            </li>
+            </li> -->
+            <?php 
+                }
+                ?>
 
         </ul>
         <button class="navbar-toggler bg-gray" type="button" data-toggle="collapse"
@@ -30,7 +36,7 @@
         <div class="collapse navbar-collapse " id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto hideLG hoverwhite">
                 <li class="nav-item ">
-                    <a class="nav-link" href="<?=base_url('dashboard')?>">Dashboard</a>
+                    <a class="nav-link" href="<?=($this->session->userdata['loginData']['user_email']=='admin@admin.com')?base_url('admin-dashboard'):base_url('dashboard')?>">Dashboard</a>
 
                 </li>
                 <li class="nav-item">
@@ -38,11 +44,11 @@
                         IPR</a>
 
                 </li>
-                <li class="nav-item">
+                <!-- <li class="nav-item">
                     <a class="nav-link" href="<?=base_url('all-ipr-data')?>">All
                         IPR</a>
 
-                </li>
+                </li> -->
 
             </ul>
             <ul class="navbar-nav ml-auto navbar-right-top">
