@@ -11,10 +11,12 @@
     <link href="<?= base_url() ?>assets/vendor/fonts/circular-std/style.css" rel="stylesheet">
     <link rel="stylesheet" href="<?= base_url() ?>assets/libs/css/style.css">
     <link rel="stylesheet" href="<?= base_url() ?>assets/vendor/fonts/fontawesome/css/fontawesome-all.css">
-    <link rel="stylesheet" type="text/css" href="<?= base_url() ?>assets/vendor/datatables/css/dataTables.bootstrap4.css">
+    <link rel="stylesheet" type="text/css"
+        href="<?= base_url() ?>assets/vendor/datatables/css/dataTables.bootstrap4.css">
     <link rel="stylesheet" type="text/css" href="<?= base_url() ?>assets/vendor/datatables/css/buttons.bootstrap4.css">
     <link rel="stylesheet" type="text/css" href="<?= base_url() ?>assets/vendor/datatables/css/select.bootstrap4.css">
-    <link rel="stylesheet" type="text/css" href="<?= base_url() ?>assets/vendor/datatables/css/fixedHeader.bootstrap4.css">
+    <link rel="stylesheet" type="text/css"
+        href="<?= base_url() ?>assets/vendor/datatables/css/fixedHeader.bootstrap4.css">
 </head>
 
 <body>
@@ -53,8 +55,10 @@
                             <div class="page-breadcrumb">
                                 <nav aria-label="breadcrumb">
                                     <ol class="breadcrumb">
-                                        <li class="breadcrumb-item"><a href="<?= base_url('dashboard') ?>" class="breadcrumb-link">Dashboard</a></li>
-                                        <li class="breadcrumb-item active" aria-current="page"> All INSTABARCODE PRODUCT REPOSITORY (IPR)</li>
+                                        <li class="breadcrumb-item"><a href="<?= base_url('dashboard') ?>"
+                                                class="breadcrumb-link">Dashboard</a></li>
+                                        <li class="breadcrumb-item active" aria-current="page"> All INSTABARCODE PRODUCT
+                                            REPOSITORY (IPR)</li>
                                     </ol>
                                 </nav>
                             </div>
@@ -76,7 +80,8 @@
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">
-                                    <table id="example" class="table table-striped table-bordered second" style="width:100%">
+                                    <table id="example" class="table table-striped table-bordered second"
+                                        style="width:100%;">
                                         <thead>
                                             <tr>
                                                 <th>Order ID</th>
@@ -96,21 +101,24 @@
                                             if ($orderList) {
                                                 foreach ($orderList as $row) {
                                             ?>
-                                                    <tr>
-                                                        <td><?=$row['order_ID']?></td>
-                                                        <td><?=$row['barcodeType']?></td>
-                                                        <td><?=$row['companyName']?></td>
-                                                        <td><?=$row['productCategory']?></td>
-                                                        <td><?=$row['countryOrigin']?></td>
-                                                        <td><?=$row['gstNumber']?></td>
-                                                        <td><?=$row['companyWebsite']?></td>
-                                                        <td><?=$row['phoneNumber']?></td>
-                                                        <td><?=$row['productDescription']?></td>
-                                                        <td>
-                                                            <a href="<?=base_url('products-detail/?order_id=').$row['orderID']?>" class="btn btn-primary"><i class="fas fa-eye"></i> Products Detail</a>
-                                                        </td>
-                                                    </tr>
-                                                <?php
+                                            <tr>
+                                                <td><?=$row['order_ID']?></td>
+                                                <td><?=$row['barcodeType']?></td>
+                                                <td><?=$row['companyName']?></td>
+                                                <td><?=$row['productCategory'] ? $row['productCategory'] : 'N/A'?></td>
+                                                <td><?=$row['countryOrigin'] ? $row['countryOrigin'] : 'N/A'?></td>
+                                                <td><?=$row['gstNumber'] ? $row['gstNumber'] : 'N/A'?></td>
+                                                <td><?=$row['companyWebsite'] ? $row['companyWebsite'] : 'N/A'?></td>
+                                                <td><?=$row['phoneNumber']?></td>
+                                                <td><?=$row['productDescription'] ? $row['productDescription'] : 'N/A'?>
+                                                </td>
+                                                <td>
+                                                    <a href="<?=base_url('products-detail/?order_id=').$row['orderID']?>"
+                                                        class="btn-green"><i class="fas fa-eye"></i> Products
+                                                        Detail</a>
+                                                </td>
+                                            </tr>
+                                            <?php
                                                 }
                                             } else {
                                                 ?>

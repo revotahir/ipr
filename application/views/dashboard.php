@@ -5,18 +5,18 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Dashboard</title>
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="<?=base_url()?>assets/vendor/bootstrap/css/bootstrap.min.css">
-    <link href="<?=base_url()?>assets/vendor/fonts/circular-std/style.css" rel="stylesheet">
-    <link rel="stylesheet" href="<?=base_url()?>assets/libs/css/style.css">
-    <link rel="stylesheet" href="<?=base_url()?>assets/vendor/fonts/fontawesome/css/fontawesome-all.css">
-    <link rel="stylesheet" href="<?=base_url()?>assets/vendor/charts/chartist-bundle/chartist.css">
-    <link rel="stylesheet" href="<?=base_url()?>assets/vendor/charts/morris-bundle/morris.css">
-    <link rel="stylesheet"
-        href="<?=base_url()?>assets/vendor/fonts/material-design-iconic-font/css/materialdesignicons.min.css">
-    <link rel="stylesheet" href="<?=base_url()?>assets/vendor/charts/c3charts/c3.css">
-    <link rel="stylesheet" href="<?=base_url()?>assets/vendor/fonts/flag-icon-css/flag-icon.min.css">
-    <title>Dashboard | Instabarcode</title>
+    <link rel="stylesheet" href="<?= base_url() ?>assets/vendor/bootstrap/css/bootstrap.min.css">
+    <link href="<?= base_url() ?>assets/vendor/fonts/circular-std/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="<?= base_url() ?>assets/libs/css/style.css">
+    <link rel="stylesheet" href="<?= base_url() ?>assets/vendor/fonts/fontawesome/css/fontawesome-all.css">
+    <link rel="stylesheet" type="text/css"
+        href="<?= base_url() ?>assets/vendor/datatables/css/dataTables.bootstrap4.css">
+    <link rel="stylesheet" type="text/css" href="<?= base_url() ?>assets/vendor/datatables/css/buttons.bootstrap4.css">
+    <link rel="stylesheet" type="text/css" href="<?= base_url() ?>assets/vendor/datatables/css/select.bootstrap4.css">
+    <link rel="stylesheet" type="text/css"
+        href="<?= base_url() ?>assets/vendor/datatables/css/fixedHeader.bootstrap4.css">
 </head>
 
 <body>
@@ -27,9 +27,16 @@
         <!-- ============================================================== -->
         <!-- navbar -->
         <!-- ============================================================== -->
-        <?php 
-    $this->load->view('components/header');
-   ?>
+        <?php
+        $this->load->view('components/header');
+        ?>
+        <!-- ============================================================== -->
+        <!-- end navbar -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- left sidebar -->
+        <!-- ============================================================== -->
+
         <!-- ============================================================== -->
         <!-- end left sidebar -->
         <!-- ============================================================== -->
@@ -37,184 +44,148 @@
         <!-- wrapper  -->
         <!-- ============================================================== -->
         <div class="dashboard-wrapper">
-            <div class="dashboard-ecommerce">
-                <div class="container-fluid dashboard-content ">
-                    <!-- ============================================================== -->
-                    <!-- pageheader  -->
-                    <!-- ============================================================== -->
-                    <div class="row">
-                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                            <div class="page-header">
-                                <h2 class="pageheader-title">Dashboard </h2>
-                                <div class="page-breadcrumb">
-                                    <nav aria-label="breadcrumb">
-                                        <ol class="breadcrumb">
-                                            <li class="breadcrumb-item"><a href="#"
-                                                    class="breadcrumb-link">Dashboard</a></li>
-                                        </ol>
-                                    </nav>
-                                </div>
+            <div class="container-fluid  dashboard-content">
+                <!-- ============================================================== -->
+                <!-- pageheader -->
+                <!-- ============================================================== -->
+                <div class="row">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                        <div class="page-header">
+                            <h2 class="pageheader-title">Dashboard</h2>
+                            <div class="page-breadcrumb">
+                                <nav aria-label="breadcrumb">
+                                    <ol class="breadcrumb">
+                                        <li class="breadcrumb-item"><a href="<?= base_url('dashboard') ?>"
+                                                class="breadcrumb-link">Dashboard</a></li>
+                                    </ol>
+                                </nav>
                             </div>
-                        </div>
-                    </div>
-                    <!-- ============================================================== -->
-                    <!-- end pageheader  -->
-                    <!-- ============================================================== -->
-                    <div class="ecommerce-widget">
-
-                        <div class="row">
-                            <!-- ============================================================== -->
-
-                            <!-- ============================================================== -->
-
-                            <!-- recent orders  -->
-                            <!-- ============================================================== -->
-                            <div class="col-xl-12 col-lg-12 col-md-6 col-sm-12 col-12">
-                                <div class="card">
-                                    <h5 class="card-header">Recent Orders</h5>
-                                    <div class="card-body p-0">
-                                        <div class="table-responsive">
-                                            <table class="table">
-                                                <thead class="bg-light">
-                                                    <tr class="border-0">
-                                                        <th class="border-0">#</th>
-                                                        <th class="border-0">Image</th>
-                                                        <th class="border-0">Product Name</th>
-                                                        <th class="border-0">Product Id</th>
-                                                        <th class="border-0">Quantity</th>
-                                                        <th class="border-0">Price</th>
-                                                        <th class="border-0">Order Time</th>
-                                                        <th class="border-0">Customer</th>
-                                                        <th class="border-0">Status</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <td>1</td>
-                                                        <td>
-                                                            <div class="m-r-10"><img
-                                                                    src="<?=base_url()?>assets/images/product-pic.jpg"
-                                                                    alt="user" class="rounded" width="45"></div>
-                                                        </td>
-                                                        <td>Product #1 </td>
-                                                        <td>id000001 </td>
-                                                        <td>20</td>
-                                                        <td>$80.00</td>
-                                                        <td>27-08-2018 01:22:12</td>
-                                                        <td>Patricia J. King </td>
-                                                        <td><span class="badge-dot badge-brand mr-1"></span>InTransit
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>2</td>
-                                                        <td>
-                                                            <div class="m-r-10"><img
-                                                                    src="<?=base_url()?>assets/images/product-pic-2.jpg"
-                                                                    alt="user" class="rounded" width="45"></div>
-                                                        </td>
-                                                        <td>Product #2 </td>
-                                                        <td>id000002 </td>
-                                                        <td>12</td>
-                                                        <td>$180.00</td>
-                                                        <td>25-08-2018 21:12:56</td>
-                                                        <td>Rachel J. Wicker </td>
-                                                        <td><span class="badge-dot badge-success mr-1"></span>Delivered
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>3</td>
-                                                        <td>
-                                                            <div class="m-r-10"><img
-                                                                    src="<?=base_url()?>assets/images/product-pic-3.jpg"
-                                                                    alt="user" class="rounded" width="45"></div>
-                                                        </td>
-                                                        <td>Product #3 </td>
-                                                        <td>id000003 </td>
-                                                        <td>23</td>
-                                                        <td>$820.00</td>
-                                                        <td>24-08-2018 14:12:77</td>
-                                                        <td>Michael K. Ledford </td>
-                                                        <td><span class="badge-dot badge-success mr-1"></span>Delivered
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>4</td>
-                                                        <td>
-                                                            <div class="m-r-10"><img
-                                                                    src="<?=base_url()?>assets/images/product-pic-4.jpg"
-                                                                    alt="user" class="rounded" width="45"></div>
-                                                        </td>
-                                                        <td>Product #4 </td>
-                                                        <td>id000004 </td>
-                                                        <td>34</td>
-                                                        <td>$340.00</td>
-                                                        <td>23-08-2018 09:12:35</td>
-                                                        <td>Michael K. Ledford </td>
-                                                        <td><span class="badge-dot badge-success mr-1"></span>Delivered
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td colspan="9"><a href="#"
-                                                                class="btn btn-outline-light float-right">View
-                                                                Details</a></td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- ============================================================== -->
-                            <!-- end recent orders  -->
-
-
-                            <!-- ============================================================== -->
-                            <!-- ============================================================== -->
-                            <!-- customer acquistion  -->
-                            <!-- ============================================================== -->
-
-                            <!-- ============================================================== -->
-                            <!-- end customer acquistion  -->
-                            <!-- ============================================================== -->
                         </div>
                     </div>
                 </div>
-            </div>
-            <!-- ============================================================== -->
-            <!-- footer -->
+                <!-- ============================================================== -->
+                <!-- end pageheader -->
+                <!-- ============================================================== -->
 
-            <!-- ============================================================== -->
-            <!-- end footer -->
-            <!-- ============================================================== -->
+                <div class="row">
+                    <!-- ============================================================== -->
+                    <!-- data table  -->
+                    <!-- ============================================================== -->
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="mb-0">INSTABARCODE PRODUCT REPOSITORY (IPR) DATA</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table id="example" class="table table-striped table-bordered second"
+                                        style="width:100%;">
+                                        <thead>
+                                            <tr>
+                                                <th>Order ID</th>
+                                                <th>Barcode type</th>
+                                                <th>Company Name</th>
+                                                <th>Product Category</th>
+                                                <th>Country Origin</th>
+                                                <th>GST No</th>
+                                                <th>Compnay Website</th>
+                                                <th>Phone Number</th>
+                                                <th>Product Description</th>
+                                                <th>Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <?php
+                                            if ($orderList) {
+                                                foreach ($orderList as $row) {
+                                            ?>
+                                            <tr>
+                                                <td><?=$row['order_ID']?></td>
+                                                <td><?=$row['barcodeType']?></td>
+                                                <td><?=$row['companyName']?></td>
+                                                <td><?=$row['productCategory'] ? $row['productCategory'] : 'N/A'?></td>
+                                                <td><?=$row['countryOrigin'] ? $row['countryOrigin'] : 'N/A'?></td>
+                                                <td><?=$row['gstNumber'] ? $row['gstNumber'] : 'N/A'?></td>
+                                                <td><?=$row['companyWebsite'] ? $row['companyWebsite'] : 'N/A'?></td>
+                                                <td><?=$row['phoneNumber']?></td>
+                                                <td><?=$row['productDescription'] ? $row['productDescription'] : 'N/A'?>
+                                                </td>
+                                                <td>
+                                                    <a href="<?=base_url('products-detail/?order_id=').$row['orderID']?>"
+                                                        class="btn-green"><i class="fas fa-eye"></i> Products
+                                                        Detail</a>
+                                                </td>
+                                            </tr>
+                                            <?php
+                                                }
+                                            } else {
+                                                ?>
+                                            <tr>
+                                                <td colspan="9">
+                                                    <center>No Data Found!</center>
+                                                </td>
+                                            </tr>
+
+                                            <?php
+
+                                            }
+                                            ?>
+                                        </tbody>
+                                        <tfoot>
+                                            <tr>
+                                                <th>Order ID</th>
+                                                <th>Barcode type</th>
+                                                <th>Company Name</th>
+                                                <th>Product Category</th>
+                                                <th>Country Origin</th>
+                                                <th>GST No</th>
+                                                <th>Compnay Website</th>
+                                                <th>Phone Number</th>
+                                                <th>Product Description</th>
+                                                <th>Action</th>
+                                            </tr>
+                                        </tfoot>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- ============================================================== -->
+                    <!-- end data table  -->
+                    <!-- ============================================================== -->
+                </div>
+            </div>
+
         </div>
-        <!-- ============================================================== -->
-        <!-- end wrapper  -->
-        <!-- ============================================================== -->
     </div>
     <!-- ============================================================== -->
-    <!-- end main wrapper  -->
+    <!-- end main wrapper -->
     <!-- ============================================================== -->
     <!-- Optional JavaScript -->
-    <!-- jquery 3.3.1 -->
-    <script src="<?=base_url()?>assets/vendor/jquery/jquery-3.3.1.min.js"></script>
-    <!-- bootstap bundle js -->
-    <script src="<?=base_url()?>assets/vendor/bootstrap/js/bootstrap.bundle.js"></script>
-    <!-- slimscroll js -->
-    <script src="<?=base_url()?>assets/vendor/slimscroll/jquery.slimscroll.js"></script>
-    <!-- main js -->
-    <script src="<?=base_url()?>assets/libs/js/main-js.js"></script>
-    <!-- chart chartist js -->
-    <script src="<?=base_url()?>assets/vendor/charts/chartist-bundle/chartist.min.js"></script>
-    <!-- sparkline js -->
-    <script src="<?=base_url()?>assets/vendor/charts/sparkline/jquery.sparkline.js"></script>
-    <!-- morris js -->
-    <script src="<?=base_url()?>assets/vendor/charts/morris-bundle/raphael.min.js"></script>
-    <script src="<?=base_url()?>assets/vendor/charts/morris-bundle/morris.js"></script>
-    <!-- chart c3 js -->
-    <script src="<?=base_url()?>assets/vendor/charts/c3charts/c3.min.js"></script>
-    <script src="<?=base_url()?>assets/vendor/charts/c3charts/d3-5.4.0.min.js"></script>
-    <script src="<?=base_url()?>assets/vendor/charts/c3charts/C3chartjs.js"></script>
-    <script src="<?=base_url()?>assets/libs/js/dashboard-ecommerce.js"></script>
+    <script src="<?= base_url() ?>assets/vendor/jquery/jquery-3.3.1.min.js"></script>
+    <script src="<?= base_url() ?>assets/vendor/bootstrap/js/bootstrap.bundle.js"></script>
+    <script src="<?= base_url() ?>assets/vendor/slimscroll/jquery.slimscroll.js"></script>
+    <script src="<?= base_url() ?>assets/vendor/multi-select/js/jquery.multi-select.js"></script>
+    <script src="<?= base_url() ?>assets/libs/js/main-js.js"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <script src="<?= base_url() ?>assets/vendor/datatables/js/dataTables.bootstrap4.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.5.2/js/dataTables.buttons.min.js"></script>
+    <script src="<?= base_url() ?>assets/vendor/datatables/js/buttons.bootstrap4.min.js"></script>
+    <script src="<?= base_url() ?>assets/vendor/datatables/js/data-table.js"></script>
+    <!-- excel -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <!-- pdf -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
+    <!-- copy -->
+    <script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.html5.min.js"></script>
+    <!-- Print -->
+    <script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.print.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.colVis.min.js"></script>
+    <script src="https://cdn.datatables.net/rowgroup/1.0.4/js/dataTables.rowGroup.min.js"></script>
+    <script src="https://cdn.datatables.net/select/1.2.7/js/dataTables.select.min.js"></script>
+    <script src="https://cdn.datatables.net/fixedheader/3.1.5/js/dataTables.fixedHeader.min.js"></script>
+
 </body>
 
 </html>

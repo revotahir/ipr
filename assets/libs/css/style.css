@@ -320,7 +320,7 @@ input::-webkit-input-placeholder {
 }
 
 input:focus::-webkit-input-placeholder {
-	color: #5969ff !important;
+	color: #b8cd06 !important;
 }
 
 textarea::-webkit-input-placeholder {
@@ -328,7 +328,7 @@ textarea::-webkit-input-placeholder {
 }
 
 textarea:focus::-webkit-input-placeholder {
-	color: #5969ff !important;
+	color: #b8cd06 !important;
 }
 
 button.btn {
@@ -376,13 +376,13 @@ address {
 }
 
 .custom-checkbox .custom-control-input:checked ~ .custom-control-label::before {
-	background-color: #5969ff;
-	border-color: #5969ff;
+	background-color: #b8cd06;
+	border-color: #b8cd06;
 }
 
 .custom-control-input:checked ~ .custom-control-label::before {
 	color: #fff;
-	background-color: #5969ff;
+	background-color: #b8cd06;
 }
 
 .custom-checkbox .custom-control-input:checked ~ .custom-control-label::after {
@@ -419,8 +419,8 @@ address {
 }
 
 .custom-radio .custom-control-input:checked ~ .custom-control-label::before {
-	background-color: #5969ff;
-	border-color: #5969ff;
+	background-color: #b8cd06;
+	border-color: #b8cd06;
 }
 
 .custom-control-input:disabled ~ .custom-control-label::before {
@@ -859,7 +859,7 @@ Background Color / Color
 -------------------------*/
 
 .bg-primary {
-	background-color: #5969ff !important;
+	background-color: #b8cd06 !important;
 	color: #fff !important;
 }
 
@@ -959,7 +959,7 @@ Borders
 -------------------------*/
 
 .text-primary {
-	color: #5969ff !important;
+	color: #b8cd06 !important;
 }
 
 .text-brand {
@@ -1011,7 +1011,7 @@ Borders
 -------------------------*/
 
 .border-top-primary {
-	border-top-color: #5969ff !important;
+	border-top-color: #b8cd06 !important;
 }
 
 .border-3 {
@@ -1135,11 +1135,11 @@ Progress bar
 -------------------------*/
 
 .progress-bar {
-	background-color: #5969ff;
+	background-color: #b8cd06;
 }
 
 .primary-progress-bar {
-	background-color: #5969ff;
+	background-color: #b8cd06;
 }
 
 .progress-sm {
@@ -1246,7 +1246,7 @@ Top Header
 }
 
 .navbar-right-top .nav-item {
-	border-right: 1px solid #e6e6f2;
+	/* border-right: 1px solid #e6e6f2; */
 }
 
 .navbar-right-top .nav-item:last-child {
@@ -1258,6 +1258,15 @@ Top Header
 	font-size: 16px;
 	line-height: 2;
 	color: #343434;
+}
+.hoverwhite .nav-item .nav-link {
+	padding: 13px 20px;
+	font-size: 16px;
+	line-height: 2;
+	color: #000000;
+}
+.hoverwhite .nav-item .nav-link:hover {
+	color: #ffffff;
 }
 .navbar-right-top .nav-item .nav-link i {
 	background-color: #ffffff;
@@ -1359,7 +1368,7 @@ Top Header
 }
 
 .notification-list-user-name {
-	color: #5969ff;
+	color: #b8cd06;
 	font-size: 14px;
 	margin-right: 8px;
 }
@@ -1372,7 +1381,7 @@ Top Header
 	padding: 10px 0px;
 	line-height: 1.5;
 	font-weight: 700;
-	background-color: #5969ff;
+	background-color: #b8cd06;
 	border-bottom-left-radius: 3px;
 	border-bottom-right-radius: 3px;
 }
@@ -1879,12 +1888,12 @@ Sidebar Page Navigations
 }
 
 .sidebar-nav-fixed ul li a:hover {
-	color: #5969ff;
+	color: #b8cd06;
 }
 
 .sidebar-nav-fixed ul li a.active {
 	display: block;
-	color: #5969ff;
+	color: #b8cd06;
 	background: #e0e0fd;
 }
 
@@ -1922,7 +1931,7 @@ Sidebar Page Navigations
 .dropdown-item:active {
 	color: #fff;
 	text-decoration: none;
-	background-color: #5969ff;
+	background-color: #b8cd06;
 }
 
 /* -------------------- 0.5.Container / Wrapper ----------------------- */
@@ -2007,7 +2016,7 @@ Pageheader
 }
 
 .page-breadcrumb .breadcrumb-link:hover {
-	color: #5969ff;
+	color: #b8cd06;
 }
 
 .page-breadcrumb .breadcrumb {
@@ -2516,7 +2525,7 @@ Pageheader
 	border-radius: 100%;
 }
 .product-carousel .carousel-indicators li.active {
-	background-color: #5969ff;
+	background-color: #b8cd06;
 }
 .product-carousel .carousel-control-next,
 .carousel-control-prev {
@@ -2758,8 +2767,8 @@ input[type="radio"] {
 
 .btn-primary {
 	color: #fff;
-	background-color: #5969ff;
-	border-color: #5969ff;
+	background-color: #b8cd06;
+	border-color: #b8cd06;
 }
 
 .btn-primary:hover {
@@ -3009,22 +3018,22 @@ input[type="radio"] {
 /*--- btn outline primary --*/
 
 .btn-outline-primary {
-	color: #5969ff;
+	color: #b8cd06;
 	background-color: transparent;
-	border-color: #5969ff;
+	border-color: #b8cd06;
 }
 
 .btn-outline-primary:hover {
 	color: #fff;
-	background-color: #5969ff;
-	border-color: #5969ff;
+	background-color: #b8cd06;
+	border-color: #b8cd06;
 }
 
 .btn-outline-primary.focus,
 .btn-outline-primary:focus {
 	color: #fff;
-	background-color: #5969ff;
-	border-color: #5969ff;
+	background-color: #b8cd06;
+	border-color: #b8cd06;
 	box-shadow: 0 0 0 1px rgb(65, 77, 167);
 }
 
@@ -3257,7 +3266,7 @@ btn-link
 -------------------------*/
 
 .btn-link {
-	color: #5969ff;
+	color: #b8cd06;
 }
 
 .btn-link:hover {
@@ -3265,7 +3274,7 @@ btn-link
 }
 
 .btn-primary-link {
-	color: #5969ff !important;
+	color: #b8cd06 !important;
 }
 
 .btn-brand-link {
@@ -3339,7 +3348,7 @@ btn-link
 
 .card-toolbar-tabs .nav-pills .nav-link.active,
 .nav-pills .show > .nav-link {
-	color: #5969ff;
+	color: #b8cd06;
 	background-color: transparent;
 }
 
@@ -3527,7 +3536,7 @@ btn-link
 }
 
 .pills-regular .card-header-pills.nav.nav-pills .nav-item .nav-link.active {
-	background-color: #5969ff;
+	background-color: #b8cd06;
 	color: #fff;
 }
 
@@ -3659,7 +3668,7 @@ btn-link
 .tab-regular .nav-tabs .nav-link.active {
 	background-color: #fff;
 	border-color: #e6e6f2 #e6e6f2 #fff;
-	color: #5969ff;
+	color: #b8cd06;
 }
 
 .tab-regular .tab-content {
@@ -3700,7 +3709,7 @@ btn-link
 }
 
 .tab-vertical .nav-tabs .nav-link.active {
-	color: #5969ff;
+	color: #b8cd06;
 	background-color: #fff !important;
 	border-color: transparent !important;
 }
@@ -3742,7 +3751,7 @@ btn-link
 }
 
 .tab-outline .nav-tabs .nav-link.active {
-	color: #5969ff !important;
+	color: #b8cd06 !important;
 	background-color: transparent !important;
 	border-color: #c4c4cf #c4c4cf #efeff6 !important;
 }
@@ -3750,7 +3759,7 @@ btn-link
 .tab-outline .nav-tabs .nav-link:focus,
 .nav-tabs .nav-link:hover {
 	border-color: transparent;
-	color: #5969ff !important;
+	color: #b8cd06 !important;
 }
 
 .tab-outline .tab-content {
@@ -3791,7 +3800,7 @@ btn-link
 }
 
 .tab-vertical-outline .nav-tabs .nav-link.active {
-	color: #5969ff;
+	color: #b8cd06;
 	border: 1px solid #c4c4cf !important;
 	background: transparent;
 	border-right: 1px solid #efeff6 !important;
@@ -3842,7 +3851,7 @@ btn-link
 }
 
 .simple-card .nav-tabs .nav-link.active {
-	color: #5969ff !important;
+	color: #b8cd06 !important;
 	background-color: transparent !important;
 	border-color: #e9e9f2 #e9e9f2 #fff !important;
 }
@@ -3876,7 +3885,7 @@ btn-link
 }
 
 .simple-outline-card .nav-tabs .nav-link.active {
-	color: #5969ff !important;
+	color: #b8cd06 !important;
 	background-color: transparent !important;
 	border-color: #c4c4cf #c4c4cf #efeff6 !important;
 }
@@ -3909,7 +3918,7 @@ Pills Regular
 
 .pills-regular .nav.nav-pills .nav-item .nav-link.active {
 	background-color: #fff;
-	color: #5969ff;
+	color: #b8cd06;
 }
 
 .pills-regular .tab-content {
@@ -3941,7 +3950,7 @@ Pills Outline
 
 .pills-outline .nav.nav-pills .nav-item .nav-link.active {
 	background-color: transparent;
-	color: #5969ff;
+	color: #b8cd06;
 }
 
 .pills-outline .tab-content {
@@ -3970,7 +3979,7 @@ Pills vertical
 
 .pills-vertical .nav.nav-pills .nav-link.active {
 	background-color: #fff;
-	color: #5969ff;
+	color: #b8cd06;
 }
 
 .pills-vertical .tab-content {
@@ -4087,7 +4096,7 @@ Pills vertical
 }
 
 .badge-primary {
-	background-color: #5969ff;
+	background-color: #b8cd06;
 }
 
 .badge-primary[href]:focus,
@@ -4212,7 +4221,7 @@ Pills vertical
 }
 
 .label-primary {
-	background-color: #5969ff;
+	background-color: #b8cd06;
 }
 
 .label-success {
@@ -4245,15 +4254,15 @@ Pills vertical
 	z-index: 2;
 	color: #fff;
 	text-decoration: none;
-	background-color: #5969ff;
-	border-color: #5969ff;
+	background-color: #b8cd06;
+	border-color: #b8cd06;
 }
 
 .page-item.active .page-link {
 	z-index: 1;
 	color: #fff;
-	background-color: #5969ff;
-	border-color: #5969ff;
+	background-color: #b8cd06;
+	border-color: #b8cd06;
 }
 
 /*-----------------------
@@ -4295,16 +4304,16 @@ Pills vertical
 	border-radius: 50%;
 	background-color: transparent;
 	border: 6px solid transparent;
-	border-top: 6px solid #5969ff;
-	border-left: 6px solid #5969ff;
+	border-top: 6px solid #b8cd06;
+	border-left: 6px solid #b8cd06;
 	-webkit-animation: 1s spin linear infinite;
 	animation: 1s spin linear infinite;
 	display: inline-block;
 }
 
 .spinner-primary {
-	border-top-color: #5969ff;
-	border-left-color: #5969ff;
+	border-top-color: #b8cd06;
+	border-left-color: #b8cd06;
 }
 
 .spinner-secondary {
@@ -4424,7 +4433,7 @@ Pills vertical
 }
 
 .switch-button input[type="checkbox"]:checked + span {
-	background-color: #5969ff;
+	background-color: #b8cd06;
 	display: block;
 	position: absolute;
 	top: 0;
@@ -4613,7 +4622,7 @@ Pills vertical
 
 tr.group,
 tr.group:hover {
-	background-color: #5969ff !important;
+	background-color: #b8cd06 !important;
 	color: #fff;
 	font-family: "Circular Std Medium";
 	font-size: 18px;
@@ -5460,7 +5469,7 @@ Vertical Timeline - by CodyHouse.co
 }
 
 .dd-handle:hover {
-	color: #5969ff;
+	color: #b8cd06;
 	background: #fff;
 }
 
@@ -5609,7 +5618,7 @@ Vertical Timeline - by CodyHouse.co
 }
 
 .dd-hover > .dd-handle {
-	background: #5969ff !important;
+	background: #b8cd06 !important;
 }
 
 /**
@@ -5752,7 +5761,7 @@ Vertical Timeline - by CodyHouse.co
 
 .comment-footer .action-icons a:hover,
 .comment-footer .action-icons a.active {
-	color: #5969ff;
+	color: #b8cd06;
 }
 
 /*-----------------------
@@ -6897,7 +6906,30 @@ Media Query
 		border-right: transparent !important;
 	}
 }
-
+@media (max-width: 990px) {
+	.dashboard-header .navbar {
+		padding: 0 10px !important;
+	}
+	.navbar-brand {
+		padding: 10px;
+	}
+	.hideMD {
+		display: none;
+	}
+	.bg-gray {
+		background-color: #343434 !important;
+	}
+	.hideLG {
+		display: block !important;
+	}
+	.hoverwhite .nav-item .nav-link,
+	.navbar-right-top .nav-item .nav-link {
+		padding: 10px;
+	}
+	.navbar-right-top .nav-item .nav-link i {
+		width: 35px;
+	}
+}
 /* Small Devices, Tablets */
 
 @media only screen and (max-width: 768px) {
@@ -6972,6 +7004,12 @@ Media Query
 /* Extra Small Devices, Phones */
 
 @media only screen and (max-width: 480px) {
+	.card-header-main {
+		padding: 0.75rem 1.25rem;
+	}
+	.navbar-brand {
+		padding: 0;
+	}
 	.dashboard-content {
 		padding: 20px 20px 60px 20px;
 	}
@@ -7076,4 +7114,68 @@ Media Query
 
 /* Custom, iPhone Retina */
 @media only screen and (max-width: 320px) {
+}
+
+.buttn-green {
+	background: #b8cd06;
+	font-family: "Poppins", sans-serif;
+	font-weight: 500;
+	color: #000;
+	border: 1px #b8cd06 solid;
+	padding: 10px 40px;
+	border-radius: 5px;
+	font-size: 16px;
+	transition: all 0.2s;
+	cursor: pointer;
+	text-transform: capitalize;
+	text-decoration: none;
+}
+
+.buttn-green:hover {
+	background: transparent;
+	border: 1px #000 solid;
+	color: #000;
+}
+.btn-green {
+	background: #b8cd06;
+	font-family: "Poppins", sans-serif;
+	font-weight: 500;
+	color: #000;
+	border: 1px #b8cd06 solid;
+	padding: 10px 18px;
+	border-radius: 5px;
+	font-size: 16px;
+	transition: all 0.2s;
+	cursor: pointer;
+	text-transform: capitalize;
+	text-decoration: none;
+}
+
+.btn-green:hover {
+	background: transparent;
+	border: 1px #000 solid;
+	color: #000;
+}
+.text-black {
+	color: #000000;
+}
+.uppercase {
+	text-transform: uppercase;
+}
+.hideLG {
+	display: none;
+}
+.navbar-toggler-icon i {
+	color: #fff;
+	font-size: 25px;
+}
+.card-header-main {
+	display: flex;
+	justify-content: space-between;
+	padding: 0.75rem 1.25rem;
+	border-bottom: 1px solid #e6e6f2;
+	flex-wrap: wrap;
+}
+.card-header-main a {
+	width: 220px;
 }

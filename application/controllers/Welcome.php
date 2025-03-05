@@ -49,7 +49,8 @@ class Welcome extends CI_Controller
 	public function Dashboard()
 	{
 		if ($this->session->userdata('loginData')) {
-			$this->load->view('dashboard');
+			$this->data['orderList'] = $this->generic->GetData('ipr_order_detail', array('ID' => $this->session->userdata['loginData']['ID']));
+			$this->load->view('dashboard', $this->data);
 		} else {
 			redirect(base_url());
 		}
