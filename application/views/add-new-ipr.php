@@ -13,43 +13,47 @@
     <link rel="stylesheet" href="<?= base_url() ?>assets/vendor/fonts/fontawesome/css/fontawesome-all.css" />
     <link rel="stylesheet" href="<?= base_url() ?>assets/toastr/toastr.min.css">
     <style>
-        .form-control {
-            height: 40px !important;
-        }
+    .form-control {
+        height: 40px !important;
+    }
 
-        .relative {
-            position: relative;
-        }
+    .form-group textarea {
+        height: 200px !important;
+    }
 
-        .absulate {
-            position: absolute;
-            right: 0;
-            top: 10px;
-            color: red;
-            font-size: 40px;
-            cursor: pointer;
-        }
+    .relative {
+        position: relative;
+    }
 
-        .buttn-green {
-            background: #b8cd06;
-            font-family: "Poppins", sans-serif;
-            font-weight: 500;
-            color: #000;
-            border: 1px #b8cd06 solid;
-            padding: 10px 40px;
-            border-radius: 5px;
-            font-size: 16px;
-            transition: all 0.2s;
-            cursor: pointer;
-            text-transform: capitalize;
-            text-decoration: none;
-        }
+    .absulate {
+        position: absolute;
+        right: 0;
+        top: 10px;
+        color: red;
+        font-size: 40px;
+        cursor: pointer;
+    }
 
-        .buttn-green:hover {
-            background: transparent;
-            border: 1px #000 solid;
-            color: #000;
-        }
+    .buttn-green {
+        background: #b8cd06;
+        font-family: "Poppins", sans-serif;
+        font-weight: 500;
+        color: #000;
+        border: 1px #b8cd06 solid;
+        padding: 10px 40px;
+        border-radius: 5px;
+        font-size: 16px;
+        transition: all 0.2s;
+        cursor: pointer;
+        text-transform: capitalize;
+        text-decoration: none;
+    }
+
+    .buttn-green:hover {
+        background: transparent;
+        border: 1px #000 solid;
+        color: #000;
+    }
     </style>
 </head>
 
@@ -111,9 +115,10 @@
                                 <!-- ======================================================================= -->
                                 <!-- form start here -->
                                 <!-- ======================================================================= -->
-                                <form class="needs-validation" method="post" action="<?=base_url('order-detail-submit-data')?>" novalidate>
+                                <form class="needs-validation" method="post"
+                                    action="<?=base_url('order-detail-submit-data')?>" novalidate>
 
-                          
+
                                     <!-- ======================================================================= -->
                                     <!-- row start here -->
                                     <!-- ======================================================================= -->
@@ -129,8 +134,8 @@
                                         <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 mb-2">
                                             <label for="Barcode_Type"> Barcode Type </label>
                                             <div class="form-group">
-                                                <select class="form-control form-control-sm" id="Barcode_Type" name="Barcode_Type"
-                                                    required>
+                                                <select class="form-control form-control-sm" id="Barcode_Type"
+                                                    name="Barcode_Type" required>
                                                     <option value="">Select Barcode type</option>
                                                     <option value="ean-13">
                                                         EAN-13
@@ -167,7 +172,8 @@
                                                 Product Category (Optional)
                                             </label>
                                             <div class="form-group">
-                                                <select class="form-control form-control-sm" id="Product_Cat" name="Product_Cat">
+                                                <select class="form-control form-control-sm" id="Product_Cat"
+                                                    name="Product_Cat">
                                                     <option value="books-and-magazines" selected="selected">
                                                         Books &amp; Magazines
                                                     </option>
@@ -204,8 +210,8 @@
                                                 Country of Origin (Optional)
                                             </label>
                                             <div class="form-group">
-                                                <select class="form-control form-control-sm" id="Contry_Origen" name="Contry_Origen"
-                                                    required>
+                                                <select class="form-control form-control-sm" id="Contry_Origen"
+                                                    name="Contry_Origen" required>
                                                     <option value="australia" selected="selected">
                                                         Australia
                                                     </option>
@@ -254,16 +260,16 @@
                                             <label for="Company_website">
                                                 Company Website (Optional)
                                             </label>
-                                            <input type="text" class="form-control" id="Company_website" name="Company_website"
-                                                placeholder="Company Website" />
+                                            <input type="text" class="form-control" id="Company_website"
+                                                name="Company_website" placeholder="Company Website" />
                                             <div class="invalid-feedback">
                                                 Please provide a company website.
                                             </div>
                                         </div>
                                         <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12 mb-2">
                                             <label for="CompanyPhone"> Phone Number </label>
-                                            <input type="text" class="form-control" id="CompanyPhone" name="CompanyPhone"
-                                                placeholder="Phone Number" required />
+                                            <input type="text" class="form-control" id="CompanyPhone"
+                                                name="CompanyPhone" placeholder="Phone Number" required />
                                             <div class="invalid-feedback">
                                                 Please provide a phone number.
                                             </div>
@@ -287,34 +293,47 @@
                                                 <div class="form-row">
                                                     <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 mb-2">
                                                         <label for="barcodeNumber">Barcode Number</label>
-                                                        <input type="text" class="form-control" name="products[0][barcodeNumber]" placeholder="Barcode Number" required />
-                                                        <div class="invalid-feedback">Please provide a barcode number.</div>
+                                                        <input type="text" class="form-control"
+                                                            name="products[0][barcodeNumber]"
+                                                            placeholder="Barcode Number" required />
+                                                        <div class="invalid-feedback">Please provide a barcode number.
+                                                        </div>
                                                     </div>
                                                     <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 mb-2">
                                                         <label for="brandName">Brand Name</label>
-                                                        <input type="text" class="form-control" name="products[0][brandName]" placeholder="Brand Name" required />
+                                                        <input type="text" class="form-control"
+                                                            name="products[0][brandName]" placeholder="Brand Name"
+                                                            required />
                                                         <div class="invalid-feedback">Please provide a brand name.</div>
                                                     </div>
                                                     <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 mb-2">
                                                         <label for="productName">Product Name</label>
-                                                        <input type="text" class="form-control" name="products[0][productName]" placeholder="Product Name" required />
-                                                        <div class="invalid-feedback">Please provide a product name.</div>
+                                                        <input type="text" class="form-control"
+                                                            name="products[0][productName]" placeholder="Product Name"
+                                                            required />
+                                                        <div class="invalid-feedback">Please provide a product name.
+                                                        </div>
                                                     </div>
                                                 </div>
                                                 <div class="form-row">
                                                     <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 mb-2">
                                                         <label for="sizeQuantity">Size/Quantity (Optional)</label>
-                                                        <input type="text" class="form-control" name="products[0][sizeQuantity]" placeholder="Size/Quantity" />
-                                                        <div class="invalid-feedback">Please provide a Size/Quantity.</div>
+                                                        <input type="text" class="form-control"
+                                                            name="products[0][sizeQuantity]"
+                                                            placeholder="Size/Quantity" />
+                                                        <div class="invalid-feedback">Please provide a Size/Quantity.
+                                                        </div>
                                                     </div>
                                                     <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 mb-2">
                                                         <label for="color">Color (Optional)</label>
-                                                        <input type="text" class="form-control" name="products[0][color]" placeholder="Color" />
+                                                        <input type="text" class="form-control"
+                                                            name="products[0][color]" placeholder="Color" />
                                                         <div class="invalid-feedback">Please provide a color.</div>
                                                     </div>
                                                     <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 mb-2">
                                                         <label for="price">Price (Optional)</label>
-                                                        <input type="text" class="form-control" name="products[0][price]" placeholder="Price" />
+                                                        <input type="text" class="form-control"
+                                                            name="products[0][price]" placeholder="Price" />
                                                         <div class="invalid-feedback">Please provide a price.</div>
                                                     </div>
                                                 </div>
@@ -327,7 +346,8 @@
                                     <!-- ======================================================================= -->
                                     <div class="form-row" style="margin-bottom: 20px;">
                                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                                            <button class="buttn-green" type="button" id="addNewCard">Add Fieldset</button>
+                                            <button class="buttn-green" type="button" id="addNewCard">Add
+                                                Fieldset</button>
                                         </div>
                                     </div>
 
@@ -338,7 +358,9 @@
                                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                                             <div class="form-group">
                                                 <label for="productDescription">Product Description (Optional)</label>
-                                                <textarea class="form-control" id="productDescription" name="productDescription" rows="3" placeholder="General description about your product flavor or its functionality"></textarea>
+                                                <textarea class="form-control" id="productDescription"
+                                                    name="productDescription" rows="3"
+                                                    placeholder="General description about your product flavor or its functionality"></textarea>
                                             </div>
                                         </div>
                                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
@@ -384,53 +406,53 @@
     }
     ?>
     <script>
-        $("#form").parsley();
+    $("#form").parsley();
     </script>
     <script>
-        // Example starter JavaScript for disabling form submissions if there are invalid fields
-        (function() {
-            "use strict";
-            window.addEventListener(
-                "load",
-                function() {
-                    // Fetch all the forms we want to apply custom Bootstrap validation styles to
-                    var forms = document.getElementsByClassName("needs-validation");
-                    // Loop over them and prevent submission
-                    var validation = Array.prototype.filter.call(
-                        forms,
-                        function(form) {
-                            form.addEventListener(
-                                "submit",
-                                function(event) {
-                                    if (form.checkValidity() === false) {
-                                        event.preventDefault();
-                                        event.stopPropagation();
-                                    }
-                                    form.classList.add("was-validated");
-                                },
-                                false
-                            );
-                        }
-                    );
-                },
-                false
-            );
-        })();
+    // Example starter JavaScript for disabling form submissions if there are invalid fields
+    (function() {
+        "use strict";
+        window.addEventListener(
+            "load",
+            function() {
+                // Fetch all the forms we want to apply custom Bootstrap validation styles to
+                var forms = document.getElementsByClassName("needs-validation");
+                // Loop over them and prevent submission
+                var validation = Array.prototype.filter.call(
+                    forms,
+                    function(form) {
+                        form.addEventListener(
+                            "submit",
+                            function(event) {
+                                if (form.checkValidity() === false) {
+                                    event.preventDefault();
+                                    event.stopPropagation();
+                                }
+                                form.classList.add("was-validated");
+                            },
+                            false
+                        );
+                    }
+                );
+            },
+            false
+        );
+    })();
     </script>
 
 
     <script>
-      document.addEventListener('DOMContentLoaded', function () {
-    const productContainer = document.getElementById('productContainer');
-    const addButton = document.getElementById('addNewCard');
+    document.addEventListener('DOMContentLoaded', function() {
+        const productContainer = document.getElementById('productContainer');
+        const addButton = document.getElementById('addNewCard');
 
-    let productCount = 1; // Start from 1 since the first fieldset is already present
+        let productCount = 1; // Start from 1 since the first fieldset is already present
 
-    // Add new product fieldset
-    addButton.addEventListener('click', function () {
-        const newFieldset = document.createElement('div');
-        newFieldset.classList.add('duplicateCard');
-        newFieldset.innerHTML = `
+        // Add new product fieldset
+        addButton.addEventListener('click', function() {
+            const newFieldset = document.createElement('div');
+            newFieldset.classList.add('duplicateCard');
+            newFieldset.innerHTML = `
             <div class="card-body" style="padding: 0;">
                 <div class="relative" style="margin: 10px 0;">
                     <h5 class="card-header">Order Detail ${productCount + 1}</h5>
@@ -473,17 +495,17 @@
             </div>
         `;
 
-        productContainer.appendChild(newFieldset);
-        productCount++;
-    });
+            productContainer.appendChild(newFieldset);
+            productCount++;
+        });
 
-    // Remove product fieldset
-    productContainer.addEventListener('click', function (e) {
-        if (e.target.classList.contains('removeCard')) {
-            e.target.closest('.duplicateCard').remove();
-        }
+        // Remove product fieldset
+        productContainer.addEventListener('click', function(e) {
+            if (e.target.classList.contains('removeCard')) {
+                e.target.closest('.duplicateCard').remove();
+            }
+        });
     });
-});
     </script>
 
 

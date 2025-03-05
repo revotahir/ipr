@@ -1,14 +1,34 @@
 <div class="dashboard-header">
     <nav class="navbar navbar-expand-lg bg-white fixed-top">
-        <a class="navbar-brand" href="<?=base_url('dashboard')?>">
-            <img src="https://instabarcode.com/wp-content/uploads/2023/07/logo-for-insta-b.png" width="25%" alt="">
+        <a class="navbar-brand" href="<?=base_url('dashboard')?>" style="width:220px;">
+            <img src="https://instabarcode.com/wp-content/uploads/2023/07/logo-for-insta-b.png" width="100%" alt="">
         </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+        <ul class="navbar-nav ml-auto hideMD hoverwhite">
+            <li class="nav-item ">
+                <a class="nav-link" href="<?=base_url('dashboard')?>">Dashboard</a>
+
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="<?=base_url('add-new-ipr')?>">Add New
+                    IPR</a>
+
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="<?=base_url('all-ipr-data')?>">All
+                    IPR</a>
+
+            </li>
+
+        </ul>
+        <button class="navbar-toggler bg-gray" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon" style="align-content: center;">
+                <i class="fas fa-bars"></i>
+            </span>
         </button>
         <div class="collapse navbar-collapse " id="navbarSupportedContent">
-            <ul class="navbar-nav ml-auto navbar-right-top">
+            <ul class="navbar-nav ml-auto hideLG hoverwhite">
                 <li class="nav-item ">
                     <a class="nav-link" href="<?=base_url('dashboard')?>">Dashboard</a>
 
@@ -23,6 +43,9 @@
                         IPR</a>
 
                 </li>
+
+            </ul>
+            <ul class="navbar-nav ml-auto navbar-right-top">
                 <li class="nav-item dropdown nav-user">
                     <a class="nav-link nav-user-img" href="#" id="navbarDropdownMenuLink2" data-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false"><i class="fas fa-user-circle" style="font-size: 35px;
