@@ -11,22 +11,15 @@
                     href="<?=($this->session->userdata['loginData']['user_email']=='admin@admin.com')?base_url('admin-dashboard'):base_url('dashboard')?>">Dashboard</a>
 
             </li>
-            <?php 
-                if($this->session->userdata['loginData']['user_email']!='admin@admin.com'){
-            ?>
             <li class="nav-item">
                 <a class="nav-link" href="<?=base_url('add-new-ipr')?>">Add New
                     IPR</a>
 
             </li>
-            <!-- <li class="nav-item">
-                <a class="nav-link" href="<?=base_url('all-ipr-data')?>">All
-                    IPR</a>
+            <li class="nav-item">
+                <a class="nav-link" href="<?=base_url('all-order-detail')?>">All Order Detail</a>
 
-            </li> -->
-            <?php 
-                }
-                ?>
+            </li>
 
         </ul>
         <button class="navbar-toggler bg-gray" type="button" data-toggle="collapse"
@@ -43,22 +36,15 @@
                         href="<?=($this->session->userdata['loginData']['user_email']=='admin@admin.com')?base_url('admin-dashboard'):base_url('dashboard')?>">Dashboard</a>
 
                 </li>
-                <?php 
-                if($this->session->userdata['loginData']['user_email']!='admin@admin.com'){
-            ?>
                 <li class="nav-item">
                     <a class="nav-link" href="<?=base_url('add-new-ipr')?>">Add New
                         IPR</a>
 
                 </li>
-                <!-- <li class="nav-item">
-                    <a class="nav-link" href="<?=base_url('all-ipr-data')?>">All
-                        IPR</a>
+                <li class="nav-item">
+                    <a class="nav-link" href="<?=base_url('all-order-detail')?>">All Order Detail</a>
 
-                </li> -->
-                <?php 
-                }
-                ?>
+                </li>
 
             </ul>
             <ul class="navbar-nav ml-auto navbar-right-top">
