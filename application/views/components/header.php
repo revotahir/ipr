@@ -11,11 +11,17 @@
                     href="<?=($this->session->userdata['loginData']['user_email']=='admin@admin.com')?base_url('admin-dashboard'):base_url('dashboard')?>">Dashboard</a>
 
             </li>
+            <?php
+                if($this->session->userdata['loginData']['user_email']!='admin@admin.com'){
+                ?>
             <li class="nav-item">
                 <a class="nav-link" href="<?=base_url('add-new-ipr')?>">Add New
                     IPR</a>
 
             </li>
+            <?php
+                }
+            ?>
             <li class="nav-item">
                 <a class="nav-link" href="<?=base_url('all-order-detail')?>">All Barcodes</a>
 
@@ -36,11 +42,17 @@
                         href="<?=($this->session->userdata['loginData']['user_email']=='admin@admin.com')?base_url('admin-dashboard'):base_url('dashboard')?>">Dashboard</a>
 
                 </li>
+                <?php
+                if($this->session->userdata['loginData']['user_email']!='admin@admin.com'){
+                ?>
                 <li class="nav-item">
                     <a class="nav-link" href="<?=base_url('add-new-ipr')?>">Add New
                         IPR</a>
 
                 </li>
+                <?php
+                }
+                ?>
                 <li class="nav-item">
                     <a class="nav-link" href="<?=base_url('all-order-detail')?>">All Barcodes</a>
 
