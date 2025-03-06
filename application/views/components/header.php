@@ -1,11 +1,14 @@
 <div class="dashboard-header">
     <nav class="navbar navbar-expand-lg bg-white fixed-top">
-        <a class="navbar-brand" href="<?=($this->session->userdata['loginData']['user_email']=='admin@admin.com')?base_url('admin-dashboard'):base_url('dashboard')?>" style="width:220px;">
+        <a class="navbar-brand"
+            href="<?=($this->session->userdata['loginData']['user_email']=='admin@admin.com')?base_url('admin-dashboard'):base_url('dashboard')?>"
+            style="width:220px;">
             <img src="https://instabarcode.com/wp-content/uploads/2023/07/logo-for-insta-b.png" width="100%" alt="">
         </a>
         <ul class="navbar-nav ml-auto hideMD hoverwhite">
             <li class="nav-item ">
-                <a class="nav-link" href="<?=($this->session->userdata['loginData']['user_email']=='admin@admin.com')?base_url('admin-dashboard'):base_url('dashboard')?>">Dashboard</a>
+                <a class="nav-link"
+                    href="<?=($this->session->userdata['loginData']['user_email']=='admin@admin.com')?base_url('admin-dashboard'):base_url('dashboard')?>">Dashboard</a>
 
             </li>
             <?php 
@@ -36,9 +39,13 @@
         <div class="collapse navbar-collapse " id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto hideLG hoverwhite">
                 <li class="nav-item ">
-                    <a class="nav-link" href="<?=($this->session->userdata['loginData']['user_email']=='admin@admin.com')?base_url('admin-dashboard'):base_url('dashboard')?>">Dashboard</a>
+                    <a class="nav-link"
+                        href="<?=($this->session->userdata['loginData']['user_email']=='admin@admin.com')?base_url('admin-dashboard'):base_url('dashboard')?>">Dashboard</a>
 
                 </li>
+                <?php 
+                if($this->session->userdata['loginData']['user_email']!='admin@admin.com'){
+            ?>
                 <li class="nav-item">
                     <a class="nav-link" href="<?=base_url('add-new-ipr')?>">Add New
                         IPR</a>
@@ -49,6 +56,9 @@
                         IPR</a>
 
                 </li> -->
+                <?php 
+                }
+                ?>
 
             </ul>
             <ul class="navbar-nav ml-auto navbar-right-top">
@@ -75,39 +85,3 @@
 <!-- ============================================================== -->
 <!-- end navbar -->
 <!-- ============================================================== -->
-<!-- ============================================================== -->
-<!-- left sidebar -->
-<!-- ============================================================== -->
-<!-- <div class="nav-left-sidebar sidebar-dark">
-    <div class="menu-list">
-        <nav class="navbar navbar-expand-lg navbar-light">
-            <a class="d-xl-none d-lg-none" href="#">Dashboard</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav flex-column">
-                    <li class="nav-divider">
-                        Menu
-                    </li>
-                    <li class="nav-item ">
-                        <a class="nav-link" href="<?=base_url('dashboard')?>"><i
-                                class="fa fa-fw fa-user-circle"></i>Dashboard</a>
-
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="<?=base_url('add-new-ipr')?>"><i class="fab fa-wpforms"></i>Add New
-                            IPR</a>
-
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="<?=base_url('all-ipr-data')?>"><i class="fab fa-wpforms"></i>All
-                            IPR</a>
-
-                    </li>
-                </ul>
-            </div>
-        </nav>
-    </div>
-</div> -->
