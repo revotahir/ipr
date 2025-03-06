@@ -15,6 +15,19 @@
     .form-data.active {
         display: flex !important;
     }
+
+    .text-style {
+        color: #888;
+        font-family: "Poppins", sans-serif;
+        font-size: 16px;
+
+        h2 {
+            margin: 10px 0 0 0;
+            font-size: 18px;
+            font-weight: 500;
+            color: #333333;
+        }
+    }
     </style>
 </head>
 
@@ -48,10 +61,24 @@
                             <input type="submit" value="Submit" class="buttn-green" />
                         </div>
                     </form>
-
-
                 </div>
             </div>
+            <span class="text-style">
+                <h2>Important Notice:</h2> Barcode Registration & Usage Guidelines
+                Instabarcode.com does not provide GSI registration for barcodes or barcodes starting With the 890
+                series. Before purchasing, please verify With your retailers and online platforms that GSI registration
+                or an 890-series barcode iS nota mandatory requirement for product acceptance.
+                Instabarcode.com is not responsible if a retailer or online platform later rejects a barcode due to GSi
+                registration requirements. We strongly recommend confirming barcode acceptance policies in advance.
+                <h2>Barcode Usage & Data Disclaimer</h2>
+                The details entered into this sheet are for our internal database only and will not be automatically
+                visible to retailers. To verify your barcode, you can use any online barcode scanner—once scanned, the
+                barcode number should be displayed.
+                Retailers manually enter product details into their local inventory management systems, including:
+                Product descriptions, Selling prices and applicable discounts and stcok levels (inflow & outflow
+                management)
+                For any barcode—related requirements, please ensure direct confirmation your retailer or
+            </span>
         </div>
     </section>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
