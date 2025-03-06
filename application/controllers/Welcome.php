@@ -113,17 +113,11 @@ class Welcome extends CI_Controller
 		}
 	}
 
-	public function IprView()
+	public function OrderDatail()
 	{
 		if ($this->session->userdata('loginData')) {
-			if(isset($_GET['userID'])){
-				
-				$this->data['orderList'] = $this->generic->GetData('ipr_order_detail', array('ID' => $_GET['userID']));
-			}else{
-
-				$this->data['orderList'] = $this->generic->GetData('ipr_order_detail', array('ID' => $this->session->userdata['loginData']['ID']));
-			}
-			$this->load->view('iprView', $this->data);
+			$this->data['ProductDetail'] = $this->generic->GetData('ipr_product_detail', array('orderID'));
+			$this->load->view('all-order-detail', $this->data);
 		} else {
 			redirect(base_url());
 		}

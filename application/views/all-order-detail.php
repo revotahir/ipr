@@ -51,14 +51,14 @@
                 <div class="row">
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                         <div class="page-header">
-                            <h2 class="pageheader-title">All IPR</h2>
+                            <h2 class="pageheader-title">All Order Detail</h2>
                             <div class="page-breadcrumb">
                                 <nav aria-label="breadcrumb">
                                     <ol class="breadcrumb">
                                         <li class="breadcrumb-item"><a href="<?= base_url('dashboard') ?>"
                                                 class="breadcrumb-link">Dashboard</a></li>
-                                        <li class="breadcrumb-item active" aria-current="page"> All INSTABARCODE PRODUCT
-                                            REPOSITORY (IPR)</li>
+                                        <li class="breadcrumb-item active" aria-current="page"> INSTABARCODE PRODUCT
+                                            REPOSITORY Order Detail</li>
                                     </ol>
                                 </nav>
                             </div>
@@ -76,7 +76,7 @@
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                         <div class="card">
                             <div class="card-header">
-                                <h5 class="mb-0">INSTABARCODE PRODUCT REPOSITORY (IPR) DATA</h5>
+                                <h5 class="mb-0">INSTABARCODE PRODUCT REPOSITORY (IPR) ORDER DATA</h5>
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">
@@ -84,38 +84,30 @@
                                         style="width:100%;">
                                         <thead>
                                             <tr>
+                                                <th>Product ID</th>
                                                 <th>Order ID</th>
-                                                <th>Barcode type</th>
-                                                <th>Company Name</th>
-                                                <th>Product Category</th>
-                                                <th>Country Origin</th>
-                                                <th>GST No</th>
-                                                <th>Compnay Website</th>
-                                                <th>Phone Number</th>
-                                                <th>Product Description</th>
-                                                <th>Action</th>
+                                                <th>Barcode Number</th>
+                                                <th>Brand Name</th>
+                                                <th>Product Name</th>
+                                                <th>Size Quantity</th>
+                                                <th>Color</th>
+                                                <th>Price</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <?php
-                                            if ($orderList) {
-                                                foreach ($orderList as $row) {
+                                            if ($ProductDetail) {
+                                                foreach ($ProductDetail as $row) {
                                             ?>
                                             <tr>
-                                                <td><?=$row['order_ID']?></td>
-                                                <td><?=$row['barcodeType']?></td>
-                                                <td><?=$row['companyName']?></td>
-                                                <td><?=$row['productCategory'] ? $row['productCategory'] : 'N/A'?></td>
-                                                <td><?=$row['countryOrigin'] ? $row['countryOrigin'] : 'N/A'?></td>
-                                                <td><?=$row['gstNumber'] ? $row['gstNumber'] : 'N/A'?></td>
-                                                <td><?=$row['companyWebsite'] ? $row['companyWebsite'] : 'N/A'?></td>
-                                                <td><?=$row['phoneNumber']?></td>
-                                                <td><?=$row['productDescription'] ? $row['productDescription'] : 'N/A'?>
-                                                </td>
-                                                <td>
-                                                    <a href="<?=base_url('products-detail/?order_id=').$row['orderID']?>"
-                                                        class="btn-green"><i class="fas fa-eye"></i> Products
-                                                        Detail</a>
+                                                <td><?=$row['productID']?></td>
+                                                <td><?=$row['orderID']?></td>
+                                                <td><?=$row['barcodeNo']?></td>
+                                                <td><?=$row['brandName'] ? $row['brandName'] : 'N/A'?></td>
+                                                <td><?=$row['productName'] ? $row['productName'] : 'N/A'?></td>
+                                                <td><?=$row['sizeQty'] ? $row['sizeQty'] : 'N/A'?></td>
+                                                <td><?=$row['color'] ? $row['color'] : 'N/A'?></td>
+                                                <td><?=$row['price'] ? $row['price'] : 'N/A'?></td>
                                                 </td>
                                             </tr>
                                             <?php
@@ -123,7 +115,7 @@
                                             } else {
                                                 ?>
                                             <tr>
-                                                <td colspan="9">
+                                                <td colspan="8">
                                                     <center>No Data Found!</center>
                                                 </td>
                                             </tr>
@@ -135,16 +127,14 @@
                                         </tbody>
                                         <tfoot>
                                             <tr>
+                                                <th>Product ID</th>
                                                 <th>Order ID</th>
-                                                <th>Barcode type</th>
-                                                <th>Company Name</th>
-                                                <th>Product Category</th>
-                                                <th>Country Origin</th>
-                                                <th>GST No</th>
-                                                <th>Compnay Website</th>
-                                                <th>Phone Number</th>
-                                                <th>Product Description</th>
-                                                <th>Action</th>
+                                                <th>Barcode Number</th>
+                                                <th>Brand Name</th>
+                                                <th>Product Name</th>
+                                                <th>Size Quantity</th>
+                                                <th>Color</th>
+                                                <th>Price</th>
                                             </tr>
                                         </tfoot>
                                     </table>
