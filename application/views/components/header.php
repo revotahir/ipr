@@ -17,7 +17,7 @@
 
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="<?=base_url('all-order-detail')?>">All Order Detail</a>
+                <a class="nav-link" href="<?=base_url('all-order-detail')?>">All Barcodes</a>
 
             </li>
 
@@ -42,7 +42,7 @@
 
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="<?=base_url('all-order-detail')?>">All Order Detail</a>
+                    <a class="nav-link" href="<?=base_url('all-order-detail')?>">All Barcodes</a>
 
                 </li>
 

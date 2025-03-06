@@ -51,14 +51,14 @@
                 <div class="row">
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                         <div class="page-header">
-                            <h2 class="pageheader-title">All Order Detail</h2>
+                            <h2 class="pageheader-title">All Barcode Detail</h2>
                             <div class="page-breadcrumb">
                                 <nav aria-label="breadcrumb">
                                     <ol class="breadcrumb">
                                         <li class="breadcrumb-item"><a href="<?= base_url('dashboard') ?>"
                                                 class="breadcrumb-link">Dashboard</a></li>
                                         <li class="breadcrumb-item active" aria-current="page"> INSTABARCODE PRODUCT
-                                            REPOSITORY Order Detail</li>
+                                            REPOSITORY BARCODE DETAILS</li>
                                     </ol>
                                 </nav>
                             </div>
@@ -76,7 +76,7 @@
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                         <div class="card">
                             <div class="card-header">
-                                <h5 class="mb-0">INSTABARCODE PRODUCT REPOSITORY (IPR) ORDER DATA</h5>
+                                <h5 class="mb-0">INSTABARCODE PRODUCT REPOSITORY (IPR) BARCODE DATA</h5>
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">
@@ -84,7 +84,7 @@
                                         style="width:100%;">
                                         <thead>
                                             <tr>
-                                                <th>Product ID</th>
+                                                <th>#</th>
                                                 <th>Order ID</th>
                                                 <th>Barcode Number</th>
                                                 <th>Brand Name</th>
@@ -97,10 +97,11 @@
                                         <tbody>
                                             <?php
                                             if ($ProductDetail) {
+                                                $sr=1;
                                                 foreach ($ProductDetail as $row) {
                                             ?>
                                             <tr>
-                                                <td><?=$row['productID']?></td>
+                                                <td><?=$sr.'.'?></td>
                                                 <td><?=$row['orderID']?></td>
                                                 <td><?=$row['barcodeNo']?></td>
                                                 <td><?=$row['brandName'] ? $row['brandName'] : 'N/A'?></td>
@@ -111,7 +112,8 @@
                                                 </td>
                                             </tr>
                                             <?php
-                                                }
+                                                
+                                               $sr++;}
                                             } else {
                                                 ?>
                                             <tr>
@@ -127,7 +129,7 @@
                                         </tbody>
                                         <tfoot>
                                             <tr>
-                                                <th>Product ID</th>
+                                                <th>#</th>
                                                 <th>Order ID</th>
                                                 <th>Barcode Number</th>
                                                 <th>Brand Name</th>

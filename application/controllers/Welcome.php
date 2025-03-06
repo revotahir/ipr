@@ -116,7 +116,12 @@ class Welcome extends CI_Controller
 	public function OrderDatail()
 	{
 		if ($this->session->userdata('loginData')) {
-			$this->data['ProductDetail'] = $this->generic->GetData('ipr_product_detail', array('orderID'));
+			if($this->session->userdata['loginData']['user_email']=='admin@admin.com'){
+				$this->data['ProductDetail'] = $this->generic->getPructsList();
+			}else{
+				$this->data['ProductDetail'] = $this->generic->getPructsList(array('od.ID'=>$this->session->userdata['loginData']['ID']));
+			}
+			
 			$this->load->view('all-order-detail', $this->data);
 		} else {
 			redirect(base_url());

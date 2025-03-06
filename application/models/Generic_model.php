@@ -82,6 +82,24 @@ class Generic_model extends CI_Model
         }
     }
 
+    function getPructsList($where = false)
+    {
+        $this->db->select('*');
+        $this->db->from('ipr_product_detail as pd');
+        $this->db->join('ipr_order_detail  as od ', 'pd.orderID=od.orderID', 'inner');
+        $this->db->order_by('pd.productID', 'DESC');
+        if ($where) {
+            $this->db->where($where);
+        }
+        $q = $this->db->get();
+        //    die($this->db->last_query());
+        if ($q->num_rows() > 0) {
+            return $q->result_array();
+        } else {
+            return false;
+        }
+    }
+
 
   
 }
