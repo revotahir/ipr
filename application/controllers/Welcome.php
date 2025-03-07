@@ -33,22 +33,49 @@ class Welcome extends CI_Controller
 	{
 		$email = $this->input->post('userEmail');
 		$pass = $this->input->post('userPassword');
-		$pass = md5($pass);
+		// $pass = md5($pass);
 
-		$loginData = $this->generic->LoginData($email, $pass);
+		$query = $this->generic->GetData('wp_users', array('user_email' => $email));
 
-		if ($loginData) {
-			//set session
-			$this->session->set_userdata('loginData', $loginData[0]);
-			if($loginData[0]['user_email']=='admin@admin.com'){
-				redirect(base_url('admin-dashboard'));
-			}else{
-				redirect(base_url('dashboard'));
+		if ($query) {
+			// Load the PHPass library
+			require_once APPPATH . 'libraries/class-phpass.php';
+			$wp_hasher = new PasswordHash(8, true); // Match WordPress settings
+
+			// Verify the password
+			if ($wp_hasher->CheckPassword($pass, $query[0]['user_pass'])) {
+				//set session
+				$this->session->set_userdata('loginData', $query[0]);
+				if ($loginData[0]['user_email'] == 'admin@admin.com') {
+					redirect(base_url('admin-dashboard'));
+				} else {
+					redirect(base_url('dashboard'));
+				}
+			} else {
+				$this->session->set_flashdata('error_msg', 1);
+			redirect(base_url());
 			}
 		} else {
-			$this->session->set_flashdata('error_msg', 1);
-			redirect(base_url());
+			// User not found
+			echo "User not found!";
 		}
+
+
+
+
+
+		// if ($loginData) {
+		// 	//set session
+		// 	$this->session->set_userdata('loginData', $loginData[0]);
+		// 	if ($loginData[0]['user_email'] == 'admin@admin.com') {
+		// 		redirect(base_url('admin-dashboard'));
+		// 	} else {
+		// 		redirect(base_url('dashboard'));
+		// 	}
+		// } else {
+		// 	$this->session->set_flashdata('error_msg', 1);
+		// 	redirect(base_url());
+		// }
 	}
 	public function Dashboard()
 	{
@@ -116,38 +143,39 @@ class Welcome extends CI_Controller
 	public function OrderDatail()
 	{
 		if ($this->session->userdata('loginData')) {
-			if($this->session->userdata['loginData']['user_email']=='admin@admin.com'){
+			if ($this->session->userdata['loginData']['user_email'] == 'admin@admin.com') {
 				$this->data['ProductDetail'] = $this->generic->getPructsList();
-			}else{
-				$this->data['ProductDetail'] = $this->generic->getPructsList(array('od.ID'=>$this->session->userdata['loginData']['ID']));
+			} else {
+				$this->data['ProductDetail'] = $this->generic->getPructsList(array('od.ID' => $this->session->userdata['loginData']['ID']));
 			}
-			
+
 			$this->load->view('all-order-detail', $this->data);
 		} else {
 			redirect(base_url());
 		}
 	}
-	public function IprProductView(){
+	public function IprProductView()
+	{
 		if ($this->session->userdata('loginData')) {
 			$this->data['orderDetail'] = $this->generic->GetData('ipr_order_detail', array('orderID' => $_GET['order_id']));
 			$this->data['ProductDetail'] = $this->generic->GetData('ipr_product_detail', array('orderID' => $_GET['order_id']));
-			$this->data['userDetail']=$this->generic->GetData('wp_users',array('ID'=>$this->data['orderDetail'][0]['ID']));
-			$this->load->view('productDetails',$this->data);
-			
-		}else{
+			$this->data['userDetail'] = $this->generic->GetData('wp_users', array('ID' => $this->data['orderDetail'][0]['ID']));
+			$this->load->view('productDetails', $this->data);
+		} else {
 			redirect(base_url());
 		}
 	}
 
-//admin side
-public function AdminDashboard(){
-	if ($this->session->userdata('loginData')) {
-		$this->data['usersList']=$this->generic->GetData('wp_users',array('user_email!='=>'admin@admin.com'));
-		$this->load->view('adminDashboard',$this->data);
-	}else{
-		redirect(base_url());
+	//admin side
+	public function AdminDashboard()
+	{
+		if ($this->session->userdata('loginData')) {
+			$this->data['usersList'] = $this->generic->GetData('wp_users', array('user_email!=' => 'admin@admin.com'));
+			$this->load->view('adminDashboard', $this->data);
+		} else {
+			redirect(base_url());
+		}
 	}
-}
 
 
 
