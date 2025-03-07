@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Dashboard</title>
     <!-- Bootstrap CSS -->
+    <link rel="icon" href="<?=base_url()?>assets/images/cropped-logo-2-1.webp" type="image/png/webp">
     <link rel="stylesheet" href="<?= base_url() ?>assets/vendor/bootstrap/css/bootstrap.min.css">
     <link href="<?= base_url() ?>assets/vendor/fonts/circular-std/style.css" rel="stylesheet">
     <link rel="stylesheet" href="<?= base_url() ?>assets/libs/css/style.css">
@@ -101,7 +102,8 @@
                                                 </td>
                                                 <td>
                                                     <a href="<?=base_url('all-ipr-data/?userID=').$row['ID']?>"
-                                                        class="btn-green"><i class="fas fa-shopping-cart"></i> Orders List</a>
+                                                        class="btn-green"><i class="fas fa-shopping-cart"></i> Orders
+                                                        List</a>
                                                 </td>
                                             </tr>
                                             <?php
@@ -121,7 +123,7 @@
                                             ?>
                                         </tbody>
                                         <tfoot>
-                                        <tr>
+                                            <tr>
                                                 <th>#</th>
                                                 <th>Name </th>
                                                 <th>Email</th>

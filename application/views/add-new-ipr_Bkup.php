@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <title>Form Validation</title>
     <!-- Bootstrap CSS -->
+    <link rel="icon" href="<?=base_url()?>assets/images/cropped-logo-2-1.webp" type="image/png/webp">
     <link rel="stylesheet" href="<?=base_url()?>assets/vendor/bootstrap/css/bootstrap.min.css" />
     <link href="<?=base_url()?>assets/vendor/fonts/circular-std/style.css" rel="stylesheet" />
     <link rel="stylesheet" href="<?=base_url()?>assets/libs/css/style.css" />
@@ -37,7 +38,7 @@
         border: 1px #b8cd06 solid;
         padding: 10px 40px;
         border-radius: 5px;
-        font-size: 16px;    
+        font-size: 16px;
         transition: all 0.2s;
         cursor: pointer;
         text-transform: capitalize;
@@ -117,7 +118,8 @@
                                 <!-- ======================================================================= -->
                                 <!-- form start here -->
                                 <!-- ======================================================================= -->
-                                <form class="needs-validation" method="post" action="<?=base_url('order-detail-submit-data')?>" novalidate>
+                                <form class="needs-validation" method="post"
+                                    action="<?=base_url('order-detail-submit-data')?>" novalidate>
                                     <!-- ======================================================================= -->
                                     <!-- row start here -->
                                     <!-- ======================================================================= -->
@@ -136,7 +138,7 @@
                                                 <select class="form-control form-control-sm" id="validationCustom01"
                                                     required>
                                                     <option value="">Select Barcode type</option>
-                                                    <option value="ean-13" >
+                                                    <option value="ean-13">
                                                         EAN-13
                                                     </option>
                                                     <option value="upc-a">UPC-A</option>
