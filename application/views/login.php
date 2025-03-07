@@ -5,6 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login / Signup</title>
+    <link rel="icon" href="<?=base_url()?>assets/images/cropped-logo-2-1.webp" type="image/png/webp">
     <link rel="stylesheet" href="<?=base_url().'assets/loginCSS/'?>style.css" />
     <link rel="stylesheet" href="<?= base_url() ?>assets/toastr/toastr.min.css">
     <!-- Add FontAwesome for the eye icon -->

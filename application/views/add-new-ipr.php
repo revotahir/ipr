@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <title>Add New IPR</title>
     <!-- Bootstrap CSS -->
+    <link rel="icon" href="<?=base_url()?>assets/images/cropped-logo-2-1.webp" type="image/png/webp">
     <link rel="stylesheet" href="<?= base_url() ?>assets/vendor/bootstrap/css/bootstrap.min.css" />
     <link href="<?= base_url() ?>assets/vendor/fonts/circular-std/style.css" rel="stylesheet" />
     <link rel="stylesheet" href="<?= base_url() ?>assets/libs/css/style.css" />
