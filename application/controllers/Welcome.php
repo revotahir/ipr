@@ -46,7 +46,7 @@ class Welcome extends CI_Controller
 			if ($wp_hasher->CheckPassword($pass, $query[0]['user_pass'])) {
 				//set session
 				$this->session->set_userdata('loginData', $query[0]);
-				if ($loginData[0]['user_email'] == 'admin@admin.com') {
+				if ($query[0]['user_email'] == 'hello@instabarcode.com') {
 					redirect(base_url('admin-dashboard'));
 				} else {
 					redirect(base_url('dashboard'));
@@ -67,7 +67,7 @@ class Welcome extends CI_Controller
 		// if ($loginData) {
 		// 	//set session
 		// 	$this->session->set_userdata('loginData', $loginData[0]);
-		// 	if ($loginData[0]['user_email'] == 'admin@admin.com') {
+		// 	if ($loginData[0]['user_email'] == 'hello@instabarcode.com') {
 		// 		redirect(base_url('admin-dashboard'));
 		// 	} else {
 		// 		redirect(base_url('dashboard'));
@@ -143,7 +143,7 @@ class Welcome extends CI_Controller
 	public function OrderDatail()
 	{
 		if ($this->session->userdata('loginData')) {
-			if ($this->session->userdata['loginData']['user_email'] == 'admin@admin.com') {
+			if ($this->session->userdata['loginData']['user_email'] == 'hello@instabarcode.com') {
 				$this->data['ProductDetail'] = $this->generic->getPructsList();
 			} else {
 				$this->data['ProductDetail'] = $this->generic->getPructsList(array('od.ID' => $this->session->userdata['loginData']['ID']));
@@ -170,7 +170,7 @@ class Welcome extends CI_Controller
 	public function AdminDashboard()
 	{
 		if ($this->session->userdata('loginData')) {
-			$this->data['usersList'] = $this->generic->GetData('wp_users', array('user_email!=' => 'admin@admin.com'));
+			$this->data['usersList'] = $this->generic->GetData('wp_users', array('user_email!=' => 'hello@instabarcode.com'));
 			$this->load->view('adminDashboard', $this->data);
 		} else {
 			redirect(base_url());
