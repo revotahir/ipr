@@ -1,18 +1,18 @@
 <div class="dashboard-header">
     <nav class="navbar navbar-expand-lg bg-white fixed-top">
         <a class="navbar-brand"
-            href="<?=($this->session->userdata['loginData']['user_email']=='admin@admin.com')?base_url('admin-dashboard'):base_url('dashboard')?>"
+            href="<?=($this->session->userdata['loginData']['user_email']=='hello@instabarcode.com')?base_url('admin-dashboard'):base_url('dashboard')?>"
             style="width:220px;">
             <img src="https://instabarcode.com/wp-content/uploads/2023/07/logo-for-insta-b.png" width="100%" alt="">
         </a>
         <ul class="navbar-nav ml-auto hideMD hoverwhite">
             <li class="nav-item ">
                 <a class="nav-link"
-                    href="<?=($this->session->userdata['loginData']['user_email']=='admin@admin.com')?base_url('admin-dashboard'):base_url('dashboard')?>">Dashboard</a>
+                    href="<?=($this->session->userdata['loginData']['user_email']=='hello@instabarcode.com')?base_url('admin-dashboard'):base_url('dashboard')?>">Dashboard</a>
 
             </li>
             <?php
-                if($this->session->userdata['loginData']['user_email']!='admin@admin.com'){
+                if($this->session->userdata['loginData']['user_email']!='hello@instabarcode.com'){
                 ?>
             <li class="nav-item">
                 <a class="nav-link" href="<?=base_url('add-new-ipr')?>">Add New
@@ -39,11 +39,11 @@
             <ul class="navbar-nav ml-auto hideLG hoverwhite">
                 <li class="nav-item ">
                     <a class="nav-link"
-                        href="<?=($this->session->userdata['loginData']['user_email']=='admin@admin.com')?base_url('admin-dashboard'):base_url('dashboard')?>">Dashboard</a>
+                        href="<?=($this->session->userdata['loginData']['user_email']=='hello@instabarcode.com')?base_url('admin-dashboard'):base_url('dashboard')?>">Dashboard</a>
 
                 </li>
                 <?php
-                if($this->session->userdata['loginData']['user_email']!='admin@admin.com'){
+                if($this->session->userdata['loginData']['user_email']!='hello@instabarcode.com'){
                 ?>
                 <li class="nav-item">
                     <a class="nav-link" href="<?=base_url('add-new-ipr')?>">Add New

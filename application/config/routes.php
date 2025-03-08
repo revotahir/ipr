@@ -60,6 +60,7 @@ $route['all-order-detail']='welcome/OrderDatail';
 //--Order Product details
 $route['products-detail']='welcome/IprProductView';
 //admin side
+$route['all-ipr-data']='welcome/IprListData';
 $route['admin-dashboard']='welcome/AdminDashboard';
 
 $route['logout'] = 'welcome/LogOut';

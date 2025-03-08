@@ -176,6 +176,15 @@ class Welcome extends CI_Controller
 			redirect(base_url());
 		}
 	}
+	public function IprListData(){
+		if ($this->session->userdata('loginData')) {
+			$this->data['userDetail']=$this->generic->GetData('wp_users',array('ID'=>$_GET['userID']));
+			$this->data['orderList']=$this->generic->GetData('ipr_order_detail', array('ID' => $_GET['userID']));
+			$this->load->view('ipr-order-list',$this->data);
+		}else{
+			redirect(base_url());
+		}
+	}
 
 
 
