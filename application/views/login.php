@@ -21,6 +21,7 @@
 
     .d-center {
         display: flex !important;
+        padding: 20px 10px 10px 10px;
     }
 
     .text-style {
