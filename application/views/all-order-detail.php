@@ -103,7 +103,7 @@
                                             ?>
                                             <tr>
                                                 <td><?=$sr.'.'?></td>
-                                                <td><?=$row['orderID']?></td>
+                                                <td><?=$row['order_ID']?></td>
                                                 <td><?=$row['barcodeNo']?></td>
                                                 <td><?=$row['brandName'] ? $row['brandName'] : 'N/A'?></td>
                                                 <td><?=$row['productName'] ? $row['productName'] : 'N/A'?></td>
