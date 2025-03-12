@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Login / Signup</title>
+    <title>Signup</title>
     <link rel="icon" href="<?=base_url()?>assets/images/cropped-logo-2-1.webp" type="image/png/webp">
     <link rel="stylesheet" href="<?=base_url().'assets/loginCSS/'?>style.css" />
     <link rel="stylesheet" href="<?= base_url() ?>assets/toastr/toastr.min.css">
@@ -76,24 +76,22 @@
                 </div>
                 <div class="right-side">
                     <!-- Login Form -->
-                    <form id="loginForm" method="post" action="<?=base_url().'login-data'?>" class="form-data active">
-                        <h1>Instabarcode Product Repository (IPR)</h1>
+                    <form id="loginForm" method="post" action="<?=base_url().'sign-up-data'?>" class="form-data active">
+                        <h1>Instabarcode Product Repository (IPR) Sign Up</h1>
                         <p> <strong> Your Cloud-Based Product Management Solution</strong></p>
-                        <p>
-                        Instabarcode Product Repository is a modern, cloud-based platform designed to help you register and store your product details alongside their assigned barcodes. Simply log in to enter your product information against each barcode number, securely store it on our portal, and access it anytime for future use. You can also grant access to your retailers, enabling them to view product details for each barcode assigned by Instabarcode.
-                        </p>
+                        
                         <img src="https://instabarcode.com/wp-content/uploads/2023/07/Screen-Shot-2023-08-01-at-01.232.png"
                             alt="" />
+                        <input type="text" name="userName" id="userName" placeholder="User Name" required />
                         <input type="email" name="userEmail" id="userEmail" placeholder="Email" required />
                         <div class="password-container">
                             <input type="password" name="userPassword" id="userPassword" placeholder="Password" required
                                 style="width: 100%;" />
                             <i class="toggle-password fas fa-eye" onclick="togglePasswordVisibility()"></i>
                         </div>
-                        <p>If you forgot your password, set on the main <a href="https://instabarcode.com/" target="_blank">Instabarcode</a> login page.</p>
                         <div class="box-row">
-                            <input type="submit" value="Submit" class="buttn-green" />
-                            <a href="<?=base_url('sign-up')?>">Sign Up</a>
+                            <input type="submit" value="Sign up" class="buttn-green" />
+                            <a href="<?=base_url()?>">Login</a>
                         </div>
                     </form>
                 </div>
@@ -140,7 +138,7 @@
     }
     </script>
     <?php
-    if ($this->session->flashdata('error_msg') != '') {
+    if ($this->session->flashdata('alreadyRegistered') != '') {
     ?>
     <script type="text/javascript">
     toastr.options = {
@@ -148,13 +146,13 @@
         "showMethod": "fadeIn",
         "hideMethod": "fadeOut"
     }
-    toastr.error('Invalid Login!');
+    toastr.error('Email Already Registered!');
     </script>
     <?php
     }
     ?>
     <?php
-    if ($this->session->flashdata('Registered') != '') {
+    if ($this->session->flashdata('Error') != '') {
     ?>
     <script type="text/javascript">
     toastr.options = {
@@ -162,7 +160,7 @@
         "showMethod": "fadeIn",
         "hideMethod": "fadeOut"
     }
-    toastr.success('Registered Successfull! Now you can Login');
+    toastr.error('Email Already Registered!');
     </script>
     <?php
     }

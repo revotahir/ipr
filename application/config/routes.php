@@ -51,7 +51,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 $route['login-data'] = 'welcome/loginData';
 $route['dashboard'] = 'welcome/Dashboard';
-
+//sign up 
+$route['sign-up']='welcome/signup';
+$route['sign-up-data']='welcome/signupData';
 //client add new ipr
 $route['add-new-ipr'] = 'welcome/addNewIPR';
 $route['order-detail-submit-data'] = 'welcome/addNewIPRData';

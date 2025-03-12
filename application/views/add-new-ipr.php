@@ -199,6 +199,9 @@
                                                         Sport Products
                                                     </option>
                                                     <option value="toy-products">Toy Products</option>
+                                                    <option value="Toiletries">Toiletries</option>
+                                                    <option value="Mobile Accessories">Mobile Accessories</option>
+                                                    <option value="Other">Other</option>
                                                 </select>
                                             </div>
                                             <div class="invalid-feedback">
@@ -232,6 +235,7 @@
                                                     <option value="ukraine">Ukraine</option>
                                                     <option value="usa">USA</option>
                                                     <option value="venezuela">Venezuela</option>
+                                                    <option value="UAE">UAE</option>
                                                 </select>
                                             </div>
                                             <div class="invalid-feedback">
@@ -243,9 +247,9 @@
                                                 GST/HST/Business Number (Optional)
                                             </label>
                                             <input type="text" class="form-control" id="GstNo" name="GstNo"
-                                                placeholder="GST/HST/Business Number" />
+                                                placeholder="GST/PAN/Business Number" />
                                             <div class="invalid-feedback">
-                                                Please provide a GST/HST/Business number.
+                                                Please provide a GST/PAN/Business number.
                                             </div>
                                         </div>
                                     </div>

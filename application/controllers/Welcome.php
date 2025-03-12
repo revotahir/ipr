@@ -29,6 +29,70 @@ class Welcome extends CI_Controller
 	{
 		$this->load->view('login');
 	}
+	//sign up
+	public function signup(){
+		$this->load->view('signup');
+	}
+
+	public function signupData(){
+		 // Get form data
+		 $userName = $this->input->post('userName');
+		 $userEmail = $this->input->post('userEmail');
+		 $userPassword = $this->input->post('userPassword');
+		  // Check if the email already exists
+		  $this->db->where('user_email', $userEmail);
+		  $query = $this->db->get('wp_users');
+		  if ($query->num_rows() > 0) {
+			  // User already exists
+			  $this->session->set_flashdata('alreadyRegistered', 1);
+			  redirect(base_url('sign-up'));
+		  }else{
+			// Hash the password (WordPress uses MD5 by default for backward compatibility)
+			$hashedPassword = md5($userPassword);
+
+			// Prepare user data for wp_users table
+			$userData = array(
+				'user_login' => $userName,
+				'user_pass' => $hashedPassword,
+				'user_nicename' => $userName,
+				'user_email' => $userEmail,
+				'user_registered' => date('Y-m-d H:i:s'),
+				'display_name' => $userName,
+				'user_status' => 0
+			);
+			$this->db->insert('wp_users', $userData);
+			$userID = $this->db->insert_id();
+
+			if ($userID) {
+				// Assign the "customer" role in wp_usermeta table
+				$userMetaData1 = array(
+					'user_id' => $userID,
+					'meta_key' => 'wp_capabilities',
+					'meta_value' => 'a:1:{s:8:"customer";b:1;}'
+				);
+	
+				$userMetaData2 = array(
+					'user_id' => $userID,
+					'meta_key' => 'wp_user_level',
+					'meta_value' => '0'
+				);
+	
+				// Insert meta data into wp_usermeta table
+				$this->db->insert('wp_usermeta', $userMetaData1);
+				$this->db->insert('wp_usermeta', $userMetaData2);
+	
+				$this->session->set_flashdata('Registered', 1);
+				redirect(base_url());
+			} else {
+				$this->session->set_flashdata('Error', 1);
+				redirect(base_url('sign-up'));
+			}
+	
+		  }
+	}
+
+
+
 	public function loginData()
 	{
 		$email = $this->input->post('userEmail');
@@ -60,22 +124,6 @@ class Welcome extends CI_Controller
 			echo "User not found!";
 		}
 
-
-
-
-
-		// if ($loginData) {
-		// 	//set session
-		// 	$this->session->set_userdata('loginData', $loginData[0]);
-		// 	if ($loginData[0]['user_email'] == 'hello@instabarcode.com') {
-		// 		redirect(base_url('admin-dashboard'));
-		// 	} else {
-		// 		redirect(base_url('dashboard'));
-		// 	}
-		// } else {
-		// 	$this->session->set_flashdata('error_msg', 1);
-		// 	redirect(base_url());
-		// }
 	}
 	public function Dashboard()
 	{
