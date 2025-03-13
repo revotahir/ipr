@@ -175,7 +175,8 @@
                                             <div class="form-group">
                                                 <select class="form-control form-control-sm" id="Product_Cat"
                                                     name="Product_Cat">
-                                                    <option value="books-and-magazines" selected="selected">
+                                                    <option value="">Select Product Category</option>
+                                                    <option value="books-and-magazines">
                                                         Books &amp; Magazines
                                                     </option>
                                                     <option value="clothing">Clothing</option>
@@ -216,7 +217,8 @@
                                             <div class="form-group">
                                                 <select class="form-control form-control-sm" id="Contry_Origen"
                                                     name="Contry_Origen" required>
-                                                    <option value="australia" selected="selected">
+                                                    <option value="">Select Country of Origin</option>
+                                                    <option value="australia">
                                                         Australia
                                                     </option>
                                                     <option value="bangladesh">Bangladesh</option>
@@ -341,6 +343,39 @@
                                                             name="products[0][price]" placeholder="Price" />
                                                         <div class="invalid-feedback">Please provide a price.</div>
                                                     </div>
+                                                    <!-- new selectbox -->
+                                                    <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 mb-2">
+                                                        <label for="currency">
+                                                            Currency (Optional)
+                                                        </label>
+                                                        <div class="form-group">
+                                                            <select class="form-control form-control-sm"
+                                                                name="products[0][currency]">
+                                                                <option value="">Select Currency</option>
+                                                                <option value="aud">AUD</option>
+                                                                <option value="bdt">BDT</option>
+                                                                <option value="brl">BRL</option>
+                                                                <option value="cad">CAD</option>
+                                                                <option value="cop">COP</option>
+                                                                <option value="idr">IDR</option>
+                                                                <option value="inr">INR</option>
+                                                                <option value="kes">KES</option>
+                                                                <option value="mxn">MXN</option>
+                                                                <option value="ngn">NGN</option>
+                                                                <option value="pkr">PKR</option>
+                                                                <option value="php">PHP</option>
+                                                                <option value="uah">UAH</option>
+                                                                <option value="usd">USD</option>
+                                                                <option value="ves">VES</option>
+                                                                <option value="yuan">YUAN</option>
+                                                                <option value="zar">ZAR</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="invalid-feedback">
+                                                            Please provide a currency.
+                                                        </div>
+                                                    </div>
+                                                    <!-- new selectbox -->
                                                 </div>
                                             </div>
                                         </div>
@@ -495,6 +530,33 @@
                         <label for="price">Price (Optional)</label>
                         <input type="text" class="form-control" name="products[${productCount}][price]" placeholder="Price" />
                         <div class="invalid-feedback">Please provide a price.</div>
+                    </div>
+                    <!-- Currency Select Box -->
+                    <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 mb-2">
+                        <label for="currency">Currency (Optional)</label>
+                        <div class="form-group">
+                            <select class="form-control form-control-sm" name="products[${productCount}][currency]">
+                                <option value="">Select Currency</option>
+                                <option value="aud">AUD</option>
+                                <option value="bdt">BDT</option>
+                                <option value="brl">BRL</option>
+                                <option value="cad">CAD</option>
+                                <option value="cop">COP</option>
+                                <option value="idr">IDR</option>
+                                <option value="inr">INR</option>
+                                <option value="kes">KES</option>
+                                <option value="mxn">MXN</option>
+                                <option value="ngn">NGN</option>
+                                <option value="pkr">PKR</option>
+                                <option value="php">PHP</option>
+                                <option value="uah">UAH</option>
+                                <option value="usd">USD</option>
+                                <option value="ves">VES</option>
+                                <option value="yuan">YUAN</option>
+                                <option value="zar">ZAR</option>
+                            </select>
+                        </div>
+                        <div class="invalid-feedback">Please provide a currency.</div>
                     </div>
                 </div>
             </div>
