@@ -113,6 +113,8 @@
                                                     <th class="center">Size/Qty</th>
                                                     <th class="right">Color</th>
                                                     <th class="right">Price</th>
+                                                    <th class="right">Currency</th>
+
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -129,6 +131,8 @@
                                                     </td>
                                                     <td class="right"><?=$row['color'] ? $row['color'] : 'N/A'?></td>
                                                     <td class="right"><?=$row['price'] ? $row['price'] : 'N/A'?></td>
+                                                    <td class="right"><?=$row['currency'] ? $row['currency'] : 'N/A'?>
+                                                    </td>
                                                 </tr>
                                                 <?php 
                                                 $sr++;

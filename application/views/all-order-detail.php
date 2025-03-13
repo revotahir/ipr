@@ -93,6 +93,7 @@
                                                 <th>Size Quantity</th>
                                                 <th>Color</th>
                                                 <th>Price</th>
+                                                <th>Currency</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -110,6 +111,7 @@
                                                 <td><?=$row['sizeQty'] ? $row['sizeQty'] : 'N/A'?></td>
                                                 <td><?=$row['color'] ? $row['color'] : 'N/A'?></td>
                                                 <td><?=$row['price'] ? $row['price'] : 'N/A'?></td>
+                                                <td><?=$row['currency'] ? $row['currency'] : 'N/A'?></td>
                                                 </td>
                                             </tr>
                                             <?php
@@ -118,7 +120,7 @@
                                             } else {
                                                 ?>
                                             <tr>
-                                                <td colspan="8">
+                                                <td colspan="9">
                                                     <center>No Data Found!</center>
                                                 </td>
                                             </tr>
@@ -138,6 +140,7 @@
                                                 <th>Size Quantity</th>
                                                 <th>Color</th>
                                                 <th>Price</th>
+                                                <th>Currency</th>
                                             </tr>
                                         </tfoot>
                                     </table>

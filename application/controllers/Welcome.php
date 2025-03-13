@@ -176,7 +176,8 @@ class Welcome extends CI_Controller
 					'productName' => $product['productName'],
 					'sizeQty' => $product['sizeQuantity'],
 					'color' => $product['color'],
-					'price' => $product['price']
+					'price' => $product['price'],
+					'currency' => $product['currency'],
 				);
 				$this->generic->InsertData('ipr_product_detail', $productDetail);
 			}
