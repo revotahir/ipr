@@ -246,7 +246,7 @@
                                         </div>
                                         <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 mb-2">
                                             <label for="GstNo">
-                                                GST/HST/Business Number (Optional)
+                                                GST/PAN/Business Number (Optional)
                                             </label>
                                             <input type="text" class="form-control" id="GstNo" name="GstNo"
                                                 placeholder="GST/PAN/Business Number" />

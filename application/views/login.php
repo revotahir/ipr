@@ -78,8 +78,8 @@
                     <!-- Login Form -->
                     <form id="loginForm" method="post" action="<?=base_url().'login-data'?>" class="form-data active">
                         <h1>Instabarcode Product Repository (IPR)</h1>
-                        <p> <strong> Your Cloud-Based Product Management Solution</strong></p>
-                        <p>
+                        <p> Your Cloud-Based Product Management Solution</p>
+                        <p style="  color: gray;">
                         Instabarcode Product Repository is a modern, cloud-based platform designed to help you register and store your product details alongside their assigned barcodes. Simply log in to enter your product information against each barcode number, securely store it on our portal, and access it anytime for future use. You can also grant access to your retailers, enabling them to view product details for each barcode assigned by Instabarcode.
                         </p>
                         <img src="https://instabarcode.com/wp-content/uploads/2023/07/Screen-Shot-2023-08-01-at-01.232.png"
@@ -108,7 +108,7 @@
                     Instabarcode.com is not responsible if a retailer or online platform later rejects a barcode due to
                     GSi
                     registration requirements. We strongly recommend confirming barcode acceptance policies in advance.<br>
-                    <Strong>Barcode Usage & Data Disclaimer</Strong>
+                    <Strong>Barcode Usage & Data Disclaimer:</Strong>
                     The details entered into this sheet are for our internal database only and will not be automatically
                     visible to retailers. To verify your barcode, you can use any online barcode scanner—once scanned,
                     the
