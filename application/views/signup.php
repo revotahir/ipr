@@ -160,7 +160,7 @@
         "showMethod": "fadeIn",
         "hideMethod": "fadeOut"
     }
-    toastr.error('Email Already Registered!');
+    toastr.error('Internal Error! Try Again');
     </script>
     <?php
     }
