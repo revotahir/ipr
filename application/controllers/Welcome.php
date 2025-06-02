@@ -97,17 +97,18 @@ class Welcome extends CI_Controller
 	{
 		$email = $this->input->post('userEmail');
 		$pass = $this->input->post('userPassword');
-		// $pass = md5($pass);
+		$this->load->helper('wp_password');
 
 		$query = $this->generic->GetData('wp_users', array('user_email' => $email));
 
 		if ($query) {
 			// Load the PHPass library
-			require_once APPPATH . 'libraries/class-phpass.php';
-			$wp_hasher = new PasswordHash(8, true); // Match WordPress settings
-
+// 			require_once APPPATH . 'libraries/class-phpass.php';
+// 			$wp_hasher = new PasswordHash(8, true); // Match WordPress settings
+		
 			// Verify the password
-			if ($wp_hasher->CheckPassword($pass, $query[0]['user_pass'])) {
+// 			if ($wp_hasher->CheckPassword($pass, $query[0]['user_pass'])) {
+				if(verify_wp_password($pass, $query[0]['user_pass'])){
 				//set session
 				$this->session->set_userdata('loginData', $query[0]);
 				if ($query[0]['user_email'] == 'hello@instabarcode.com') {
@@ -169,6 +170,10 @@ class Welcome extends CI_Controller
 
 			// Process the data (e.g., save to database)
 			foreach ($products as $product) {
+					
+
+
+
 				$productDetail = array(
 					'orderID' => $maxOrderID,
 					'barcodeNo' => $product['barcodeNumber'],
