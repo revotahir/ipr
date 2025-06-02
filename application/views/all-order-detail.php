@@ -111,7 +111,7 @@
                                                 <td><?=$row['sizeQty'] ? $row['sizeQty'] : 'N/A'?></td>
                                                 <td><?=$row['color'] ? $row['color'] : 'N/A'?></td>
                                                 <td><?=$row['price'] ? $row['price'] : 'N/A'?></td>
-                                                <td><?=$row['currency'] ? $row['currency'] : 'N/A'?></td>
+                                                <td style="text-transform: uppercase;"><?=$row['currency'] ? $row['currency'] : 'N/A'?></td>
                                                 </td>
                                             </tr>
                                             <?php

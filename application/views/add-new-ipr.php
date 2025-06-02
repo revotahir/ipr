@@ -126,7 +126,7 @@
                                     <div class="form-row">
                                         <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 mb-2">
                                             <label for="order_id">Order Id</label>
-                                            <input type="text" class="form-control" id="order_id" name="order_id"
+                                            <input type="number" class="form-control" id="order_id" name="order_id"
                                                 placeholder="Order Id" required />
                                             <div class="invalid-feedback">
                                                 Please provide a order id.
@@ -300,7 +300,7 @@
                                                 <div class="form-row">
                                                     <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 mb-2">
                                                         <label for="barcodeNumber">Barcode Number</label>
-                                                        <input type="text" class="form-control"
+                                                        <input type="number" class="form-control"
                                                             name="products[0][barcodeNumber]"
                                                             placeholder="Barcode Number" required />
                                                         <div class="invalid-feedback">Please provide a barcode number.
@@ -376,6 +376,19 @@
                                                         </div>
                                                     </div>
                                                     <!-- new selectbox -->
+                                                     <!-- product image upload -->
+                                                      <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 mb-2">
+                                                        <label for="currency">
+                                                            Product Image (Optional)
+                                                        </label>
+                                                        <div class="form-group">
+                                                          <input type="file" class="form-control" name="products[0][productImage]" id="products[0][productImage]">
+                                                        </div>
+                                                        <div class="invalid-feedback">
+                                                            Please provide a currency.
+                                                        </div>
+                                                    </div>
+                                                     <!-- product image upload -->
                                                 </div>
                                             </div>
                                         </div>
@@ -558,6 +571,17 @@
                         </div>
                         <div class="invalid-feedback">Please provide a currency.</div>
                     </div>
+                       <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 mb-2">
+                                                        <label for="currency">
+                                                            Product Image (Optional)
+                                                        </label>
+                                                        <div class="form-group">
+                                                          <input type="file" class="form-control" name="products[${productCount}][productImage]" id="products[${productCount}][productImage]">
+                                                        </div>
+                                                        <div class="invalid-feedback">
+                                                            Please provide a currency.
+                                                        </div>
+                                                    </div>
                 </div>
             </div>
         `;
