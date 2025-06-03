@@ -114,6 +114,7 @@
                                                     <th class="right">Color</th>
                                                     <th class="right">Price</th>
                                                     <th class="right">Currency</th>
+                                                    <th class="right">Image</th>
 
                                                 </tr>
                                             </thead>
@@ -132,6 +133,7 @@
                                                     <td class="right"><?=$row['color'] ? $row['color'] : 'N/A'?></td>
                                                     <td class="right"><?=$row['price'] ? $row['price'] : 'N/A'?></td>
                                                     <td class="right"><?=$row['currency'] ? $row['currency'] : 'N/A'?>
+                                                    <td class="right"><?=$row['image'] ? $row['image'] : 'N/A'?>
                                                     </td>
                                                 </tr>
                                                 <?php 

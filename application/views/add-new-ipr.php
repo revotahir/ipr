@@ -117,7 +117,8 @@
                                 <!-- form start here -->
                                 <!-- ======================================================================= -->
                                 <form class="needs-validation" method="post"
-                                    action="<?=base_url('order-detail-submit-data')?>" novalidate>
+                                    action="<?=base_url('order-detail-submit-data')?>" novalidate
+                                    enctype="multipart/form-data">
 
 
                                     <!-- ======================================================================= -->
@@ -376,19 +377,21 @@
                                                         </div>
                                                     </div>
                                                     <!-- new selectbox -->
-                                                     <!-- product image upload -->
-                                                      <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 mb-2">
-                                                        <label for="currency">
+                                                    <!-- product image upload -->
+                                                    <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 mb-2">
+                                                        <label for="productImage">
                                                             Product Image (Optional)
                                                         </label>
                                                         <div class="form-group">
-                                                          <input type="file" class="form-control" name="products[0][productImage]" id="products[0][productImage]">
+                                                            <input type="file" class="form-control"
+                                                                name="products[0][productImage]"
+                                                                id="products[0][productImage]">
                                                         </div>
                                                         <div class="invalid-feedback">
                                                             Please provide a currency.
                                                         </div>
                                                     </div>
-                                                     <!-- product image upload -->
+                                                    <!-- product image upload -->
                                                 </div>
                                             </div>
                                         </div>
@@ -572,7 +575,7 @@
                         <div class="invalid-feedback">Please provide a currency.</div>
                     </div>
                        <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 mb-2">
-                                                        <label for="currency">
+                                                        <label for="productImage">
                                                             Product Image (Optional)
                                                         </label>
                                                         <div class="form-group">
