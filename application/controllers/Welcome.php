@@ -29,6 +29,28 @@ class Welcome extends CI_Controller
 	{
 		$this->load->view('login');
 	}
+
+
+	// scan barocode
+	public function scanBarcode()
+	{
+		$this->load->view('scan-barcode');
+	}
+
+	// search barcode
+		public function searchBarcode()
+		{
+			$barcodeNo = $this->input->post('barcodeNo');
+			
+			// Filter by barcode number if it's provided
+			if (!empty($barcodeNo)) {
+				$this->db->where('barcodeNo', $barcodeNo);
+			}
+			
+			$this->data['searchBarcode'] = $this->generic->GetData('ipr_product_detail');
+			$this->load->view('scan-barcode', $this->data);
+		}
+
 	//sign up
 	public function signup(){
 		$this->load->view('signup');
@@ -145,6 +167,7 @@ class Welcome extends CI_Controller
 			redirect(base_url());
 		}
 	}
+	
 	public function addNewIPRData()
 	{
 		if ($this->session->userdata('loginData')) {
@@ -170,7 +193,28 @@ class Welcome extends CI_Controller
 
 			// Process the data (e.g., save to database)
 			foreach ($products as $product) {
+									
+				if (isset($_FILES['productImage']) && !empty($_FILES['productImage']['name'])) {
 					
+					// Load upload library and configure
+					$config['upload_path'] = './assets/productimages/';
+					$config['allowed_types'] = 'gif|jpg|png|jpeg';
+					$config['max_size'] = 2048; // 2MB
+					$config['encrypt_name'] = TRUE; // Encrypt the file name
+
+					$this->load->library('upload', $config);
+
+					if (!$this->upload->do_upload('productImage')) {
+						// If upload fails, show error
+						$error = $this->upload->display_errors();
+						$this->session->set_flashdata('uploadError', $error);
+						redirect(base_url('edit-product/' . $this->uri->segment(2)));
+					} else {
+						// If upload is successful, get the file data
+						$upload_data = $this->upload->data();
+						$data['productImage'] = $upload_data['file_name'];
+					}
+				}
 
 
 
@@ -183,6 +227,7 @@ class Welcome extends CI_Controller
 					'color' => $product['color'],
 					'price' => $product['price'],
 					'currency' => $product['currency'],
+					'image' => $productImage,
 				);
 				$this->generic->InsertData('ipr_product_detail', $productDetail);
 			}

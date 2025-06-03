@@ -94,6 +94,7 @@
                                                 <th>Color</th>
                                                 <th>Price</th>
                                                 <th>Currency</th>
+                                                <th>Image</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -111,7 +112,11 @@
                                                 <td><?=$row['sizeQty'] ? $row['sizeQty'] : 'N/A'?></td>
                                                 <td><?=$row['color'] ? $row['color'] : 'N/A'?></td>
                                                 <td><?=$row['price'] ? $row['price'] : 'N/A'?></td>
-                                                <td style="text-transform: uppercase;"><?=$row['currency'] ? $row['currency'] : 'N/A'?></td>
+                                                <td style="text-transform: uppercase;">
+                                                    <?=$row['currency'] ? $row['currency'] : 'N/A'?>
+                                                </td>
+                                                <td>
+                                                    <?=$row['image'] ? $row['image'] : 'N/A'?>
                                                 </td>
                                             </tr>
                                             <?php
@@ -120,7 +125,7 @@
                                             } else {
                                                 ?>
                                             <tr>
-                                                <td colspan="9">
+                                                <td colspan="10">
                                                     <center>No Data Found!</center>
                                                 </td>
                                             </tr>
@@ -141,6 +146,7 @@
                                                 <th>Color</th>
                                                 <th>Price</th>
                                                 <th>Currency</th>
+                                                <th>Image</th>
                                             </tr>
                                         </tfoot>
                                     </table>

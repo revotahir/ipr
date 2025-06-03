@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 04, 2025 at 09:19 PM
+-- Generation Time: Jun 02, 2025 at 11:16 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -46,7 +46,8 @@ CREATE TABLE `ipr_order_detail` (
 --
 
 INSERT INTO `ipr_order_detail` (`orderID`, `ID`, `order_ID`, `barcodeType`, `companyName`, `productCategory`, `countryOrigin`, `gstNumber`, `companyWebsite`, `phoneNumber`, `productDescription`) VALUES
-(1, 622, '11', 'ean-13', 'Company Test', 'clothing', 'bangladesh', 'asfasf', 'asfasf', '15165151', '');
+(3, 622, '2', 'ean-13', 'r', 'cooking-oil', 'brazil', 'rrr', 'afasf', 'af', 'sdfsd'),
+(4, 622, '33', 'ean-13', 'fwed', 'books-and-magazines', 'canada', 'sdf', '', 'ssdf342', 'sdf');
 
 -- --------------------------------------------------------
 
@@ -62,17 +63,43 @@ CREATE TABLE `ipr_product_detail` (
   `productName` varchar(500) NOT NULL,
   `sizeQty` varchar(100) DEFAULT NULL,
   `color` varchar(100) DEFAULT NULL,
-  `price` varchar(100) DEFAULT NULL
+  `price` varchar(100) DEFAULT NULL,
+  `currency` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `ipr_product_detail`
 --
 
-INSERT INTO `ipr_product_detail` (`productID`, `orderID`, `barcodeNo`, `brandName`, `productName`, `sizeQty`, `color`, `price`) VALUES
-(1, 1, '112233', 'xyz', 'aaa', '1', '2', '3'),
-(2, 1, '11334', 'qqq', 'bbb', '', '', ''),
-(3, 1, '115566', 'vvv', 'nn', '', '5', '');
+INSERT INTO `ipr_product_detail` (`productID`, `orderID`, `barcodeNo`, `brandName`, `productName`, `sizeQty`, `color`, `price`, `currency`) VALUES
+(6, 3, '3', 'asdf', '23', '32', '32', 'fas', 'inr'),
+(7, 3, 'sadfsd', 'sdf', 'sdf', 'sdf', 'sdf', 'sdf', ''),
+(8, 4, '3434', 'fsdf', 'sdfgsd', 'fs', 'dfsd', '4343', 'inr');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `wp_usermeta`
+--
+
+CREATE TABLE `wp_usermeta` (
+  `umeta_id` bigint(20) UNSIGNED NOT NULL,
+  `user_id` bigint(20) UNSIGNED NOT NULL DEFAULT 0,
+  `meta_key` varchar(255) DEFAULT NULL,
+  `meta_value` longtext DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+
+--
+-- Dumping data for table `wp_usermeta`
+--
+
+INSERT INTO `wp_usermeta` (`umeta_id`, `user_id`, `meta_key`, `meta_value`) VALUES
+(1, 623, 'wp_capabilities', 'a:1:{s:8:\"customer\";b:1;}'),
+(2, 623, 'wp_user_level', '0'),
+(3, 624, 'wp_capabilities', 'a:1:{s:8:\"customer\";b:1;}'),
+(4, 624, 'wp_user_level', '0'),
+(5, 625, 'wp_capabilities', 'a:1:{s:8:\"customer\";b:1;}'),
+(6, 625, 'wp_user_level', '0');
 
 -- --------------------------------------------------------
 
@@ -98,11 +125,14 @@ CREATE TABLE `wp_users` (
 --
 
 INSERT INTO `wp_users` (`ID`, `user_login`, `user_pass`, `user_nicename`, `user_email`, `user_url`, `user_registered`, `user_activation_key`, `user_status`, `display_name`) VALUES
-(1, 'admin', '$P$BP0aLer3uvl4OA07TlU3CJvqsHxoDW1', 'admin', 'admin@admin.com', 'https://instabarcode.com', '2023-07-21 19:35:19', '', 0, 'admin'),
+(1, 'admin', '$wp$2y$10$Wz9Ad4PKQ074yudAfXIVQ.ymdwGVN9ZaUu3UvjuiNIHbXZ8WNL4pK', 'admin', 'hello@instabarcode.com', 'https://instabarcode.com', '2023-07-21 19:35:19', '', 0, 'admin'),
 (4, 'nipun.mehra', '$P$BkSiMN8NXT/YAwu/05E/JFSht7GBkq1', 'nipun-mehra', 'nipun@zingiberventures.com', '', '2023-08-31 08:28:13', '1693470493:$P$BfEEnUcinQml7JJdELkt1gbA5zphq9/', 0, 'nipun.mehra'),
 (17, 'yash.vijan', '$P$BkBvnUw9osGqjOgVILZ35udlwiK26c/', 'yash-vijan', 'sales@uniqueartzz.com', '', '2023-09-04 06:11:46', '', 0, 'yash.vijan'),
 (19, 'vijay.chauhan', '$P$ByX/LOqDBgPxAN7GFaMx1jbx.bTy6u.', 'vijay-chauhan', 'jaydurganamkeen2003@gmail.com', '', '2023-09-05 16:55:12', '1693932912:$P$BF77F5w6AWULmM3YOx.LXiIZ5SxEPf1', 0, 'vijay.chauhan'),
-(622, 'Client', '802ddeaab1ba9ea831e79afc0530a33c', 'admin', 'client@client.com', 'https://instabarcode.com', '2023-07-21 19:35:19', '', 0, 'admin');
+(622, 'Client', '$wp$2y$10$Wz9Ad4PKQ074yudAfXIVQ.ymdwGVN9ZaUu3UvjuiNIHbXZ8WNL4pK', 'admin', 'client@client.com', 'https://instabarcode.com', '2023-07-21 19:35:19', '', 0, 'admin'),
+(623, 'tesst user', 'b9083210227e76f88c81d660b6024c01', 'tesst user', 'testcust@client.com', '', '2025-03-12 22:48:48', '', 0, 'tesst user'),
+(624, 'test', 'eb37a6ef363939027b66afd969666823', 'test', 'cliet3@gmail.com', '', '2025-03-12 22:51:30', '', 0, 'test'),
+(625, 'asfas', 'fce9bdb9c8ff83279cb29625ab595ac4', 'asfas', 'test33@asfgds.com', '', '2025-03-12 22:51:56', '', 0, 'asfas');
 
 --
 -- Indexes for dumped tables
@@ -121,6 +151,14 @@ ALTER TABLE `ipr_product_detail`
   ADD PRIMARY KEY (`productID`);
 
 --
+-- Indexes for table `wp_usermeta`
+--
+ALTER TABLE `wp_usermeta`
+  ADD PRIMARY KEY (`umeta_id`),
+  ADD KEY `user_id` (`user_id`),
+  ADD KEY `meta_key` (`meta_key`(191));
+
+--
 -- Indexes for table `wp_users`
 --
 ALTER TABLE `wp_users`
@@ -137,19 +175,25 @@ ALTER TABLE `wp_users`
 -- AUTO_INCREMENT for table `ipr_order_detail`
 --
 ALTER TABLE `ipr_order_detail`
-  MODIFY `orderID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `orderID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `ipr_product_detail`
 --
 ALTER TABLE `ipr_product_detail`
-  MODIFY `productID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `productID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT for table `wp_usermeta`
+--
+ALTER TABLE `wp_usermeta`
+  MODIFY `umeta_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `wp_users`
 --
 ALTER TABLE `wp_users`
-  MODIFY `ID` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=623;
+  MODIFY `ID` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=626;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
