@@ -28,7 +28,7 @@ a {
 	.navigation {
 		display: flex;
 		/* justify-content: space-evenly; */
-		gap: 100px;
+		justify-content: space-between;
 		img {
 			width: 240px;
 		}

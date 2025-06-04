@@ -60,7 +60,7 @@
                 <b>Brand’s Location</b> and company website<br>
             </p>
             <form action="<?=base_url("search-barcode")?>" class="form-data" method="post">
-                <input type="text" name="barcodeNo" id="barcodeNo" placeholder="Enter Barcode" required class="w-380" />
+                <input type="text" name="barcodeNo" id="barcodeNo" placeholder="Enter Barcode Number" required class="w-380" />
                 <div class="box-row">
                     <input type="submit" value="Submit" class="buttn-green" style="line-height: 20px;" />
                 </div>
