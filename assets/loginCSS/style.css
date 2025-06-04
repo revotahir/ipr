@@ -27,8 +27,8 @@ a {
 
 	.navigation {
 		display: flex;
-		justify-content: space-evenly;
-		/* gap: 100px; */
+		/* justify-content: space-evenly; */
+		gap: 100px;
 		img {
 			width: 240px;
 		}
@@ -38,12 +38,34 @@ a {
 			li {
 				list-style: none;
 				a {
-					font-family: "Poppins", sans-serif;
-					font-weight: 500;
-					color: #333333;
-					font-size: 16px;
+				position: relative;
+				font-family: "Poppins", sans-serif;
+				font-weight: 500;
+				color: black;
+				font-size: 18px;
+				text-decoration: none;
+				transition: color 0.3s ease;
+
+				&::after {
+					content: '';
+					position: absolute;
+					left: 0;
+					bottom: -4px;
+					width: 0;
+					height: 2px;
+					background-color: white;
+					transition: width 0.4s ease;
+				}
+
+				&:hover {
+					color: white;
+
+					&::after {
+						width: 100%;
+					}
 				}
 			}
+		}
 		}
 	}
 }

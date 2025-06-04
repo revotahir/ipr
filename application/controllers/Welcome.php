@@ -38,37 +38,48 @@ class Welcome extends CI_Controller
 	}
 
 	// search barcode
-		public function searchBarcode()
-		{
-			$barcodeNo = $this->input->post('barcodeNo');
-			
-			// Filter by barcode number if it's provided
-			if (!empty($barcodeNo)) {
-				$this->db->where('barcodeNo', $barcodeNo);
-			}
-			
-			$this->data['searchBarcode'] = $this->generic->GetData('ipr_product_detail');
-			$this->load->view('scan-barcode', $this->data);
+	public function searchBarcode()
+	{
+		$barcodeNo = $this->input->post('barcodeNo');
+
+		// Filter by barcode number if it's provided
+		if (!empty($barcodeNo)) {
+			$this->db->where('barcodeNo', $barcodeNo);
 		}
 
+		$this->data['searchBarcode'] = $this->generic->GetData('ipr_product_detail');
+		if($this->data['searchBarcode']){
+			redirect(base_url('find-barcode/').$barcodeNo);
+		}else{
+			$this->session->set_flashdata('barcodeNotFound', 1);
+			redirect(base_url('find-barcode'));
+		}
+	}
+	public function searchBarcodeDetail(){
+		$this->data['searchBarcode'] = $this->generic->GetData('ipr_product_detail',array('barcodeNo'=>$this->uri->segment(2)));
+		$this->load->view('scan-barcode-detail',$this->data);
+	}
+
 	//sign up
-	public function signup(){
+	public function signup()
+	{
 		$this->load->view('signup');
 	}
 
-	public function signupData(){
-		 // Get form data
-		 $userName = $this->input->post('userName');
-		 $userEmail = $this->input->post('userEmail');
-		 $userPassword = $this->input->post('userPassword');
-		  // Check if the email already exists
-		  $this->db->where('user_email', $userEmail);
-		  $query = $this->db->get('wp_users');
-		  if ($query->num_rows() > 0) {
-			  // User already exists
-			  $this->session->set_flashdata('alreadyRegistered', 1);
-			  redirect(base_url('sign-up'));
-		  }else{
+	public function signupData()
+	{
+		// Get form data
+		$userName = $this->input->post('userName');
+		$userEmail = $this->input->post('userEmail');
+		$userPassword = $this->input->post('userPassword');
+		// Check if the email already exists
+		$this->db->where('user_email', $userEmail);
+		$query = $this->db->get('wp_users');
+		if ($query->num_rows() > 0) {
+			// User already exists
+			$this->session->set_flashdata('alreadyRegistered', 1);
+			redirect(base_url('sign-up'));
+		} else {
 			// Hash the password (WordPress uses MD5 by default for backward compatibility)
 			$hashedPassword = md5($userPassword);
 
@@ -92,25 +103,24 @@ class Welcome extends CI_Controller
 					'meta_key' => 'wp_capabilities',
 					'meta_value' => 'a:1:{s:8:"customer";b:1;}'
 				);
-	
+
 				$userMetaData2 = array(
 					'user_id' => $userID,
 					'meta_key' => 'wp_user_level',
 					'meta_value' => '0'
 				);
-	
+
 				// Insert meta data into wp_usermeta table
 				$this->db->insert('wp_usermeta', $userMetaData1);
 				$this->db->insert('wp_usermeta', $userMetaData2);
-	
+
 				$this->session->set_flashdata('Registered', 1);
 				redirect(base_url());
 			} else {
 				$this->session->set_flashdata('Error', 1);
 				redirect(base_url('sign-up'));
 			}
-	
-		  }
+		}
 	}
 
 
@@ -125,12 +135,12 @@ class Welcome extends CI_Controller
 
 		if ($query) {
 			// Load the PHPass library
-// 			require_once APPPATH . 'libraries/class-phpass.php';
-// 			$wp_hasher = new PasswordHash(8, true); // Match WordPress settings
-		
+			// 			require_once APPPATH . 'libraries/class-phpass.php';
+			// 			$wp_hasher = new PasswordHash(8, true); // Match WordPress settings
+
 			// Verify the password
-// 			if ($wp_hasher->CheckPassword($pass, $query[0]['user_pass'])) {
-				if(verify_wp_password($pass, $query[0]['user_pass'])){
+			// 			if ($wp_hasher->CheckPassword($pass, $query[0]['user_pass'])) {
+			if (verify_wp_password($pass, $query[0]['user_pass'])) {
 				//set session
 				$this->session->set_userdata('loginData', $query[0]);
 				if ($query[0]['user_email'] == 'hello@instabarcode.com') {
@@ -140,13 +150,12 @@ class Welcome extends CI_Controller
 				}
 			} else {
 				$this->session->set_flashdata('error_msg', 1);
-			redirect(base_url());
+				redirect(base_url());
 			}
 		} else {
 			// User not found
 			echo "User not found!";
 		}
-
 	}
 	public function Dashboard()
 	{
@@ -167,7 +176,7 @@ class Welcome extends CI_Controller
 			redirect(base_url());
 		}
 	}
-	
+
 	public function addNewIPRData()
 	{
 		if ($this->session->userdata('loginData')) {
@@ -191,32 +200,10 @@ class Welcome extends CI_Controller
 			// Retrieve product details
 			$products = $this->input->post('products');
 
-			// Process the data (e.g., save to database)
-			foreach ($products as $product) {
-									
-				if (isset($_FILES['productImage']) && !empty($_FILES['productImage']['name'])) {
-					
-					// Load upload library and configure
-					$config['upload_path'] = './assets/productimages/';
-					$config['allowed_types'] = 'gif|jpg|png|jpeg';
-					$config['max_size'] = 2048; // 2MB
-					$config['encrypt_name'] = TRUE; // Encrypt the file name
+			// Load upload library only once
+			$this->load->library('upload');
 
-					$this->load->library('upload', $config);
-
-					if (!$this->upload->do_upload('productImage')) {
-						// If upload fails, show error
-						$error = $this->upload->display_errors();
-						$this->session->set_flashdata('uploadError', $error);
-						redirect(base_url('edit-product/' . $this->uri->segment(2)));
-					} else {
-						// If upload is successful, get the file data
-						$upload_data = $this->upload->data();
-						$data['productImage'] = $upload_data['file_name'];
-					}
-				}
-
-
+			foreach ($products as $index => $product) {
 
 				$productDetail = array(
 					'orderID' => $maxOrderID,
@@ -227,10 +214,39 @@ class Welcome extends CI_Controller
 					'color' => $product['color'],
 					'price' => $product['price'],
 					'currency' => $product['currency'],
-					'image' => $productImage,
 				);
+
+				// Handle file upload for this product
+				if (isset($_FILES['products']['name'][$index]['productImage']) && !empty($_FILES['products']['name'][$index]['productImage'])) {
+					// die('asa');
+					$_FILES['single_product_image']['name'] = $_FILES['products']['name'][$index]['productImage'];
+					$_FILES['single_product_image']['type'] = $_FILES['products']['type'][$index]['productImage'];
+					$_FILES['single_product_image']['tmp_name'] = $_FILES['products']['tmp_name'][$index]['productImage'];
+					$_FILES['single_product_image']['error'] = $_FILES['products']['error'][$index]['productImage'];
+					$_FILES['single_product_image']['size'] = $_FILES['products']['size'][$index]['productImage'];
+
+					$config['upload_path'] = './assets/productimages/';
+					$config['allowed_types'] = 'gif|jpg|png|jpeg';
+					$config['max_size'] = 2048; // 2MB
+					$config['encrypt_name'] = TRUE;
+
+					$this->upload->initialize($config);
+
+					if ($this->upload->do_upload('single_product_image')) {
+						$upload_data = $this->upload->data();
+						$productDetail['image'] = $upload_data['file_name'];
+					} else {
+						$error = $this->upload->display_errors();
+						$this->session->set_flashdata('uploadError', $error);
+						redirect(base_url('edit-product/' . $this->uri->segment(2)));
+					}
+				}
+
+				// Save to databaseF
 				$this->generic->InsertData('ipr_product_detail', $productDetail);
 			}
+
+
 			//success message
 			$this->session->set_flashdata('iprAdded', 1);
 			redirect(base_url('add-new-ipr'));
@@ -275,12 +291,13 @@ class Welcome extends CI_Controller
 			redirect(base_url());
 		}
 	}
-	public function IprListData(){
+	public function IprListData()
+	{
 		if ($this->session->userdata('loginData')) {
-			$this->data['userDetail']=$this->generic->GetData('wp_users',array('ID'=>$_GET['userID']));
-			$this->data['orderList']=$this->generic->GetData('ipr_order_detail', array('ID' => $_GET['userID']));
-			$this->load->view('ipr-order-list',$this->data);
-		}else{
+			$this->data['userDetail'] = $this->generic->GetData('wp_users', array('ID' => $_GET['userID']));
+			$this->data['orderList'] = $this->generic->GetData('ipr_order_detail', array('ID' => $_GET['userID']));
+			$this->load->view('ipr-order-list', $this->data);
+		} else {
 			redirect(base_url());
 		}
 	}

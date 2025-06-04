@@ -67,8 +67,8 @@
                 </a>
                 <ul>
                     <li>
-                        <a href="<?= base_url('scan-barcode')?>">
-                            Scan Barcode
+                        <a href="<?= base_url('find-barcode')?>">
+                            Find Barcode
                         </a>
                     </li>
                 </ul>

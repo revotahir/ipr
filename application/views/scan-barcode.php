@@ -68,82 +68,16 @@
         </div>
     </section>
 
-    <!-- section show results -->
-    <?php if (isset($_POST['barcodeNo'])): ?>
-    <?php if ($searchBarcode): ?>
-    <div class="dashboard-ecommerce" style="background-color: #ffffff;">
-        <div class="container-fluid dashboard-content ">
-            <div class="row">
-                <div class="offset-xl-2 col-xl-8 col-lg-12 col-md-12 col-sm-12 col-12">
-                    <div class="card">
-                        <div class="card-header-main">
-                            <a class="navbar-brand" href="<?=base_url()?>">
-                                <img src="https://instabarcode.com/wp-content/uploads/2023/07/logo-for-insta-b.png"
-                                    width="100%" alt="">
-                            </a>
-                        </div>
-                        <div class="card-body">
-                            <div class="table-responsive-sm">
-                                <table class="table table-striped">
-                                    <thead>
-                                        <tr>
-                                            <th class="center">#</th>
-                                            <th>Barcode Number</th>
-                                            <th>Brand Name</th>
-                                            <th class="right">Product Name </th>
-                                            <th class="center">Size/Qty</th>
-                                            <th class="right">Color</th>
-                                            <th class="right">Price</th>
-                                            <th class="right">Currency</th>
-                                            <th class="right">Image</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <?php 
-                                            $sr=1;
-                                            foreach ($searchBarcode as $row) {
-                                            ?>
-                                        <tr>
-                                            <td class="center"><?=$sr?></td>
-                                            <td class="left strong"><?=$row['barcodeNo']?></td>
-                                            <td class="left"><?=$row['brandName']?></td>
-                                            <td class="right"><?=$row['productName']?></td>
-                                            <td class="center"><?=$row['sizeQty'] ? $row['sizeQty'] : 'N/A'?></td>
-                                            <td class="right"><?=$row['color'] ? $row['color'] : 'N/A'?></td>
-                                            <td class="right"><?=$row['price'] ? $row['price'] : 'N/A'?></td>
-                                            <td class="right"><?=$row['currency'] ? $row['currency'] : 'N/A'?></td>
-                                            <td class="right">
-                                                <?php if ($row['image']): ?>
-                                                <img src="<?=$row['image']?>" width="50" alt="Product Image">
-                                                <?php else: ?>
-                                                N/A
-                                                <?php endif; ?>
-                                            </td>
-                                        </tr>
-                                        <?php
-                                                $sr++;
-                                            }
-                                            ?>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <?php else: ?>
+    
+    <?php if ($this->session->flashdata('barcodeNotFound') != '') { ?>
     <section class="not-found">
         <div class="container-box">
             <h1>Nothing Found</h1>
             <p>Sorry, but nothing matched your search terms. Please try again with some different keywords.</p>
-            <span>That Barcode doesn't exist <b
-                    style="color: #000000;"><?=htmlspecialchars($_POST['barcodeNo'])?></b></span>
+        
         </div>
     </section>
-    <?php endif; ?>
-    <?php endif; ?>
+    <?php } ?>
     <!-- ============================================================== -->
     <!-- end wrapper  -->
     <!-- ============================================================== -->

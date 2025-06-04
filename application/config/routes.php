@@ -50,8 +50,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |		my-controller/my-method	-> my_controller/my_method
 */
 $route['login-data'] = 'welcome/loginData';
-$route['scan-barcode'] = 'welcome/scanBarcode';
+$route['find-barcode'] = 'welcome/scanBarcode';
 $route['search-barcode'] = 'welcome/searchBarcode';
+$route['find-barcode/:any'] = 'welcome/searchBarcodeDetail';
 $route['dashboard'] = 'welcome/Dashboard';
 //sign up 
 $route['sign-up']='welcome/signup';

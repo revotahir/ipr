@@ -116,7 +116,17 @@
                                                     <?=$row['currency'] ? $row['currency'] : 'N/A'?>
                                                 </td>
                                                 <td>
-                                                    <?=$row['image'] ? $row['image'] : 'N/A'?>
+                                                    <?php 
+                                                        if($row['image']){
+                                                    ?>
+                                                        <a href="<?=base_url('/assets/productimages/').$row['image']?>" target="_blank">
+                                                            <img src="<?=base_url('/assets/productimages/').$row['image']?>" alt="">
+                                                        </a>
+                                                    <?php 
+                                                        }else{
+                                                            echo 'N/A';
+                                                        }
+                                                        ?>
                                                 </td>
                                             </tr>
                                             <?php
