@@ -115,6 +115,8 @@
                                                     <a href="<?=base_url('products-detail/?order_id=').$row['orderID']?>"
                                                         class="btn-green"><i class="fas fa-eye"></i> Products
                                                         Detail</a>
+                                                    <a href="<?=base_url('edit-ipr/?order_id=').$row['orderID']?>"
+                                                        class="btn-green"><i class="fas fa-pencil-alt"></i> Edit</a>
                                                 </td>
                                             </tr>
                                             <?php

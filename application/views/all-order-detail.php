@@ -119,9 +119,17 @@
                                                     <?php 
                                                         if($row['image']){
                                                     ?>
+<!-- <<<<<<< master -->
+                                                    <a href="<?=base_url('/assets/productimages/').$row['image']?>"
+                                                        target="_blank">
+                                                        <img src="<?=base_url('/assets/productimages/').$row['image']?>"
+                                                            alt="">
+                                                    </a>
+<!-- ======= -->
                                                         <a class="btn btn-primary" href="<?=base_url('/assets/productimages/').$row['image']?>" target="_blank">
                                                             View Image
                                                         </a>
+<!-- >>>>>>> master -->
                                                     <?php 
                                                         }else{
                                                             echo 'N/A';

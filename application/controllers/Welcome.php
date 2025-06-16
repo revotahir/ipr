@@ -255,6 +255,11 @@ class Welcome extends CI_Controller
 		}
 	}
 
+	public function editIPR()
+	{
+		$this->load->view('add-new-ipr');
+	}
+
 	public function OrderDatail()
 	{
 		if ($this->session->userdata('loginData')) {

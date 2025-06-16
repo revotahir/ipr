@@ -79,7 +79,49 @@
         <div class="container-box">
             <div class="box-row">
                 <div class="left-side">
-                    <img id="formImage" src="<?=base_url('assets/loginImages/')?>login.svg" alt="Login Image" />
+                    <!-- all image box -->
+                    <div class="all-img-box">
+                        <!-- img-box -->
+                        <div class="imgbox">
+                            ✅
+                            <p>Boosts SEO & Online Visibility</p>
+                        </div>
+                        <!-- img-box -->
+                        <div class="imgbox">
+                            🔎
+                            <p>Built-in Barcode Lookup Tool</p>
+                        </div>
+                        <!-- img-box -->
+                        <div class="imgbox">
+                            🔒
+                            <p>Secure & Encrypted Access</p>
+                        </div>
+                        <!-- img-box -->
+                        <div class="imgbox">
+                            🌐
+                            <p>Remote Access Anytime, Anywhere</p>
+                        </div>
+                        <!-- img-box -->
+                        <div class="imgbox">
+                            ✅
+                            <p>Validate Your Barcodes Instantly</p>
+                        </div>
+                        <!-- img-box -->
+                        <div class="imgbox">
+                            📈
+                            <p>SEO-Friendly Product Pages</p>
+                        </div>
+                        <!-- img-box -->
+                        <div class="imgbox">
+                            🛍
+                            <p>Enhances Your Brand Presence Online</p>
+                        </div>
+                        <!-- img-box -->
+                        <div class="imgbox">
+                            🧾
+                            <p>Organize & Manage Barcode Data Easily</p>
+                        </div>
+                    </div>
                 </div>
                 <div class="right-side">
                     <!-- Login Form -->
