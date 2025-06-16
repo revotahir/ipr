@@ -380,7 +380,7 @@
                                                     <!-- product image upload -->
                                                     <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 mb-2">
                                                         <label for="productImage">
-                                                            Product Image (Optional)
+                                                            Product Image (Optional, Max 2 MB)
                                                         </label>
                                                         <div class="form-group">
                                                             <input type="file" class="form-control"

@@ -182,7 +182,7 @@ class Welcome extends CI_Controller
 		if ($this->session->userdata('loginData')) {
 			$orderDetail = array(
 				'ID' => $this->session->userdata['loginData']['ID'],
-				'order_ID' => $this->input->post('order_id'),
+				'order_ID' => str_replace(' ', '', $this->input->post('order_id')),
 				'barcodeType' => $this->input->post('Barcode_Type'),
 				'companyName' => $this->input->post('CompanyName'),
 				'productCategory' => $this->input->post('Product_Cat'),
@@ -207,10 +207,10 @@ class Welcome extends CI_Controller
 
 				$productDetail = array(
 					'orderID' => $maxOrderID,
-					'barcodeNo' => $product['barcodeNumber'],
+					'barcodeNo' => str_replace(' ', '', $product['barcodeNumber']),
 					'brandName' => $product['brandName'],
 					'productName' => $product['productName'],
-					'sizeQty' => $product['sizeQuantity'],
+					'sizeQty' => str_replace(' ', '', $product['sizeQuantity']),
 					'color' => $product['color'],
 					'price' => $product['price'],
 					'currency' => $product['currency'],
