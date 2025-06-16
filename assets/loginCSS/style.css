@@ -589,7 +589,6 @@ a {
 
 	.main-box {
 		margin: 50px 0 20px 0;
-
 		.container-box {
 			.box-row {
 				.left-side {
@@ -648,7 +647,6 @@ a {
 			gap: 60px;
 		}
 	}
-
 	.main-box {
 		& .container-box {
 			& .box-row {
