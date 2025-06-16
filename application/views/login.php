@@ -127,7 +127,7 @@
                     <!-- Login Form -->
                     <form id="loginForm" method="post" action="<?=base_url().'login-data'?>" class="form-data active">
                         <h1>Instabarcode Product Repository (IPR)</h1>
-                        <p> Your Cloud-Based Product Management Solution</p>
+                        <p style="  color: gray;"> Your Cloud-Based Product Management Solution</p>
                         <p style="  color: gray;">
                             Instabarcode Product Repository is a modern, cloud-based platform designed to help you
                             register and store your product details alongside their assigned barcodes. Simply log in to

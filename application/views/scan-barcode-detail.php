@@ -60,7 +60,7 @@
                 <b>Brand’s Location</b> and company website<br>
             </p>
             <form action="<?=base_url("search-barcode")?>" class="form-data" method="post">
-                <input type="text" name="barcodeNo" id="barcodeNo" placeholder="Enter Barcode" required class="w-380" />
+                <input type="text" name="barcodeNo" id="barcodeNo" placeholder="Enter Barcode Number" required class="w-380" />
                 <div class="box-row">
                     <input type="submit" value="Submit" class="buttn-green" style="line-height: 20px;" />
                 </div>
@@ -75,12 +75,9 @@
             <div class="row">
                 <div class="offset-xl-2 col-xl-8 col-lg-12 col-md-12 col-sm-12 col-12">
                     <div class="card">
-                        <div class="card-header-main">
-                            <a class="navbar-brand" href="<?=base_url()?>">
-                                <img src="https://instabarcode.com/wp-content/uploads/2023/07/logo-for-insta-b.png"
-                                    width="100%" alt="">
-                            </a>
-                        </div>
+                        <!-- <div class="card-header-main">
+                         
+                        </div> -->
                         <div class="card-body">
                             <div class="table-responsive-sm">
                                 <table class="table table-striped">
@@ -95,6 +92,7 @@
                                             <th class="right">Price</th>
                                             <th class="right">Currency</th>
                                             <th class="right">Image</th>
+                                           
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -103,17 +101,17 @@
                                             foreach ($searchBarcode as $row) {
                                             ?>
                                         <tr>
-                                            <td class="center"><?=$sr?></td>
+                                            <td class="center"><?=$sr.'.'?></td>
                                             <td class="left strong"><?=$row['barcodeNo']?></td>
                                             <td class="left"><?=$row['brandName']?></td>
                                             <td class="right"><?=$row['productName']?></td>
                                             <td class="center"><?=$row['sizeQty'] ? $row['sizeQty'] : 'N/A'?></td>
                                             <td class="right"><?=$row['color'] ? $row['color'] : 'N/A'?></td>
                                             <td class="right"><?=$row['price'] ? $row['price'] : 'N/A'?></td>
-                                            <td class="right"><?=$row['currency'] ? $row['currency'] : 'N/A'?></td>
-                                            <td class="right">
-                                                <?php if ($row['image']): ?>
-                                                <img src="<?=$row['image']?>" width="50" alt="Product Image">
+                                            <td class="right" style="text-transform: uppercase;"><?=$row['currency'] ? $row['currency'] : 'N/A'?></td>
+                                            <td>
+                                                 <?php if ($searchBarcode[0]['image']): ?>
+                                                <img src="<?=base_url('/assets/productimages/').$searchBarcode[0]['image']?>" width="80px" alt="Product Image">
                                                 <?php else: ?>
                                                 N/A
                                                 <?php endif; ?>
