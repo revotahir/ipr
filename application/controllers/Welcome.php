@@ -257,7 +257,8 @@ class Welcome extends CI_Controller
 
 	public function editIPR()
 	{
-		$this->load->view('add-new-ipr');
+			$this->data['orderDetail'] = $this->generic->GetData('ipr_order_detail', array('orderID' => $_GET['order_id']));
+		$this->load->view('add-new-ipr',$this->data);
 	}
 
 	public function OrderDatail()
