@@ -238,7 +238,7 @@ class Welcome extends CI_Controller
 					} else {
 						$error = $this->upload->display_errors();
 						$this->session->set_flashdata('uploadError', $error);
-						redirect(base_url('edit-product/' . $this->uri->segment(2)));
+						redirect(base_url('add-new-ipr/' . $this->uri->segment(2)));
 					}
 				}
 
@@ -317,7 +317,9 @@ class Welcome extends CI_Controller
         if (!$this->upload->do_upload('productImage')) {
             $error = $this->upload->display_errors();
             $this->session->set_flashdata('uploadError', $error);
-            redirect(base_url('products-detail/' . $product_id));
+    		$productInfo = $this->generic->GetData('ipr_product_detail', array('productID' => $product_id));
+			$orderID = $productInfo[0]['orderID'] ?? null;
+            redirect(base_url('products-detail/?order_id=' . $orderID));
         } else {
             $upload_data = $this->upload->data();
             $data['image'] = $upload_data['file_name'];

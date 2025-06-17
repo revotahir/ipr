@@ -83,42 +83,42 @@
                     <div class="all-img-box">
                         <!-- img-box -->
                         <div class="imgbox">
-                            ✅
+                            <img src="<?=base_url('assets/images/boost.svg')?>" alt="Image">
                             <p>Boosts SEO & Online Visibility</p>
                         </div>
                         <!-- img-box -->
                         <div class="imgbox">
-                            🔎
+                            <img src="<?=base_url('assets/images/upc-searching.svg')?>" alt="Image">
                             <p>Built-in Barcode Lookup Tool</p>
                         </div>
                         <!-- img-box -->
                         <div class="imgbox">
-                            🔒
+                            <img src="<?=base_url('assets/images/encrypted-data.svg')?>" alt="Image">
                             <p>Secure & Encrypted Access</p>
                         </div>
                         <!-- img-box -->
                         <div class="imgbox">
-                            🌐
+                            <img src="<?=base_url('assets/images/access-control.svg')?>" alt="Image">
                             <p>Remote Access Anytime, Anywhere</p>
                         </div>
                         <!-- img-box -->
                         <div class="imgbox">
-                            ✅
+                            <img src="<?=base_url('assets/images/approval.svg')?>" alt="Image">
                             <p>Validate Your Barcodes Instantly</p>
                         </div>
                         <!-- img-box -->
                         <div class="imgbox">
-                            📈
+                            <img src="<?=base_url('assets/images/seo.svg')?>" alt="Image">
                             <p>SEO-Friendly Product Pages</p>
                         </div>
                         <!-- img-box -->
                         <div class="imgbox">
-                            🛍
+                            <img src="<?=base_url('assets/images/project-management.svg')?>" alt="Image">
                             <p>Enhances Your Brand Presence Online</p>
                         </div>
                         <!-- img-box -->
                         <div class="imgbox">
-                            🧾
+                            <img src="<?=base_url('assets/images/online-store.svg')?>" alt="Image">
                             <p>Organize & Manage Barcode Data Easily</p>
                         </div>
                     </div>

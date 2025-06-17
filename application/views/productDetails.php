@@ -56,6 +56,28 @@
         border: 1px #000 solid;
         color: #000;
     }
+
+
+    .check-btn {
+        background: #b8cd06;
+        font-family: "Poppins", sans-serif;
+        font-weight: 500;
+        color: #000;
+        border: 1px #b8cd06 solid;
+        padding: 8px 8px;
+        border-radius: 5px;
+        font-size: 14px;
+        transition: all 0.2s;
+        cursor: pointer;
+        text-transform: capitalize;
+        text-decoration: none;
+    }
+
+    .check-btn:hover {
+        background: transparent;
+        border: 1px #000 solid;
+        color: #000;
+    }
     </style>
 </head>
 
@@ -179,7 +201,19 @@
                                                     <td class="right"><?=$row['color'] ? $row['color'] : 'N/A'?></td>
                                                     <td class="right"><?=$row['price'] ? $row['price'] : 'N/A'?></td>
                                                     <td class="right"><?=$row['currency'] ? $row['currency'] : 'N/A'?>
-                                                    <td class="right"><?=$row['image'] ? $row['image'] : 'N/A'?>
+                                                    <td class="right">
+                                                        <?php if (!empty($row['image'])): ?>
+                                                        <?php 
+                                                            $imagePath = (strpos($row['image'], 'http') === 0) 
+                                                                ? $row['image'] 
+                                                                : base_url('assets/productimages/' . $row['image']);
+                                                            ?>
+                                                        <a href="<?= $imagePath ?>" class="check-btn"
+                                                            target="_blank">View</a>
+                                                        <?= basename($row['image']) ?>
+                                                        <?php else: ?>
+                                                        N/A
+                                                        <?php endif; ?>
                                                     </td>
                                                     <td>
                                                         <a href="<?=base_url('edit-ipr-product-detail/?product_id=').$row['productID']?>"
@@ -232,6 +266,22 @@ toastr.options = {
     "hideMethod": "fadeOut"
 }
 toastr.success('New Order Details Added!');
+</script>
+
+<?php
+    }
+    ?>
+
+<?php
+    if ($this->session->flashdata('uploadError') != '') {
+    ?>
+<script type="text/javascript">
+toastr.options = {
+    "closeButton": true,
+    "showMethod": "fadeIn",
+    "hideMethod": "fadeOut"
+}
+toastr.error('<?= $this->session->flashdata('uploadError'); ?>');
 </script>
 <?php
     }

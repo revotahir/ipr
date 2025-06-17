@@ -55,6 +55,27 @@
         border: 1px #000 solid;
         color: #000;
     }
+
+    .check-btn {
+        background: #b8cd06;
+        font-family: "Poppins", sans-serif;
+        font-weight: 500;
+        color: #000;
+        border: 1px #b8cd06 solid;
+        padding: 8px 8px;
+        border-radius: 5px;
+        font-size: 14px;
+        transition: all 0.2s;
+        cursor: pointer;
+        text-transform: capitalize;
+        text-decoration: none;
+    }
+
+    .check-btn:hover {
+        background: transparent;
+        border: 1px #000 solid;
+        color: #000;
+    }
     </style>
 </head>
 
@@ -240,13 +261,23 @@
                                                             MB)</label>
                                                         <div class="form-group">
                                                             <input type="file" class="form-control" name="productImage"
-                                                                id="productImage">
+                                                                id="productImage" style="margin-bottom: 20px;">
                                                             <?php if(!empty($editProductDetail[0]['image'])): ?>
-                                                            <small class="text-muted">Current image:
-                                                                <?=$editProductDetail[0]['image']?></small>
+                                                            <small class="text-muted">
+                                                                <?php
+                                                                    $imagePath = (strpos($editProductDetail[0]['image'], 'http') === 0) 
+                                                                        ? $editProductDetail[0]['image'] 
+                                                                        : base_url('assets/productimages/' . $editProductDetail[0]['image']);
+                                                                    ?>
+                                                                <a href="<?= $imagePath ?>" class="check-btn"
+                                                                    target="_blank">View</a>
+                                                                Current image:
+                                                                <?= basename($editProductDetail[0]['image']) ?>
+                                                            </small>
                                                             <?php endif; ?>
                                                         </div>
                                                     </div>
+
                                                 </div>
                                             </div>
                                         </div>
