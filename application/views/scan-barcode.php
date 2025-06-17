@@ -90,7 +90,6 @@
                             <input type="submit" value="Submit" class="buttn-green" style="line-height: 20px;" />
                         </div>
                     </form>
-                   
                 </div>
                 <p>Whether you're looking for GS1 compliant barcodes, buying EAN-13 barcodes, or need to register
                     barcodes

@@ -18,6 +18,7 @@
     <link rel="stylesheet" type="text/css" href="<?= base_url() ?>assets/vendor/datatables/css/select.bootstrap4.css">
     <link rel="stylesheet" type="text/css"
         href="<?= base_url() ?>assets/vendor/datatables/css/fixedHeader.bootstrap4.css">
+    <link rel="stylesheet" href="<?= base_url() ?>assets/toastr/toastr.min.css">
 </head>
 
 <body>
@@ -188,7 +189,22 @@
     <script src="https://cdn.datatables.net/rowgroup/1.0.4/js/dataTables.rowGroup.min.js"></script>
     <script src="https://cdn.datatables.net/select/1.2.7/js/dataTables.select.min.js"></script>
     <script src="https://cdn.datatables.net/fixedheader/3.1.5/js/dataTables.fixedHeader.min.js"></script>
-
+    <script src="<?= base_url() ?>assets/libs/js/main-js.js"></script>
+    <script src="<?= base_url() ?>assets/toastr/toastr.min.js"></script>
+    <?php
+    if ($this->session->flashdata('iprEdited') != '') {
+    ?>
+    <script type="text/javascript">
+    toastr.options = {
+        "closeButton": true,
+        "showMethod": "fadeIn",
+        "hideMethod": "fadeOut"
+    }
+    toastr.success('IPR Updated Successfully!');
+    </script>
+    <?php
+    }
+    ?>
 </body>
 
 </html>

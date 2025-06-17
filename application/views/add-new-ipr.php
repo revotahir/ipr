@@ -126,7 +126,6 @@
                                     <!-- ======================================================================= -->
                                     <div class="form-row">
                                         <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 mb-2">
-                                           
                                             <label for="order_id">Order Id</label>
                                             <input type="number" class="form-control" id="order_id" name="order_id"
                                                 placeholder="Order Id" required />
