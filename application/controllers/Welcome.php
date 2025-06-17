@@ -306,6 +306,7 @@ class Welcome extends CI_Controller
     
     // Handle image upload
     if (isset($_FILES['productImage']) && !empty($_FILES['productImage']['name'])) {
+		// die('asdasd');
         $config['upload_path'] = './assets/productimages/';
         $config['allowed_types'] = 'gif|jpg|png|jpeg';
         $config['max_size'] = 2048; // 2MB max
@@ -315,8 +316,8 @@ class Welcome extends CI_Controller
 
         if (!$this->upload->do_upload('productImage')) {
             $error = $this->upload->display_errors();
-            // $this->session->set_flashdata('uploadError', $error);
-            // redirect(base_url('products-detail/' . $product_id));
+            $this->session->set_flashdata('uploadError', $error);
+            redirect(base_url('products-detail/' . $product_id));
         } else {
             $upload_data = $this->upload->data();
             $data['image'] = $upload_data['file_name'];
@@ -325,9 +326,9 @@ class Welcome extends CI_Controller
     
     // Update the correct table with proper WHERE clause
     $this->generic->Update('ipr_product_detail', array('productID' => $product_id), $data);
-    
+    $orderID=$this->generic->GetData('ipr_product_detail',array('productID'=>$product_id));
     $this->session->set_flashdata('iprEdited', 1);
-    redirect(base_url('dashboard'));
+    redirect(base_url('products-detail/?order_id='.$orderID[0]['orderID']));
 }
 
 
