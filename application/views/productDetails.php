@@ -11,7 +11,52 @@
     <link href="<?=base_url()?>assets/vendor/fonts/circular-std/style.css" rel="stylesheet">
     <link rel="stylesheet" href="<?=base_url()?>assets/libs/css/style.css">
     <link rel="stylesheet" href="<?=base_url()?>assets/vendor/fonts/fontawesome/css/fontawesome-all.css">
+    <link rel="stylesheet" href="<?= base_url() ?>assets/toastr/toastr.min.css">
     <title>IPR Products Detail</title>
+
+    <style>
+    .form-control {
+        height: 40px !important;
+    }
+
+    .form-group textarea {
+        height: 200px !important;
+    }
+
+    .relative {
+        position: relative;
+    }
+
+    .absulate {
+        position: absolute;
+        right: 0;
+        top: 10px;
+        color: red;
+        font-size: 40px;
+        cursor: pointer;
+    }
+
+    .buttn-green {
+        background: #b8cd06;
+        font-family: "Poppins", sans-serif;
+        font-weight: 500;
+        color: #000;
+        border: 1px #b8cd06 solid;
+        padding: 10px 40px;
+        border-radius: 5px;
+        font-size: 16px;
+        transition: all 0.2s;
+        cursor: pointer;
+        text-transform: capitalize;
+        text-decoration: none;
+    }
+
+    .buttn-green:hover {
+        background: transparent;
+        border: 1px #000 solid;
+        color: #000;
+    }
+    </style>
 </head>
 
 <body>
@@ -115,6 +160,7 @@
                                                     <th class="right">Price</th>
                                                     <th class="right">Currency</th>
                                                     <th class="right">Image</th>
+                                                    <th class="right">Action</th>
 
                                                 </tr>
                                             </thead>
@@ -134,6 +180,10 @@
                                                     <td class="right"><?=$row['price'] ? $row['price'] : 'N/A'?></td>
                                                     <td class="right"><?=$row['currency'] ? $row['currency'] : 'N/A'?>
                                                     <td class="right"><?=$row['image'] ? $row['image'] : 'N/A'?>
+                                                    </td>
+                                                    <td>
+                                                        <a href="<?=base_url('edit-ipr-product-detail/?product_id=').$row['productID']?>"
+                                                            class="btn-green"><i class="fas fa-pencil-alt"></i> Edit</a>
                                                     </td>
                                                 </tr>
                                                 <?php 
@@ -169,6 +219,22 @@
     <script src="<?=base_url()?>assets/vendor/slimscroll/jquery.slimscroll.js"></script>
     <!-- main js -->
     <script src="<?=base_url()?>assets/libs/js/main-js.js"></script>
+    <script src="<?= base_url() ?>assets/libs/js/main-js.js"></script>
+    <script src="<?= base_url() ?>assets/toastr/toastr.min.js"></script>
 </body>
+<?php
+    if ($this->session->flashdata('iprAdded') != '') {
+    ?>
+<script type="text/javascript">
+toastr.options = {
+    "closeButton": true,
+    "showMethod": "fadeIn",
+    "hideMethod": "fadeOut"
+}
+toastr.success('New Order Details Added!');
+</script>
+<?php
+    }
+    ?>
 
 </html>

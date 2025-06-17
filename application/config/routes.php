@@ -62,6 +62,10 @@ $route['add-new-ipr'] = 'welcome/addNewIPR';
 $route['order-detail-submit-data'] = 'welcome/addNewIPRData';
 // Edit order
 $route['edit-ipr'] = 'welcome/editIPR';
+$route['edit-ipr-product-detail'] = 'welcome/editIPRProductDetail';
+// Update ip order data
+$route['update-ipr-data'] = 'welcome/updateIPRData';
+$route['update-ipr-product-detail'] = 'welcome/updateIPRProductDetail';
 //All ipr Data
 $route['all-order-detail']='welcome/OrderDatail';
 //--Order Product details

@@ -90,29 +90,6 @@
                             <input type="submit" value="Submit" class="buttn-green" style="line-height: 20px;" />
                         </div>
                     </form>
-<<<<<<< Updated upstream
-                   
-=======
-                    <h1>Instabarcode Product Repository (IPR)</h1>
-                    <h2>
-                        GTIN Lookup Search Tool for Products & Brands –
-                        Verify with RGBN
-                    </h2>
-                    <p>Enter a 13- or 12-digit barcode to discover:</p>
-                    <p>
-                        <b>Product Information</b> <br>
-                        <b>Product Availability,</b> including merchant listings<br>
-                        <b>Product Photos</b><br>
-                        <b>Brand Identity:</b> Learn about the company or business behind the product<br>
-                        <b>Brand’s Location</b> and company website<br>
-                    </p>
-                    <form action="<?=base_url("search-barcode")?>" class="form-data" method="post">
-                        <input type="text" name="barcodeNo" id="barcodeNo" placeholder="Enter Barcode Number" required
-                            class="w-380" />
-                        <div class="box-row">
-                            <input type="submit" value="Submit" class="buttn-green" style="line-height: 20px;" />
-                        </div>
->>>>>>> Stashed changes
                 </div>
                 <p>Whether you're looking for GS1 compliant barcodes, buying EAN-13 barcodes, or need to register
                     barcodes

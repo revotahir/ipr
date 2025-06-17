@@ -255,12 +255,83 @@ class Welcome extends CI_Controller
 		}
 	}
 
+	// edit ipr data request
 	public function editIPR()
 	{
-			$this->data['orderDetail'] = $this->generic->GetData('ipr_order_detail', array('orderID' => $_GET['order_id']));
-		$this->load->view('add-new-ipr',$this->data);
+		$this->data['editOrderDetail'] = $this->generic->GetData('ipr_order_detail', array('orderID' => $_GET['order_id']));
+		$this->load->view('edit-ipr',$this->data);
+	}
+	// edit ipr data request
+	public function editIPRProductDetail()
+	{
+		$this->data['editProductDetail'] = $this->generic->GetData('ipr_product_detail', array('productID' => $_GET['product_id']));
+		$this->load->view('edit-ipr-product-detail', $this->data);
 	}
 
+	// update ipr data
+	public function updateIPRData(){
+		// Get form data from POST
+    $order_id = $this->input->post('order_id');
+    $data = array(
+        'barcodeType' => $this->input->post('Barcode_Type'),
+        'companyName' => $this->input->post('CompanyName'),
+        'productCategory' => $this->input->post('Product_Cat'),
+        'countryOrigin' => $this->input->post('Contry_Origen'),
+        'gstNumber' => $this->input->post('GstNo'),
+        'companyWebsite' => $this->input->post('Company_website'),
+        'phoneNumber' => $this->input->post('CompanyPhone'),
+        'productDescription' => $this->input->post('productDescription')
+    );
+    
+    // Update the record in ipr_order_detail table
+    $this->generic->Update('ipr_order_detail', array('orderID' => $order_id), $data);
+	//success message
+	$this->session->set_flashdata('iprEdited', 1);
+    redirect(base_url('dashboard'));
+	}
+
+
+	public function updateIPRProductDetail(){
+    // Get form data from POST
+    $product_id = $this->input->post('productID');
+    $data = array(
+        'barcodeNo' => $this->input->post('barcodeNumber'),
+        'brandName' => $this->input->post('brandName'),
+        'productName' => $this->input->post('productName'),
+        'sizeQty' => $this->input->post('sizeQuantity'),
+        'color' => $this->input->post('color'),
+        'price' => $this->input->post('price'),
+        'currency' => $this->input->post('currency')
+    );
+    
+    // Handle image upload
+    if (isset($_FILES['productImage']) && !empty($_FILES['productImage']['name'])) {
+        $config['upload_path'] = './assets/productimages/';
+        $config['allowed_types'] = 'gif|jpg|png|jpeg';
+        $config['max_size'] = 2048; // 2MB max
+        $config['encrypt_name'] = TRUE;
+
+        $this->load->library('upload', $config);
+
+        if (!$this->upload->do_upload('productImage')) {
+            $error = $this->upload->display_errors();
+            // $this->session->set_flashdata('uploadError', $error);
+            // redirect(base_url('products-detail/' . $product_id));
+        } else {
+            $upload_data = $this->upload->data();
+            $data['image'] = $upload_data['file_name'];
+        }
+    }
+    
+    // Update the correct table with proper WHERE clause
+    $this->generic->Update('ipr_product_detail', array('productID' => $product_id), $data);
+    
+    $this->session->set_flashdata('iprEdited', 1);
+    redirect(base_url('dashboard'));
+}
+
+
+	// order detail for all order list
 	public function OrderDatail()
 	{
 		if ($this->session->userdata('loginData')) {
