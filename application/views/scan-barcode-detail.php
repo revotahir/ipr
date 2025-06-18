@@ -22,6 +22,13 @@
         margin-top: 0;
         margin-bottom: 0;
     }
+
+    .container-box p {
+        font-size: 16px;
+        font-weight: 400;
+        font-family: "Poppins", sans-serif;
+        color: #808080;
+    }
     </style>
 </head>
 
@@ -46,30 +53,52 @@
     <!-- section code -->
     <section class="main-box-scan">
         <div class="container-box">
-            <h1>Instabarcode Product Repository (IPR)</h1>
-            <h2>
-                GTIN Lookup Search Tool for Products & Brands –
-                Verify with RGBN
-            </h2>
-            <p>Enter a 13- or 12-digit barcode to discover:</p>
-            <p>
-                <b>Product Information</b> <br>
-                <b>Product Availability,</b> including merchant listings<br>
-                <b>Product Photos</b><br>
-                <b>Brand Identity:</b> Learn about the company or business behind the product<br>
-                <b>Brand’s Location</b> and company website<br>
-            </p>
-            <form action="<?=base_url("search-barcode")?>" class="form-data" method="post">
-                <input type="text" name="barcodeNo" id="barcodeNo" placeholder="Enter Barcode Number" required class="w-380" />
-                <div class="box-row">
-                    <input type="submit" value="Submit" class="buttn-green" style="line-height: 20px;" />
+            <!-- <<<<<<< master -->
+            <div class="box-row">
+                <div class="left-side">
+                    <img id="formImage" src="<?=base_url('assets/loginImages/')?>login.svg" alt="Login Image" />
                 </div>
-            </form>
-        </div>
+                <div class="right-side">
+                    <!-- Login Form -->
+                    <h1>Buy Barcodes Online & Verify Instantly with Our Barcode Lookup Tool : Instabarcode</h1>
+                    <p>
+                        Looking to buy barcodes online or get a barcode for your product? Instabarcode makes the process
+                        simple and reliable. Not only can you purchase barcodes online, but you can also verify, search,
+                        and look up barcode data with ease—thanks to our powerful Barcode Lookup Tool. Once you enter
+                        the barcode data on our dashboard, you can search and verify barcode data before using it. Our
+                        tool is designed for: Retailers, Manufacturers, online sellers and brand owners.
+                    </p>
+                    <p>Whether you need EAN-13, UPC-A, ITF-14, or ISBN codes, we’ve got you covered. Our platform helps
+                        you:</p>
+                    <p>
+                        Find product details<br>
+                        Access company information<br>
+                        Confirm packaging types<br>
+                        Check barcode registration<br>
+                    </p>
+                    <h2>Why Choose Us?</h2>
+                    <p>
+                        Instant barcode purchase<br>
+                        Quick verification with barcode lookup<br>
+                        Fully compliant global standard codes<br>
+                        Affordable pricing for startups & small businesses<br>
+                    </p>
+                    <form action="<?=base_url("search-barcode")?>" class="form-data" method="post">
+                        <input type="text" name="barcodeNo" id="barcodeNo" placeholder="Enter Barcode" required
+                            class="w-380" />
+                        <div class="box-row">
+                            <input type="submit" value="Submit" class="buttn-green" style="line-height: 20px;" />
+                        </div>
+                    </form>
+                </div>
+                <p>Whether you're looking for GS1 compliant barcodes, buying EAN-13 barcodes, or need to register
+                    barcodes
+                    online, Instabarcode provides a seamless solution.</p>
+            </div>
     </section>
 
     <!-- section show results -->
-   
+
     <div class="dashboard-ecommerce" style="background-color: #ffffff;">
         <div class="container-fluid dashboard-content ">
             <div class="row">
@@ -92,7 +121,7 @@
                                             <th class="right">Price</th>
                                             <th class="right">Currency</th>
                                             <th class="right">Image</th>
-                                           
+
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -108,10 +137,12 @@
                                             <td class="center"><?=$row['sizeQty'] ? $row['sizeQty'] : 'N/A'?></td>
                                             <td class="right"><?=$row['color'] ? $row['color'] : 'N/A'?></td>
                                             <td class="right"><?=$row['price'] ? $row['price'] : 'N/A'?></td>
-                                            <td class="right" style="text-transform: uppercase;"><?=$row['currency'] ? $row['currency'] : 'N/A'?></td>
+                                            <td class="right" style="text-transform: uppercase;">
+                                                <?=$row['currency'] ? $row['currency'] : 'N/A'?></td>
                                             <td>
-                                                 <?php if ($searchBarcode[0]['image']): ?>
-                                                <img src="<?=base_url('/assets/productimages/').$searchBarcode[0]['image']?>" width="80px" alt="Product Image">
+                                                <?php if ($searchBarcode[0]['image']): ?>
+                                                <img src="<?=base_url('/assets/productimages/').$searchBarcode[0]['image']?>"
+                                                    width="80px" alt="Product Image">
                                                 <?php else: ?>
                                                 N/A
                                                 <?php endif; ?>

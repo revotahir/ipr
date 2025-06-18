@@ -461,6 +461,22 @@
     <?php
     }
     ?>
+
+    <?php
+    if ($this->session->flashdata('uploadError') != '') {
+    ?>
+    <script type="text/javascript">
+    toastr.options = {
+        "closeButton": true,
+        "showMethod": "fadeIn",
+        "hideMethod": "fadeOut"
+    }
+    toastr.error('<?= $this->session->flashdata('uploadError'); ?>');
+    </script>
+    <?php
+    }
+    ?>
+
     <script>
     $("#form").parsley();
     </script>
