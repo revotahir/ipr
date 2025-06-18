@@ -171,7 +171,7 @@
                     Retailers manually enter product details into their local inventory management systems, including:
                     Product descriptions, Selling prices and applicable discounts and stcok levels (inflow & outflow
                     management)
-                    For any barcode—related requirements, please ensure direct confirmation your retailer or
+                    For any barcode—related requirements, please ensure direct confirmation from your retailer.
                 </span>
             </div>
         </div>
