@@ -199,6 +199,7 @@
                                             </thead>
                                             <tbody>
                                                 <?php 
+                                                if($ProductDetail){
                                                 $sr=1;
                                                     foreach($ProductDetail as $row){
                                                 ?>
@@ -233,7 +234,20 @@
                                                 <?php 
                                                 $sr++;
                                                     }
+                                                }else{
                                                     ?>
+
+                                                        <tr>
+                                                            <td colspan="10">
+                                                                <center>
+
+                                                                    No Barcode Found!
+                                                                </center>
+                                                            </td>
+                                                        </tr>
+<?php 
+                                                }
+                                                ?>
 
                                             </tbody>
                                         </table>
