@@ -160,18 +160,23 @@
                                             </div>
                                             <div><span class="text-black">Phone Number:
                                                 </span><?=$orderDetail[0]['phoneNumber']?></div>
+                                            <div style="margin-top: 10px;">
+                                                <a href="<?=base_url('add-barcode/?order_id=') . $orderDetail[0]['orderID']?>"
+                                                    class="check-btn">Add
+                                                    Barcode</a>
+                                            </div>
                                         </div>
                                         <div class="col-sm-6">
                                             <div><span class="text-black">Barcode Type:
                                                 </span>
                                                 <span style="text-transform: uppercase;">
-                                                <?=$orderDetail[0]['barcodeType']?>
+                                                    <?=$orderDetail[0]['barcodeType']?>
                                                 </span>
                                             </div>
                                             <div><span class="text-black">Product Category:
                                                 </span>
                                                 <span style="text-transform: uppercase;">
-                                                <?=$orderDetail[0]['productCategory'] ? $orderDetail[0]['productCategory'] : 'N/A'?>
+                                                    <?=$orderDetail[0]['productCategory'] ? $orderDetail[0]['productCategory'] : 'N/A'?>
                                                 </span>
                                             </div>
                                             <div style="height: 90px;"><span class="text-black">Product Description:
@@ -212,7 +217,8 @@
                                                     </td>
                                                     <td class="right"><?=$row['color'] ? $row['color'] : 'N/A'?></td>
                                                     <td class="right"><?=$row['price'] ? $row['price'] : 'N/A'?></td>
-                                                    <td class="right" style="text-transform:uppercase;"><?=$row['currency'] ? $row['currency'] : 'N/A'?>
+                                                    <td class="right" style="text-transform:uppercase;">
+                                                        <?=$row['currency'] ? $row['currency'] : 'N/A'?>
                                                     <td class="right">
                                                         <?php if (!empty($row['image'])): ?>
                                                         <?php 
@@ -237,15 +243,15 @@
                                                 }else{
                                                     ?>
 
-                                                        <tr>
-                                                            <td colspan="10">
-                                                                <center>
+                                                <tr>
+                                                    <td colspan="10">
+                                                        <center>
 
-                                                                    No Barcode Found!
-                                                                </center>
-                                                            </td>
-                                                        </tr>
-<?php 
+                                                            No Barcode Found!
+                                                        </center>
+                                                    </td>
+                                                </tr>
+                                                <?php 
                                                 }
                                                 ?>
 

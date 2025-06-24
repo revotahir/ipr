@@ -306,6 +306,54 @@ class Welcome extends CI_Controller
 		redirect(base_url('dashboard'));
 	}
 
+	// add new barcode
+	public function addNewBarcode(){
+		$this->load->view('add-barcode');
+	}
+
+	public function addNewBarcodeData() {
+
+		 $productInfo = $this->generic->GetData('ipr_product_detail', array('productID' => $product_id));
+        $orderID = $productInfo[0]['orderID'];
+    
+    // Prepare the data array from POST inputs
+    $data = array(
+        'barcodeNo' => $this->input->post('barcodeNumber'),
+        'brandName' => $this->input->post('brandName'),
+        'productName' => $this->input->post('productName'),
+        'sizeQty' => $this->input->post('sizeQuantity'),
+        'color' => $this->input->post('color'),
+        'price' => $this->input->post('price'),
+        'currency' => $this->input->post('currency')
+    );
+
+    // Handle image upload
+    if (isset($_FILES['productImage']) && !empty($_FILES['productImage']['name'])) {
+        $config['upload_path'] = './assets/productimages/';
+        $config['allowed_types'] = 'gif|jpg|png|jpeg';
+        $config['max_size'] = 2048; // 2MB max
+        $config['encrypt_name'] = TRUE;
+
+        $this->load->library('upload', $config);
+
+        if (!$this->upload->do_upload('productImage')) {
+            $error = $this->upload->display_errors();
+            $this->session->set_flashdata('uploadError', $error);
+            
+            // Get orderID from POST if available
+            $orderID = $this->input->post('orderID');
+            redirect(base_url('products-detail/?order_id=' . $orderID));
+            return; // Stop further execution
+        } else {
+            $upload_data = $this->upload->data();
+            $data['image'] = $upload_data['file_name'];
+        }
+    }
+
+    // Insert the new product data
+    $product_id = $this->generic->InsertData('ipr_product_detail', $data);
+    redirect(base_url('products-detail/?order_id=' . $orderID));
+}
 
 	public function updateIPRProductDetail()
 	{
