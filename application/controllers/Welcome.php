@@ -48,16 +48,17 @@ class Welcome extends CI_Controller
 		}
 
 		$this->data['searchBarcode'] = $this->generic->GetData('ipr_product_detail');
-		if($this->data['searchBarcode']){
-			redirect(base_url('find-barcode/').$barcodeNo);
-		}else{
+		if ($this->data['searchBarcode']) {
+			redirect(base_url('find-barcode/') . $barcodeNo);
+		} else {
 			$this->session->set_flashdata('barcodeNotFound', 1);
 			redirect(base_url('find-barcode'));
 		}
 	}
-	public function searchBarcodeDetail(){
-		$this->data['searchBarcode'] = $this->generic->GetData('ipr_product_detail',array('barcodeNo'=>$this->uri->segment(2)));
-		$this->load->view('scan-barcode-detail',$this->data);
+	public function searchBarcodeDetail()
+	{
+		$this->data['searchBarcode'] = $this->generic->GetData('ipr_product_detail', array('barcodeNo' => $this->uri->segment(2)));
+		$this->load->view('scan-barcode-detail', $this->data);
 	}
 
 	//sign up
@@ -180,76 +181,84 @@ class Welcome extends CI_Controller
 	public function addNewIPRData()
 	{
 		if ($this->session->userdata('loginData')) {
-			$orderDetail = array(
-				'ID' => $this->session->userdata['loginData']['ID'],
-				'order_ID' => str_replace(' ', '', $this->input->post('order_id')),
-				'barcodeType' => $this->input->post('Barcode_Type'),
-				'companyName' => $this->input->post('CompanyName'),
-				'productCategory' => $this->input->post('Product_Cat'),
-				'countryOrigin' => $this->input->post('Contry_Origen'),
-				'gstNumber' => $this->input->post('GstNo'),
-				'companyWebsite' => $this->input->post('Company_website'),
-				'phoneNumber' => $this->input->post('CompanyPhone'),
-				'productDescription' => $this->input->post('productDescription'),
-			);
-			$this->generic->InsertData('ipr_order_detail', $orderDetail);
-			//get max order ID
-			$maxOrderID = $this->generic->GetMaxID('ipr_order_detail', 'orderID');
-			$maxOrderID = $maxOrderID[0]['result'];
-			//crud for product detail
-			// Retrieve product details
-			$products = $this->input->post('products');
+			$orderID = str_replace(' ', '', $this->input->post('order_id'));
+			$orderIDCheck = $this->generic->GetData('ipr_order_detail', array('order_ID' => $orderID));
+			if ($orderIDCheck) {
+					$this->session->set_flashdata('orderIDAddedalready', 1);
+				redirect(base_url('add-new-ipr'));
+			} else {
 
-			// Load upload library only once
-			$this->load->library('upload');
-
-			foreach ($products as $index => $product) {
-
-				$productDetail = array(
-					'orderID' => $maxOrderID,
-					'barcodeNo' => str_replace(' ', '', $product['barcodeNumber']),
-					'brandName' => $product['brandName'],
-					'productName' => $product['productName'],
-					'sizeQty' => str_replace(' ', '', $product['sizeQuantity']),
-					'color' => $product['color'],
-					'price' => $product['price'],
-					'currency' => $product['currency'],
+				$orderDetail = array(
+					'ID' => $this->session->userdata['loginData']['ID'],
+					'order_ID' => str_replace(' ', '', $this->input->post('order_id')),
+					'barcodeType' => $this->input->post('Barcode_Type'),
+					'companyName' => $this->input->post('CompanyName'),
+					'productCategory' => $this->input->post('Product_Cat'),
+					'countryOrigin' => $this->input->post('Contry_Origen'),
+					'gstNumber' => $this->input->post('GstNo'),
+					'companyWebsite' => $this->input->post('Company_website'),
+					'phoneNumber' => $this->input->post('CompanyPhone'),
+					'productDescription' => $this->input->post('productDescription'),
 				);
+				$this->generic->InsertData('ipr_order_detail', $orderDetail);
+				//get max order ID
+				$maxOrderID = $this->generic->GetMaxID('ipr_order_detail', 'orderID');
+				$maxOrderID = $maxOrderID[0]['result'];
+				//crud for product detail
+				// Retrieve product details
+				$products = $this->input->post('products');
 
-				// Handle file upload for this product
-				if (isset($_FILES['products']['name'][$index]['productImage']) && !empty($_FILES['products']['name'][$index]['productImage'])) {
-					// die('asa');
-					$_FILES['single_product_image']['name'] = $_FILES['products']['name'][$index]['productImage'];
-					$_FILES['single_product_image']['type'] = $_FILES['products']['type'][$index]['productImage'];
-					$_FILES['single_product_image']['tmp_name'] = $_FILES['products']['tmp_name'][$index]['productImage'];
-					$_FILES['single_product_image']['error'] = $_FILES['products']['error'][$index]['productImage'];
-					$_FILES['single_product_image']['size'] = $_FILES['products']['size'][$index]['productImage'];
+				// Load upload library only once
+				$this->load->library('upload');
 
-					$config['upload_path'] = './assets/productimages/';
-					$config['allowed_types'] = 'gif|jpg|png|jpeg';
-					$config['max_size'] = 2048; // 2MB
-					$config['encrypt_name'] = TRUE;
+				foreach ($products as $index => $product) {
 
-					$this->upload->initialize($config);
+					$productDetail = array(
+						'orderID' => $maxOrderID,
+						'barcodeNo' => str_replace(' ', '', $product['barcodeNumber']),
+						'brandName' => $product['brandName'],
+						'productName' => $product['productName'],
+						'sizeQty' => str_replace(' ', '', $product['sizeQuantity']),
+						'color' => $product['color'],
+						'price' => $product['price'],
+						'currency' => $product['currency'],
+					);
 
-					if ($this->upload->do_upload('single_product_image')) {
-						$upload_data = $this->upload->data();
-						$productDetail['image'] = $upload_data['file_name'];
-					} else {
-						$error = $this->upload->display_errors();
-						$this->session->set_flashdata('uploadError', $error);
-						redirect(base_url('add-new-ipr/' . $this->uri->segment(2)));
+					// Handle file upload for this product
+					if (isset($_FILES['products']['name'][$index]['productImage']) && !empty($_FILES['products']['name'][$index]['productImage'])) {
+						// die('asa');
+						$_FILES['single_product_image']['name'] = $_FILES['products']['name'][$index]['productImage'];
+						$_FILES['single_product_image']['type'] = $_FILES['products']['type'][$index]['productImage'];
+						$_FILES['single_product_image']['tmp_name'] = $_FILES['products']['tmp_name'][$index]['productImage'];
+						$_FILES['single_product_image']['error'] = $_FILES['products']['error'][$index]['productImage'];
+						$_FILES['single_product_image']['size'] = $_FILES['products']['size'][$index]['productImage'];
+
+						$config['upload_path'] = './assets/productimages/';
+						$config['allowed_types'] = 'gif|jpg|png|jpeg';
+						$config['max_size'] = 2048; // 2MB
+						$config['encrypt_name'] = TRUE;
+
+						$this->upload->initialize($config);
+
+						if ($this->upload->do_upload('single_product_image')) {
+							$upload_data = $this->upload->data();
+							$productDetail['image'] = $upload_data['file_name'];
+						} else {
+							$error = $this->upload->display_errors();
+							$this->session->set_flashdata('uploadError', $error);
+							redirect(base_url('add-new-ipr/' . $this->uri->segment(2)));
+						}
 					}
+
+					// Save to databaseF
+					$this->generic->InsertData('ipr_product_detail', $productDetail);
 				}
 
-				// Save to databaseF
-				$this->generic->InsertData('ipr_product_detail', $productDetail);
+
+				//success message
+				$this->session->set_flashdata('iprAdded', 1);
+				redirect(base_url('add-new-ipr'));
 			}
-
-
-			//success message
-			$this->session->set_flashdata('iprAdded', 1);
-			redirect(base_url('add-new-ipr'));
 		} else {
 			redirect(base_url());
 		}
@@ -259,7 +268,13 @@ class Welcome extends CI_Controller
 	public function editIPR()
 	{
 		$this->data['editOrderDetail'] = $this->generic->GetData('ipr_order_detail', array('orderID' => $_GET['order_id']));
-		$this->load->view('edit-ipr',$this->data);
+		$this->load->view('edit-ipr', $this->data);
+	}
+	public function deletIPR(){
+		$this->generic->Delet('ipr_order_detail',array('orderID' => $_GET['order_id']));
+		$this->generic->Delet('ipr_product_detail',array('orderID' => $_GET['order_id']));
+			$this->session->set_flashdata('iprDeleted', 1);
+				redirect(base_url('dashboard'));
 	}
 	// edit ipr data request
 	public function editIPRProductDetail()
@@ -269,69 +284,71 @@ class Welcome extends CI_Controller
 	}
 
 	// update ipr data
-	public function updateIPRData(){
+	public function updateIPRData()
+	{
 		// Get form data from POST
-    $order_id = $this->input->post('order_id');
-    $data = array(
-        'barcodeType' => $this->input->post('Barcode_Type'),
-        'companyName' => $this->input->post('CompanyName'),
-        'productCategory' => $this->input->post('Product_Cat'),
-        'countryOrigin' => $this->input->post('Contry_Origen'),
-        'gstNumber' => $this->input->post('GstNo'),
-        'companyWebsite' => $this->input->post('Company_website'),
-        'phoneNumber' => $this->input->post('CompanyPhone'),
-        'productDescription' => $this->input->post('productDescription')
-    );
-    
-    // Update the record in ipr_order_detail table
-    $this->generic->Update('ipr_order_detail', array('orderID' => $order_id), $data);
-	//success message
-	$this->session->set_flashdata('iprEdited', 1);
-    redirect(base_url('dashboard'));
+		$order_id = $this->input->post('order_id');
+		$data = array(
+			'barcodeType' => $this->input->post('Barcode_Type'),
+			'companyName' => $this->input->post('CompanyName'),
+			'productCategory' => $this->input->post('Product_Cat'),
+			'countryOrigin' => $this->input->post('Contry_Origen'),
+			'gstNumber' => $this->input->post('GstNo'),
+			'companyWebsite' => $this->input->post('Company_website'),
+			'phoneNumber' => $this->input->post('CompanyPhone'),
+			'productDescription' => $this->input->post('productDescription')
+		);
+
+		// Update the record in ipr_order_detail table
+		$this->generic->Update('ipr_order_detail', array('orderID' => $order_id), $data);
+		//success message
+		$this->session->set_flashdata('iprEdited', 1);
+		redirect(base_url('dashboard'));
 	}
 
 
-	public function updateIPRProductDetail(){
-    // Get form data from POST
-    $product_id = $this->input->post('productID');
-    $data = array(
-        'barcodeNo' => $this->input->post('barcodeNumber'),
-        'brandName' => $this->input->post('brandName'),
-        'productName' => $this->input->post('productName'),
-        'sizeQty' => $this->input->post('sizeQuantity'),
-        'color' => $this->input->post('color'),
-        'price' => $this->input->post('price'),
-        'currency' => $this->input->post('currency')
-    );
-    
-    // Handle image upload
-    if (isset($_FILES['productImage']) && !empty($_FILES['productImage']['name'])) {
-		// die('asdasd');
-        $config['upload_path'] = './assets/productimages/';
-        $config['allowed_types'] = 'gif|jpg|png|jpeg';
-        $config['max_size'] = 2048; // 2MB max
-        $config['encrypt_name'] = TRUE;
+	public function updateIPRProductDetail()
+	{
+		// Get form data from POST
+		$product_id = $this->input->post('productID');
+		$data = array(
+			'barcodeNo' => $this->input->post('barcodeNumber'),
+			'brandName' => $this->input->post('brandName'),
+			'productName' => $this->input->post('productName'),
+			'sizeQty' => $this->input->post('sizeQuantity'),
+			'color' => $this->input->post('color'),
+			'price' => $this->input->post('price'),
+			'currency' => $this->input->post('currency')
+		);
 
-        $this->load->library('upload', $config);
+		// Handle image upload
+		if (isset($_FILES['productImage']) && !empty($_FILES['productImage']['name'])) {
+			// die('asdasd');
+			$config['upload_path'] = './assets/productimages/';
+			$config['allowed_types'] = 'gif|jpg|png|jpeg';
+			$config['max_size'] = 2048; // 2MB max
+			$config['encrypt_name'] = TRUE;
 
-        if (!$this->upload->do_upload('productImage')) {
-            $error = $this->upload->display_errors();
-            $this->session->set_flashdata('uploadError', $error);
-    		$productInfo = $this->generic->GetData('ipr_product_detail', array('productID' => $product_id));
-			$orderID = $productInfo[0]['orderID'] ?? null;
-            redirect(base_url('products-detail/?order_id=' . $orderID));
-        } else {
-            $upload_data = $this->upload->data();
-            $data['image'] = $upload_data['file_name'];
-        }
-    }
-    
-    // Update the correct table with proper WHERE clause
-    $this->generic->Update('ipr_product_detail', array('productID' => $product_id), $data);
-    $orderID=$this->generic->GetData('ipr_product_detail',array('productID'=>$product_id));
-    $this->session->set_flashdata('iprEdited', 1);
-    redirect(base_url('products-detail/?order_id='.$orderID[0]['orderID']));
-}
+			$this->load->library('upload', $config);
+
+			if (!$this->upload->do_upload('productImage')) {
+				$error = $this->upload->display_errors();
+				$this->session->set_flashdata('uploadError', $error);
+				$productInfo = $this->generic->GetData('ipr_product_detail', array('productID' => $product_id));
+				$orderID = $productInfo[0]['orderID'] ?? null;
+				redirect(base_url('products-detail/?order_id=' . $orderID));
+			} else {
+				$upload_data = $this->upload->data();
+				$data['image'] = $upload_data['file_name'];
+			}
+		}
+
+		// Update the correct table with proper WHERE clause
+		$this->generic->Update('ipr_product_detail', array('productID' => $product_id), $data);
+		$orderID = $this->generic->GetData('ipr_product_detail', array('productID' => $product_id));
+		$this->session->set_flashdata('iprEdited', 1);
+		redirect(base_url('products-detail/?order_id=' . $orderID[0]['orderID']));
+	}
 
 
 	// order detail for all order list

@@ -270,9 +270,8 @@
                                                                         : base_url('assets/productimages/' . $editProductDetail[0]['image']);
                                                                     ?>
                                                                 <a href="<?= $imagePath ?>" class="check-btn"
-                                                                    target="_blank">View</a>
-                                                                Current image:
-                                                                <?= basename($editProductDetail[0]['image']) ?>
+                                                                    target="_blank">View Current image</a>
+                                                               
                                                             </small>
                                                             <?php endif; ?>
                                                         </div>

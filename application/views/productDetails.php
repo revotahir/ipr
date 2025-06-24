@@ -149,7 +149,11 @@
                                                 </span><?=$orderDetail[0]['companyWebsite'] ? $orderDetail[0]['companyWebsite'] : 'N/A'?>
                                             </div>
                                             <div><span class="text-black">Country Origin:
-                                                </span><?=$orderDetail[0]['countryOrigin'] ? $orderDetail[0]['countryOrigin'] : 'N/A'?>
+                                                </span>
+                                                <span style="text-transform: uppercase;">
+
+                                                    <?=$orderDetail[0]['countryOrigin'] ? $orderDetail[0]['countryOrigin'] : 'N/A'?>
+                                                </span>
                                             </div>
                                             <div><span class="text-black">GST/HST/Business Number:
                                                 </span><?=$orderDetail[0]['gstNumber'] ? $orderDetail[0]['gstNumber'] : 'N/A'?>
@@ -159,9 +163,16 @@
                                         </div>
                                         <div class="col-sm-6">
                                             <div><span class="text-black">Barcode Type:
-                                                </span><?=$orderDetail[0]['barcodeType']?></div>
+                                                </span>
+                                                <span style="text-transform: uppercase;">
+                                                <?=$orderDetail[0]['barcodeType']?>
+                                                </span>
+                                            </div>
                                             <div><span class="text-black">Product Category:
-                                                </span><?=$orderDetail[0]['productCategory'] ? $orderDetail[0]['productCategory'] : 'N/A'?>
+                                                </span>
+                                                <span style="text-transform: uppercase;">
+                                                <?=$orderDetail[0]['productCategory'] ? $orderDetail[0]['productCategory'] : 'N/A'?>
+                                                </span>
                                             </div>
                                             <div style="height: 90px;"><span class="text-black">Product Description:
                                                 </span><?=$orderDetail[0]['productDescription'] ? $orderDetail[0]['productDescription'] : 'N/A'?>
@@ -200,7 +211,7 @@
                                                     </td>
                                                     <td class="right"><?=$row['color'] ? $row['color'] : 'N/A'?></td>
                                                     <td class="right"><?=$row['price'] ? $row['price'] : 'N/A'?></td>
-                                                    <td class="right"><?=$row['currency'] ? $row['currency'] : 'N/A'?>
+                                                    <td class="right" style="text-transform:uppercase;"><?=$row['currency'] ? $row['currency'] : 'N/A'?>
                                                     <td class="right">
                                                         <?php if (!empty($row['image'])): ?>
                                                         <?php 
@@ -210,7 +221,6 @@
                                                             ?>
                                                         <a href="<?= $imagePath ?>" class="check-btn"
                                                             target="_blank">View</a>
-                                                        <?= basename($row['image']) ?>
                                                         <?php else: ?>
                                                         N/A
                                                         <?php endif; ?>

@@ -29,6 +29,9 @@
         font-family: "Poppins", sans-serif;
         color: #808080;
     }
+    p{
+        line-height: normal;
+    }
     </style>
 </head>
 
@@ -71,23 +74,27 @@
                     <p>Whether you need EAN-13, UPC-A, ITF-14, or ISBN codes, we’ve got you covered. Our platform helps
                         you:</p>
                     <p>
-                        Find product details<br>
-                        Access company information<br>
-                        Confirm packaging types<br>
-                        Check barcode registration<br>
+                        ● Find product details<br>
+                        ● Access company information<br>
+                        ● Confirm packaging types<br>
+                        ● Check barcode registration<br>
                     </p>
-                    <h2>Why Choose Us?</h2>
+                    <h2 style="color:black">Why Choose Us?</h2>
                     <p>
-                        Instant barcode purchase<br>
-                        Quick verification with barcode lookup<br>
-                        Fully compliant global standard codes<br>
-                        Affordable pricing for startups & small businesses<br>
+                        ● Instant barcode purchase<br>
+                        ● Quick verification with barcode lookup<br>
+                        ● Fully compliant global standard codes<br>
+                        ● Affordable pricing for startups & small businesses<br>
                     </p>
                     <form action="<?=base_url("search-barcode")?>" class="form-data" method="post">
+                        
                         <input type="text" name="barcodeNo" id="barcodeNo" placeholder="Enter Barcode" required
                             class="w-380" />
                         <div class="box-row">
-                            <input type="submit" value="Submit" class="buttn-green" style="line-height: 20px;" />
+                            
+                            <input type="submit" value="Submit"
+                           
+                            class="buttn-green" style="line-height: 20px;" />
                         </div>
                     </form>
                 </div>
@@ -99,13 +106,21 @@
 
 
     <?php if ($this->session->flashdata('barcodeNotFound') != '') { ?>
-    <section class="not-found">
+    <section class="not-found" id="not-found">
         <div class="container-box">
             <h1>Nothing Found</h1>
             <p>Sorry, but nothing matched your search terms. Please try again with some different keywords.</p>
 
         </div>
     </section>
+    <script>
+        window.addEventListener('DOMContentLoaded', function() {
+    const element = document.getElementById('not-found');
+    if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+    }
+});
+    </script>
     <?php } ?>
     <!-- ============================================================== -->
     <!-- end wrapper  -->

@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="<?= base_url() ?>assets/toastr/toastr.min.css">
     <!-- Add FontAwesome for the eye icon -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="<?= base_url() ?>assets/vendor/fonts/fontawesome/css/fontawesome-all.css">
     <style>
     .form-data {
         display: none !important;
@@ -68,7 +69,7 @@
                 <ul>
                     <li>
                         <a href="<?= base_url('find-barcode')?>">
-                            Find Barcode
+                           <i class="fas fa-search"></i> Find Barcode
                         </a>
                     </li>
                 </ul>

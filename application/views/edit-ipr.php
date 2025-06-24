@@ -128,7 +128,7 @@
                                             <label for="order_id">Order Id</label>
                                             <input type="number" class="form-control" id="order_id" name="order_id"
                                                 placeholder="Order Id" required
-                                                value="<?=$editOrderDetail[0]['orderID']?>" />
+                                                value="<?=$editOrderDetail[0]['order_ID']?>" />
                                             <div class="invalid-feedback">
                                                 Please provide a order id.
                                             </div>

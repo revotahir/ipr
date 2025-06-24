@@ -93,7 +93,7 @@
                                                 <th>Compnay Website</th>
                                                 <th>Phone Number</th>
                                                 <th>Product Description</th>
-                                                <th>Action</th>
+                                                <th style="width:25%">Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -103,21 +103,23 @@
                                             ?>
                                             <tr>
                                                 <td><?=$row['order_ID']?></td>
-                                                <td><?=$row['barcodeType']?></td>
+                                                <td style="text-transform:uppercase;"><?=$row['barcodeType']?></td>
                                                 <td><?=$row['companyName']?></td>
-                                                <td><?=$row['productCategory'] ? $row['productCategory'] : 'N/A'?></td>
-                                                <td><?=$row['countryOrigin'] ? $row['countryOrigin'] : 'N/A'?></td>
+                                                <td style="text-transform:uppercase;"><?=$row['productCategory'] ? $row['productCategory'] : 'N/A'?></td>
+                                                <td style="text-transform:uppercase;"><?=$row['countryOrigin'] ? $row['countryOrigin'] : 'N/A'?></td>
                                                 <td><?=$row['gstNumber'] ? $row['gstNumber'] : 'N/A'?></td>
                                                 <td><?=$row['companyWebsite'] ? $row['companyWebsite'] : 'N/A'?></td>
                                                 <td><?=$row['phoneNumber']?></td>
                                                 <td><?=$row['productDescription'] ? $row['productDescription'] : 'N/A'?>
                                                 </td>
-                                                <td>
+                                                <td style="width:25%">
                                                     <a href="<?=base_url('products-detail/?order_id=').$row['orderID']?>"
                                                         class="btn-green"><i class="fas fa-eye"></i> Products
                                                         Detail</a>
                                                     <a href="<?=base_url('edit-ipr/?order_id=').$row['orderID']?>"
                                                         class="btn-green"><i class="fas fa-pencil-alt"></i> Edit</a>
+                                                    <a onclick="return validateDelet()" href="<?=base_url('delet-ipr/?order_id=').$row['orderID']?>"
+                                                        class="btn btn-danger"><i class="fas fa-trash-alt"></i> Delet</a>
                                                 </td>
                                             </tr>
                                             <?php
@@ -191,6 +193,29 @@
     <script src="https://cdn.datatables.net/fixedheader/3.1.5/js/dataTables.fixedHeader.min.js"></script>
     <script src="<?= base_url() ?>assets/libs/js/main-js.js"></script>
     <script src="<?= base_url() ?>assets/toastr/toastr.min.js"></script>
+    <script>
+        function validateDelet(){
+            if(confirm('Are sure you want to delet?')){
+                return true;
+            }else{
+                return false;
+            }
+        }
+    </script>
+    <?php
+    if ($this->session->flashdata('iprDeleted') != '') {
+    ?>
+    <script type="text/javascript">
+    toastr.options = {
+        "closeButton": true,
+        "showMethod": "fadeIn",
+        "hideMethod": "fadeOut"
+    }
+    toastr.success('Order Data Deleted!');
+    </script>
+    <?php
+    }
+    ?>
     <?php
     if ($this->session->flashdata('iprEdited') != '') {
     ?>

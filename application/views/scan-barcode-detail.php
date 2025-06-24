@@ -70,21 +70,30 @@
                     </p>
                     <p>Whether you need EAN-13, UPC-A, ITF-14, or ISBN codes, we’ve got you covered. Our platform helps
                         you:</p>
-                    <p>
-                        Find product details<br>
-                        Access company information<br>
-                        Confirm packaging types<br>
-                        Check barcode registration<br>
+                     <p>
+                        ● Find product details<br>
+                        ● Access company information<br>
+                        ● Confirm packaging types<br>
+                        ● Check barcode registration<br>
                     </p>
-                    <h2>Why Choose Us?</h2>
+                    <h2 style="color:black">Why Choose Us?</h2>
                     <p>
-                        Instant barcode purchase<br>
-                        Quick verification with barcode lookup<br>
-                        Fully compliant global standard codes<br>
-                        Affordable pricing for startups & small businesses<br>
+                        ● Instant barcode purchase<br>
+                        ● Quick verification with barcode lookup<br>
+                        ● Fully compliant global standard codes<br>
+                        ● Affordable pricing for startups & small businesses<br>
                     </p>
                     <form action="<?=base_url("search-barcode")?>" class="form-data" method="post">
-                        <input type="text" name="barcodeNo" id="barcodeNo" placeholder="Enter Barcode" required
+                        <input type="text" name="barcodeNo" 
+                         <?php 
+                              if($this->uri->segment(2)){                  
+                            ?>
+                                value="<?=$this->uri->segment(2)?>"                         
+                            <?php 
+                              }
+                              ?>
+                        
+                        id="barcodeNo" placeholder="Enter Barcode" required
                             class="w-380" />
                         <div class="box-row">
                             <input type="submit" value="Submit" class="buttn-green" style="line-height: 20px;" />
@@ -99,7 +108,7 @@
 
     <!-- section show results -->
 
-    <div class="dashboard-ecommerce" style="background-color: #ffffff;">
+    <div class="dashboard-ecommerce" style="background-color: #ffffff;" id="search-result">
         <div class="container-fluid dashboard-content ">
             <div class="row">
                 <div class="offset-xl-2 col-xl-8 col-lg-12 col-md-12 col-sm-12 col-12">
@@ -185,5 +194,12 @@
 <script src="<?=base_url()?>assets/vendor/slimscroll/jquery.slimscroll.js"></script>
 <!-- main js -->
 <script src="<?=base_url()?>assets/libs/js/main-js.js"></script>
-
+<script>
+    window.addEventListener('DOMContentLoaded', function() {
+    const element = document.getElementById('search-result');
+    if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+    }
+});
+</script>
 </html>

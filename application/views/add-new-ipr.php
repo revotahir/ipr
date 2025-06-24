@@ -128,7 +128,7 @@
                                         <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 mb-2">
                                             <label for="order_id">Order Id</label>
                                             <input type="number" class="form-control" id="order_id" name="order_id"
-                                                placeholder="Order Id" required />
+                                                placeholder="This is the 4-digit number you received by email when you placed your order" required />
                                             <div class="invalid-feedback">
                                                 Please provide a order id.
                                             </div>
@@ -402,8 +402,7 @@
                                     <!-- ======================================================================= -->
                                     <div class="form-row" style="margin-bottom: 20px;">
                                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                                            <button class="buttn-green" type="button" id="addNewCard">Add
-                                                Fieldset</button>
+                                            <button class="buttn-green" type="button" id="addNewCard">Add Barcode</button>
                                         </div>
                                     </div>
 
@@ -447,6 +446,20 @@
     <script src="<?= base_url() ?>assets/vendor/parsley/parsley.js"></script>
     <script src="<?= base_url() ?>assets/libs/js/main-js.js"></script>
     <script src="<?= base_url() ?>assets/toastr/toastr.min.js"></script>
+    <?php
+    if ($this->session->flashdata('orderIDAddedalready') != '') {
+    ?>
+    <script type="text/javascript">
+    toastr.options = {
+        "closeButton": true,
+        "showMethod": "fadeIn",
+        "hideMethod": "fadeOut"
+    }
+    toastr.error('Order Id is already created!');
+    </script>
+    <?php
+    }
+    ?>
     <?php
     if ($this->session->flashdata('iprAdded') != '') {
     ?>

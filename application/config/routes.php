@@ -60,9 +60,11 @@ $route['sign-up-data']='welcome/signupData';
 //client add new ipr
 $route['add-new-ipr'] = 'welcome/addNewIPR';
 $route['order-detail-submit-data'] = 'welcome/addNewIPRData';
-// Edit order
+// Edit and delet order
 $route['edit-ipr'] = 'welcome/editIPR';
 $route['edit-ipr-product-detail'] = 'welcome/editIPRProductDetail';
+$route['delet-ipr'] = 'welcome/deletIPR';
+
 // Update ip order data
 $route['update-ipr-data'] = 'welcome/updateIPRData';
 $route['update-ipr-product-detail'] = 'welcome/updateIPRProductDetail';

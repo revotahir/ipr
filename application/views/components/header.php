@@ -47,7 +47,7 @@
                 ?>
                 <li class="nav-item">
                     <a class="nav-link" href="<?=base_url('add-new-ipr')?>">Add New
-                        IPR</a>
+                        Barcode</a>
 
                 </li>
                 <?php
