@@ -128,7 +128,8 @@
                                         <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 mb-2">
                                             <label for="order_id">Order Id</label>
                                             <input type="number" class="form-control" id="order_id" name="order_id"
-                                                placeholder="This is the 4-digit number you received by email when you placed your order" required />
+                                                placeholder="This is the 4-digit number you received by email when you placed your order"
+                                                required />
                                             <div class="invalid-feedback">
                                                 Please provide a order id.
                                             </div>
@@ -388,7 +389,7 @@
                                                                 id="products[0][productImage]">
                                                         </div>
                                                         <div class="invalid-feedback">
-                                                            Please provide a currency.
+                                                            Please provide a image.
                                                         </div>
                                                     </div>
                                                     <!-- product image upload -->
@@ -402,7 +403,8 @@
                                     <!-- ======================================================================= -->
                                     <div class="form-row" style="margin-bottom: 20px;">
                                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                                            <button class="buttn-green" type="button" id="addNewCard">Add Barcode</button>
+                                            <button class="buttn-green" type="button" id="addNewCard">Add
+                                                Barcode</button>
                                         </div>
                                     </div>
 

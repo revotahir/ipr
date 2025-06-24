@@ -59,6 +59,8 @@ $route['sign-up']='welcome/signup';
 $route['sign-up-data']='welcome/signupData';
 //client add new ipr
 $route['add-new-ipr'] = 'welcome/addNewIPR';
+$route['add-barcode'] = 'welcome/addNewBarcode';
+$route['add-new-barcode'] = 'welcome/addNewBarcodeData';
 $route['order-detail-submit-data'] = 'welcome/addNewIPRData';
 // Edit and delet order
 $route['edit-ipr'] = 'welcome/editIPR';
