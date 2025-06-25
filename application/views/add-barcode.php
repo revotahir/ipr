@@ -137,7 +137,7 @@
                                 <!-- ======================================================================= -->
                                 <!-- form start here -->
                                 <!-- ======================================================================= -->
-                                <form class="needs-validation" method="post" action="<?=base_url('add-new-barcode')?>"
+                                <form class="needs-validation" method="post" action="<?=base_url('add-new-barcode/'.$_GET['order_id'])?>"
                                     novalidate enctype="multipart/form-data">
                                     <!-- ======================================================================= -->
                                     <!-- Product Details Section (Dynamic) -->

@@ -119,7 +119,7 @@
                                                     <a href="<?=base_url('edit-ipr/?order_id=').$row['orderID']?>"
                                                         class="btn-green"><i class="fas fa-pencil-alt"></i> Edit</a>
                                                     <a onclick="return validateDelet()" href="<?=base_url('delet-ipr/?order_id=').$row['orderID']?>"
-                                                        class="btn btn-danger"><i class="fas fa-trash-alt"></i> Delet</a>
+                                                        class="btn-green" style="background-color:red"><i class="fas fa-trash-alt"></i> Delete</a>
                                                 </td>
                                             </tr>
                                             <?php

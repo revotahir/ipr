@@ -235,6 +235,8 @@
                                                     <td>
                                                         <a href="<?=base_url('edit-ipr-product-detail/?product_id=').$row['productID']?>"
                                                             class="btn-green"><i class="fas fa-pencil-alt"></i> Edit</a>
+                                                        <a onclick="return validdelet()" href="<?=base_url('delet-ipr-product-detail/?product_id=').$row['productID']?>"
+                                                            class="btn-green" style="background-color:red"><i class="fas fa-trash-alt"></i> Delete</a>
                                                     </td>
                                                 </tr>
                                                 <?php 
@@ -286,6 +288,60 @@
     <script src="<?= base_url() ?>assets/libs/js/main-js.js"></script>
     <script src="<?= base_url() ?>assets/toastr/toastr.min.js"></script>
 </body>
+<script>
+    function validdelet(){
+        if(confirm('Are you sure you want to delet?')){
+            return true;
+        }else{
+            return false;
+        }
+    }
+</script>
+<?php
+    if ($this->session->flashdata('productdeletd') != '') {
+    ?>
+<script type="text/javascript">
+toastr.options = {
+    "closeButton": true,
+    "showMethod": "fadeIn",
+    "hideMethod": "fadeOut"
+}
+toastr.error('Barcode Deleted!');
+</script>
+
+<?php
+    }
+    ?>
+<?php
+    if ($this->session->flashdata('barcodeaddedalready') != '') {
+    ?>
+<script type="text/javascript">
+toastr.options = {
+    "closeButton": true,
+    "showMethod": "fadeIn",
+    "hideMethod": "fadeOut"
+}
+toastr.error('Barcode already added!');
+</script>
+
+<?php
+    }
+    ?>
+<?php
+    if ($this->session->flashdata('barcodeadded') != '') {
+    ?>
+<script type="text/javascript">
+toastr.options = {
+    "closeButton": true,
+    "showMethod": "fadeIn",
+    "hideMethod": "fadeOut"
+}
+toastr.success('Barcode Added!');
+</script>
+
+<?php
+    }
+    ?>
 <?php
     if ($this->session->flashdata('iprAdded') != '') {
     ?>
